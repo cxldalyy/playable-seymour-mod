@@ -1,0 +1,10 @@
+{
+    "Id":"playable-seymour",
+    "Name":"Playable Seymour",
+    "Desc":"",
+    "Authors": "cxldalyy",
+    "Version":"1.0.0-alpha",
+    "Link":"",
+    "Dependencies":[],
+    "LoadAfter":[]
+}

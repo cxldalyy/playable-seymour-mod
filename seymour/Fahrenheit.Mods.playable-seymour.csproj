@@ -1,0 +1,92 @@
+﻿<Project Sdk="Fahrenheit.Sdk/1.0.0-alpha08">
+    <!--
+    Welcome to an example .csproj file for a Fahrenheit module!
+
+    When in doubt, you can consult this to see what options need to be set and why.
+
+    Assume that the order in which these groups appear is intentional. When preparing your own project, use the same order.
+    -->
+
+    <!-- ASSEMBLY BASIC PROPERTIES -->
+	<PropertyGroup>
+		<Version>0.5.2-alpha</Version>
+		<FahrenheitVersion>v1.0.0-alpha08</FahrenheitVersion>
+	</PropertyGroup>
+
+    <!-- ASSEMBLY ADDITIONAL PROPERTIES -->
+    <PropertyGroup>
+        <AssemblyName>playable-seymour</AssemblyName>
+        <AssemblyTitle>Playable Seymour</AssemblyTitle>
+        <Product>Playable Seymour</Product>
+    </PropertyGroup>
+
+    <!-- SHARED FILE LINKS -->
+    <ItemGroup>
+        <None Include="$(SolutionDir).editorconfig" Link=".editorconfig" />
+    </ItemGroup>
+
+    <!-- PROJECT REFERENCES -->
+
+    <!-- ASSETS: MANIFEST -->
+	<!-- BUILD EVENTS -->
+	<Target Name="ReplaceProperties" BeforeTargets="Publish">
+		<PropertyGroup>
+			<File>playable-seymour.manifest.json</File>
+		</PropertyGroup>
+		<WriteLinesToFile File="$(PublishDir)/$(File)" Lines="$([System.IO.File]::ReadAllText($(PublishDir)/$(File)).Replace('{Version}','$(Version)'))" Overwrite="true" Encoding="UTF-8" />
+	</Target>
+
+	<Target Name="DownloadFahrenheitRelease" AfterTargets="Publish">
+		<PropertyGroup>
+			<ReleaseUrl>https://github.com/fahrenheit-crew/fahrenheit/releases/download/$(FahrenheitVersion)/fahrenheit_windows_x86_release_$(FahrenheitVersion).zip</ReleaseUrl>
+		</PropertyGroup>
+		<Message Text="Downloading release from $(ReleaseUrl)..." />
+		<DownloadFile SourceUrl="$(ReleaseURL)" DestinationFolder="$(PublishDir)" DestinationFileName="fh.zip" />
+	</Target>
+
+	<Target Name="ExtractFahrenheitRelease" AfterTargets="Publish">
+		<Message Text="Extracting release from fh.zip..." />
+		<Delete Files="$(PublishDir)fahrenheit" TreatErrorsAsWarnings="true" />
+		<Unzip SourceFiles="$(PublishDir)fh.zip" DestinationFolder="$(PublishDir)fahrenheit" />
+		<Delete Files="$(PublishDir)fh.zip" TreatErrorsAsWarnings="true" />
+	</Target>
+
+	<Target Name="CleanupFahrenheitRelease" AfterTargets="Publish">
+		<Message Text="Cleanup unused Fahrenheit mods..." />
+		<RemoveDir Directories="$(PublishDir)fahrenheit\mods" />
+		<MakeDir Directories="$(PublishDir)fahrenheit\mods\$(AssemblyName)" />
+	</Target>
+
+	<Target Name="CopyAssets" AfterTargets="Publish">
+		<PropertyGroup>
+			<AssetsDir>$(ProjectDir)assets\</AssetsDir>
+			<LoadOrderFile>loadorder</LoadOrderFile>
+			<LoadOrder>$(AssetsDir)$(LoadOrderFile)</LoadOrder>
+			<StartGameFile>start_game.bat</StartGameFile>
+			<StartGame>$(AssetsDir)$(StartGameFile)</StartGame>
+			<AssetDestination>$(PublishDir)fahrenheit\mods\$(AssemblyName)</AssetDestination>
+		</PropertyGroup>
+		<ItemGroup>
+			<AssetFiles Include="$(LoadOrder); $(StartGame)"/>
+		</ItemGroup>
+		<Message Text="Copy solution assets..." />
+		<Exec Condition ="'$(OS)' == 'Windows_NT'"
+			  Command="powershell -Command &quot;robocopy '$(AssetsDir)' '$(AssetDestination)' /MIR /R:0 /W:0 /XF '$(LoadOrder)' /XF '$(StartGame)'"
+			  ContinueOnError="true" IgnoreExitCode="true" />
+		<Exec Condition="'$(OS)' == 'Unix'"
+			  Command="rsync -acu --delete '$(AssetsDir)/' '$(AssetDestination)' --exclude='$(LoadOrderFile)' --exclude='$(StartGameFile)'"
+			  ContinueOnError="true" IgnoreExitCode="true" />
+		<Copy SourceFiles="@(AssetFiles)"
+			  DestinationFiles="$(PublishDir)fahrenheit\mods\$(LoadOrderFile); $(PublishDir)fahrenheit\$(StartGameFile)"
+			  ContinueOnError="true" />
+	</Target>
+
+	<Target Name="MoveFilesToFinalDestination" AfterTargets="Publish">
+		<Message Text="Move project files to their final destination..." />
+		<ItemGroup>
+			<ProjectFiles Include="$(PublishDir)*.*" Exclude="**\**\" />
+		</ItemGroup>
+		<Move SourceFiles="@(ProjectFiles)" DestinationFolder="$(PublishDir)fahrenheit\mods\$(AssemblyName)\" />
+	</Target>
+
+</Project>
