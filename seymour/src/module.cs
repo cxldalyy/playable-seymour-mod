@@ -33,6 +33,9 @@ public unsafe class TemplateModule : FhModule {
             _ = FhEncoding.encode(weapon_name_utf8, new(name_ptr, weapon_name_len));
             seymour_gear_names[i] = (nint)name_ptr;
         }
+
+        _filteredSummonHandle = GCHandle.Alloc(_filteredSummonList, GCHandleType.Pinned);
+        _filteredSummonPtr = (ushort*)_filteredSummonHandle.AddrOfPinnedObject();
     }
 
     private static byte* textString;
