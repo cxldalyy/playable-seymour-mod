@@ -471,6 +471,59 @@ public unsafe class TemplateModule : FhModule {
     public const nint __addr_TkMenuGetCurrentPlayer = 0x4A9810;
     private TkMenuGetCurrentPlayer _TkMenuGetCurrentPlayer;
 
+    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    public delegate double graphicGetTime();
+    public const nint __addr_graphicGetTime = 0x2415C0;
+    private graphicGetTime _graphicGetTime;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FUN_008e6cc0(float param_1, float param_2, float param_3, float param_4, int param_5, int param_6, int param_7);
+    public const nint __addr_FUN_008e6cc0 = 0x4E6CC0;
+    private FUN_008e6cc0 _FUN_008e6cc0;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void TOMakePktScissor(int param_1, int param_2, int param_3, int param_4);
+    public const nint __addr_TOMakePktScissor = 0x4FDEE0;
+    private TOMakePktScissor _TOMakePktScissor;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate uint TOCheckBtlCommandUse(uint param_1, uint param_2);
+    public const nint __addr_TOCheckBtlCommandUse = 0x49AC10;
+    private TOCheckBtlCommandUse _TOCheckBtlCommandUse;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate Command* MsGetComData(uint com_id, int* out_name);
+    public const nint __addr_MsGetComData = 0x39A4C0;
+    private MsGetComData _MsGetComData;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate uint MsGetSaveItemNum(uint param_1);
+    public const nint __addr_MsGetSaveItemNum = 0x390500;
+    private MsGetSaveItemNum _MsGetSaveItemNum;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate int MsGetCommandMP(uint chr_id, uint command);
+    public const nint __addr_MsGetCommandMP = 0x38D030;
+    private MsGetCommandMP _MsGetCommandMP;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate uint MsGetRamChrHP(uint chr_id);
+    public const nint __addr_MsGetRamChrHP = 0x39ADE0;
+    private MsGetRamChrHP _MsGetRamChrHP;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate uint MsGetRamChrMP(uint chr_id);
+    public const nint __addr_MsGetRamChrMP = 0x39AE60;
+    private MsGetRamChrMP _MsGetRamChrMP;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FUN_00904ba0(byte* param_1, float param_2, float param_3, float param_4, byte param_5, float param_6, uint param_7, int param_8, int param_9, int param_10);
+    public const nint __addr_FUN_00904ba0 = 0x504BA0;
+    private FUN_00904ba0 _FUN_00904ba0;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void updateMenu(IntPtr menu);
+
 
     // Hooks
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -733,6 +786,11 @@ public unsafe class TemplateModule : FhModule {
     private FhMethodHandle<DrawCrossMenuIconWeaponName2> _DrawCrossMenuIconWeaponName2;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate int FUN_0089f300(uint param_1);
+    public const nint __addr_FUN_0089f300 = 0x49F300;
+    private FhMethodHandle<FUN_0089f300> _FUN_0089f300;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsGetItemInternal_00798C20(int param_1, int param_2, int param_3);
     public const nint __addr_MsGetItemInternal_00798C20 = 0x398C20;
     private FhMethodHandle<MsGetItemInternal_00798C20> _MsGetItemInternal_00798C20;
@@ -910,6 +968,16 @@ public unsafe class TemplateModule : FhModule {
         _MsCalcWeakLevel = FhUtil.get_fptr<MsCalcWeakLevel>(__addr_MsCalcWeakLevel);
         _MsGetRomPlyCommand = FhUtil.get_fptr<MsGetRomPlyCommand>(__addr_MsGetRomPlyCommand);
         _TkMenuGetCurrentPlayer = FhUtil.get_fptr<TkMenuGetCurrentPlayer>(__addr_TkMenuGetCurrentPlayer);
+        _graphicGetTime = FhUtil.get_fptr<graphicGetTime>(__addr_graphicGetTime);
+        _FUN_008e6cc0 = FhUtil.get_fptr<FUN_008e6cc0>(__addr_FUN_008e6cc0);
+        _TOMakePktScissor = FhUtil.get_fptr<TOMakePktScissor>(__addr_TOMakePktScissor);
+        _TOCheckBtlCommandUse = FhUtil.get_fptr<TOCheckBtlCommandUse>(__addr_TOCheckBtlCommandUse);
+        _MsGetComData = FhUtil.get_fptr<MsGetComData>(__addr_MsGetComData);
+        _MsGetSaveItemNum = FhUtil.get_fptr<MsGetSaveItemNum>(__addr_MsGetSaveItemNum);
+        _MsGetCommandMP = FhUtil.get_fptr<MsGetCommandMP>(__addr_MsGetCommandMP);
+        _MsGetRamChrHP = FhUtil.get_fptr<MsGetRamChrHP>(__addr_MsGetRamChrHP);
+        _MsGetRamChrMP = FhUtil.get_fptr<MsGetRamChrMP>(__addr_MsGetRamChrMP);
+        _FUN_00904ba0 = FhUtil.get_fptr<FUN_00904ba0>(__addr_FUN_00904ba0);
     }
     public override bool init(FhModContext mod_context, FileStream global_state_file) 
     {
@@ -923,6 +991,7 @@ public unsafe class TemplateModule : FhModule {
         _MsWeaponName = new FhMethodHandle<MsWeaponName>(this, game, __addr_MsWeaponName, h_MsWeaponName);
         _FUN_008e67f0 = new FhMethodHandle<FUN_008e67f0>(this, game, __addr_FUN_008e67f0, h_FUN_008e67f0);
         _DrawCrossMenuIconWeaponName2 = new FhMethodHandle<DrawCrossMenuIconWeaponName2>(this, game, __addr_DrawCrossMenuIconWeaponName2, h_DrawCrossMenuIconWeaponName2);
+        _FUN_0089f300 = new FhMethodHandle<FUN_0089f300>(this, game, __addr_FUN_0089f300, h_FUN_0089f300);
         _MsGetItemInternal_00798C20 = new FhMethodHandle<MsGetItemInternal_00798C20>(this, game, __addr_MsGetItemInternal_00798C20, h_MsGetItemInternal_00798C20);
         _MsChangeWeaponInvisible = new FhMethodHandle<MsChangeWeaponInvisible>(this, game, __addr_MsChangeWeaponInvisible, h_MsChangeWeaponInvisible);
         _FUN_008d85f0 = new FhMethodHandle<FUN_008d85f0>(this, game, __addr_FUN_008d85f0, h_FUN_008d85f0);
@@ -957,6 +1026,7 @@ public unsafe class TemplateModule : FhModule {
                _MsWeaponName.hook() &&
                _FUN_008e67f0.hook() &&
                _DrawCrossMenuIconWeaponName2.hook() &&
+               _FUN_0089f300.hook() &&
                _MsGetItemInternal_00798C20.hook() &&
                _MsChangeWeaponInvisible.hook() &&
                _FUN_008d85f0.hook() &&
@@ -1893,7 +1963,6 @@ public unsafe class TemplateModule : FhModule {
     }
 
     // Battle Results Equipment Discard, Party Menu & Customize: Equipment Names + Icons
-    // TODO: Add Custom Weapon/Armor Icons for Seymour
     void h_FUN_008e67f0(uint param_1, float param_2, float param_3, float param_4)
     {
         Equipment* pSVar1;
@@ -1957,7 +2026,6 @@ public unsafe class TemplateModule : FhModule {
     }
 
     // Shop & Inventory: Equipment Names + Icons
-    // TODO: Add Custom Weapon/Armor Icons for Seymour
     void h_DrawCrossMenuIconWeaponName2(ushort* param_1, float param_2, float param_3, float param_4)
     {
         uint hiragana;
@@ -2017,6 +2085,509 @@ public unsafe class TemplateModule : FhModule {
             _DrawCrossMenuIconXYWHRGBA(fVar6 + param_2, fVar5, fVar4, fVar3, bVar2, r, g, b, a);
         }
         return;
+    }
+
+    // Battle Menus: Equipment Names + Icons
+    int h_FUN_0089f300(uint param_1)
+    {
+        short sVar1;
+        float fVar2;
+        byte bVar3;
+        RGBA8 RVar4;
+        int iVar5;
+        int iVar6;
+        byte* pbVar7;
+        uint uVar8;
+        Equipment* pSVar9;
+        int iVar10;
+        int iVar11;
+        double fVar12;
+        float fVar13;
+        float fVar14;
+        float fVar15;
+        float fVar16;
+        float fVar17;
+        float fVar18;
+        float fVar19;
+        float fVar20;
+        float fVar21;
+        float fVar22;
+        byte bVar23;
+        float fVar24;
+        float uVar25;
+        byte bVar26;
+        float fVar27;
+        float uVar28;
+        byte bVar29;
+        RGBA8 RVar30;
+        RGBA8 color_1;
+        uint uVar31;
+        byte bVar32;
+        RGBA8 color_2;
+        RGBA8 color_2_00;
+        RGBA8 color_2_01;
+        uint uVar33;
+        int local_48;
+        byte* local_2c;
+        Command* local_28;
+        float local_24;
+        float local_20;
+        float local_1c;
+        float local_18;
+        float local_14;
+        float local_10;
+        float local_c;
+        float local_8;
+        uint colorValue;
+        IntPtr functionAddress;
+
+        local_c = 0.0f;
+        fVar2 = param_1;
+        fVar12 = (double)0;
+        if (fVar12 < (double) * (float*)((int)param_1 + 0xdc))
+        {
+            fVar12 = (double)_graphicGetTime();
+            fVar12 = fVar12 - (double) * (float*)((int)param_1 + 0xdc);
+        }
+        *(float*)((int)param_1 + 0xe0) = (float)fVar12;
+        local_10 = *(float*)((int)param_1 + 0xe0);
+        iVar11 = (int)*(short*)((int)param_1 + 0x38);
+        local_28 = (Command*)((*(int*)((int)param_1 + 0x24) + -1 + iVar11) / iVar11 & 0xffff);
+        if (1 < *(short*)((int)param_1 + 0x38))
+        {
+            iVar10 = (int)*(short*)((int)param_1 + 0x42) - (int)*(short*)((int)param_1 + 0x40);
+            if ((-1 < iVar10) && (iVar10 < iVar11 * 3))
+            {
+                _graphicGetTime();
+                fVar12 = MathF.Cos((float)_graphicGetTime());
+                local_48 = (int)MathF.Round((float)(fVar12 * 32.0f + 96.0f));
+                colorValue = (uint)((int)local_48 * 0x1000000 + 0x808080);
+                RVar4 = new RGBA8
+                {
+                    a = (byte)((colorValue >> 24) & 0xFF),
+                    r = (byte)((colorValue >> 16) & 0xFF),
+                    g = (byte)((colorValue >> 8) & 0xFF),
+                    b = (byte)(colorValue & 0xFF)
+                };
+                fVar27 = 156.0f;
+                fVar24 = 1920.0f;
+                fVar21 = 105.0f;
+                fVar19 = 1619.0f;
+                RVar30 = RVar4;
+                fVar13 = _graphicUiRemapY2(50.0f);
+                fVar16 = (float)(int)*(short*)((int)param_1 + 0x62);
+                fVar14 = _graphicUiRemapY2((float)((((int)*(short*)((int)param_1 + 0x42) - (int)*(short*)((int)param_1 + 0x40)) /
+                (int)*(short*)((int)param_1 + 0x38)) * 0x34) + 835.0f);
+                fVar15 = _graphicUiRemapX2(154.0f);
+                _TOMkpShapeXYWHUVC2(0xffffffff, fVar15 + (float)((((int)*(short*)((int)param_1 + 0x42) - (int)*(short*)((int)param_1 + 0x40)) %
+                (int)*(short*)((int)param_1 + 0x38)) * (int)*(short*)((int)param_1 + 0x62)), fVar14, fVar16, fVar13, fVar19, fVar21, fVar24, 
+                fVar27, RVar4, RVar30);
+            }
+            local_8 = 0.0f;
+            local_c = 0.0f;
+            do
+            {
+                sVar1 = *(short*)((int)fVar2 + 0x62);
+                fVar13 = _graphicUiRemapX2(154.0f);
+                fVar16 = (float)(int)sVar1;
+                fVar16 = (local_10 * (fVar13 + fVar16)) / 0.1f - fVar16;
+                param_1 = (uint)(float)-(int)sVar1;
+                local_14 = param_1;
+                fVar13 = _graphicUiRemapX2(154.0f);
+                param_1 = (uint)fVar16;
+                if ((param_1 <= fVar16) && fVar13 < fVar16)
+                {
+                    param_1 = (uint)_graphicUiRemapX2(154.0f);
+                }
+                local_20 = (float)(int)local_c;
+                color_2.r = 0x80;
+                color_2.g = 0x80;
+                color_2.b = 0x80;
+                color_2.a = 0x60;
+                RVar30.r = 0x80;
+                RVar30.g = 0x80;
+                RVar30.b = 0x80;
+                RVar30.a = 0x60;
+                local_1c = local_20 + 835.0f;
+                fVar24 = 50.0f;
+                fVar21 = 438.0f;
+                fVar19 = 0.0f;
+                fVar15 = 0.0f;
+                fVar13 = _graphicUiRemapY2(50.0f);
+                fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62);
+                fVar14 = _graphicUiRemapY2(local_1c);
+                _TOMkpShapeXYWHUVC2(0xffffffff, param_1, fVar14, fVar16, fVar13, fVar15, fVar19, fVar21, fVar24, RVar30, color_2);
+                color_2_00.r = 0x80;
+                color_2_00.g = 0x80;
+                color_2_00.b = 0x80;
+                color_2_00.a = 0x40;
+                RVar4.r = 0x80;
+                RVar4.g = 0x80;
+                RVar4.b = 0x80;
+                RVar4.a = 0x40;
+                fVar13 = (float)(int)local_8 * 53.0f + 315.0f;
+                fVar24 = 1788.0f;
+                fVar16 = (float)(int)local_8 * 53.0f + 270.0f;
+                fVar21 = 1553.0f;
+                fVar14 = _graphicUiRemapY2(44.0f);
+                fVar15 = _graphicUiRemapX2(234.0f);
+                fVar19 = _graphicUiRemapY2(local_20 + 838.0f);
+                _TOMkpShapeXYWHUVC2(0xffffffff, param_1, fVar19, fVar15, fVar14, fVar21, fVar16, fVar24, fVar13, RVar4, color_2_00);
+                sVar1 = *(short*)((int)fVar2 + 0x62);
+                fVar16 = _graphicUiRemapX2(154.0f);
+                fVar16 = ((fVar16 + (float)(sVar1 * 2)) * local_10) / 0.1f - (float)(int)sVar1;
+                fVar13 = (float)-(int)sVar1;
+                local_14 = fVar13;
+                fVar14 = _graphicUiRemapX2(154.0f);
+                fVar13 = fVar16;
+                if ((fVar13 <= fVar16) && fVar14 + (float)(int)*(short*)((int)fVar2 + 0x62) < fVar16)
+                {
+                    fVar16 = _graphicUiRemapX2(154.0f);
+                    fVar13 = fVar16 + (float)(int)*(short*)((int)fVar2 + 0x62);
+                }
+                color_2_01.r = 0x80;
+                color_2_01.g = 0x80;
+                color_2_01.b = 0x80;
+                color_2_01.a = 0x60;
+                color_1.r = 0x80;
+                color_1.g = 0x80;
+                color_1.b = 0x80;
+                color_1.a = 0x60;
+                fVar27 = 50.0f;
+                fVar24 = 438.0f;
+                fVar21 = 0.0f;
+                fVar19 = 0.0f;
+                fVar14 = _graphicUiRemapY2(50.0f);
+                fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62);
+                fVar15 = _graphicUiRemapY2(local_1c);
+                _TOMkpShapeXYWHUVC2(0xffffffff, fVar13, fVar15, fVar16, fVar14, fVar19, fVar21, fVar24, fVar27, color_1, color_2_01);
+                local_10 = local_10 - 0.1f;
+                local_8 = (float)((int)local_8 + 1);
+                local_c = (float)((int)local_c + 0x34);
+            } while ((int)local_c < 0x9c);
+            fVar16 = *(float*)((int)fVar2 + 0xe0);
+            if (!float.IsNaN(fVar16) && (0.3f < fVar16) != (fVar16 == 0.3f))
+            {
+                local_8 = 0.0f;
+                local_1c = 0.0f;
+                do
+                {
+                    fVar15 = local_1c;
+                    fVar24 = (float)((int)local_8 + 1);
+                    local_20 = (float)(int)fVar24;
+                    uVar33 = 0x40808080;
+                    uVar31 = 0x808080;
+                    fVar16 = local_20 * 20.0f;
+                    local_24 = (float)(int)local_8;
+                    fVar13 = local_24 * 0.0f;
+                    local_1c = (float)(int)local_1c;
+                    local_10 = local_1c + 835.0f;
+                    uVar28 = 40.0f;
+                    uVar25 = 40.0f;
+                    fVar22 = 3.0f;
+                    fVar20 = 210.0f;
+                    fVar19 = fVar13;
+                    fVar21 = fVar16;
+                    local_18 = fVar13;
+                    fVar27 = _graphicUiRemapY2(3.0f);
+                    fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
+                    fVar17 = _graphicUiRemapY2(local_10);
+                    fVar18 = _graphicUiRemapX2(154.0f);
+                    _FUN_008e7d30(fVar18, fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, uVar31, uVar33);
+                    fVar13 = fVar13 + 210.0f;
+                    uVar33 = 0x808080;
+                    uVar31 = 0x40808080;
+                    uVar28 = 40.0f;
+                    uVar25 = 40.0f;
+                    fVar20 = 3.0f;
+                    fVar18 = 210.0f;
+                    fVar19 = fVar16;
+                    local_14 = fVar13;
+                    fVar21 = _graphicUiRemapY2(3.0f);
+                    fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
+                    fVar27 = _graphicUiRemapY2(local_10);
+                    fVar17 = _graphicUiRemapX2(154.0f);
+                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar14, fVar21, fVar13, fVar19, fVar18, fVar20, uVar25, uVar28, uVar31, uVar33);
+                    fVar13 = local_20 * 50.0f;
+                    uVar33 = 0x40808080;
+                    uVar31 = 0x808080;
+                    local_8 = local_1c + 880.0f;
+                    uVar28 = 40.0f;
+                    uVar25 = 40.0f;
+                    fVar20 = 3.0f;
+                    fVar18 = 210.0f;
+                    fVar19 = local_18;
+                    local_c = fVar13;
+                    fVar21 = _graphicUiRemapY2(3.0f);
+                    fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
+                    fVar27 = _graphicUiRemapY2(local_8);
+                    fVar17 = _graphicUiRemapX2(154.0f);
+                    _FUN_008e7d30(fVar17, fVar27, fVar14, fVar21, fVar19, fVar13, fVar18, fVar20, uVar25, uVar28, uVar31, uVar33);
+                    uVar33 = 0x808080;
+                    uVar31 = 0x40808080;
+                    uVar28 = 40.0f;
+                    uVar25 = 40.0f;
+                    fVar20 = 3.0f;
+                    fVar18 = 210.0f;
+                    fVar14 = local_14;
+                    fVar19 = local_c;
+                    fVar21 = _graphicUiRemapY2(3.0f);
+                    fVar13 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
+                    fVar27 = _graphicUiRemapY2(local_8);
+                    fVar17 = _graphicUiRemapX2(154.0f);
+                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar13, fVar21, fVar14, fVar19, fVar18, fVar20, uVar25, uVar28, uVar31, uVar33);
+                    fVar13 = local_24 * 20.0f;
+                    uVar33 = 0x40808080;
+                    uVar31 = 0x808080;
+                    uVar28 = 40.0f;
+                    uVar25 = 40.0f;
+                    fVar22 = 3.0f;
+                    fVar20 = 210.0f;
+                    fVar19 = fVar13;
+                    fVar21 = fVar16;
+                    local_24 = fVar13;
+                    fVar27 = _graphicUiRemapY2(3.0f);
+                    fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
+                    fVar17 = _graphicUiRemapY2(local_10);
+                    fVar18 = _graphicUiRemapX2(154.0f);
+                    _FUN_008e7d30(fVar18 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, uVar31, uVar33);
+                    fVar13 = fVar13 + 210.0f;
+                    uVar33 = 0x808080;
+                    uVar31 = 0x40808080;
+                    uVar28 = 40.0f;
+                    uVar25 = 40.0f;
+                    fVar18 = 3.0f;
+                    fVar17 = 210.0f;
+                    local_20 = fVar13;
+                    fVar19 = _graphicUiRemapY2(3.0f);
+                    fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
+                    fVar21 = _graphicUiRemapY2(local_10);
+                    fVar27 = _graphicUiRemapX2(154.0f);
+                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar14, fVar19, fVar13, fVar16, fVar17, fVar18, uVar25, uVar28, uVar31, uVar33);
+                    uVar33 = 0x40808080;
+                    uVar31 = 0x808080;
+                    uVar28 = 40.0f;
+                    uVar25 = 40.0f;
+                    fVar18 = 3.0f;
+                    fVar17 = 210.0f;
+                    fVar13 = local_24;
+                    fVar14 = local_c;
+                    fVar19 = _graphicUiRemapY2(3.0f);
+                    fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
+                    fVar21 = _graphicUiRemapY2(local_8);
+                    fVar27 = _graphicUiRemapX2(154.0f);
+                    _FUN_008e7d30(fVar27 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, uVar31, uVar33);
+                    uVar33 = 0x808080;
+                    uVar31 = 0x40808080;
+                    uVar28 = 40.0f;
+                    uVar25 = 40.0f;
+                    fVar18 = 3.0f;
+                    fVar17 = 210.0f;
+                    fVar13 = local_20;
+                    fVar14 = local_c;
+                    fVar19 = _graphicUiRemapY2(3.0f);
+                    fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
+                    fVar21 = _graphicUiRemapY2(local_8);
+                    fVar27 = _graphicUiRemapX2(154.0f);
+                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, uVar31, uVar33);
+                    local_1c = (float)((int)fVar15 + 0x34);
+                    local_8 = fVar24;
+                } while ((int)local_1c < 0x9c);
+            }
+        }
+        iVar11 = (int)(short)local_28;
+        iVar10 = (int)*(short*)((int)fVar2 + 0x3a);
+        iVar5 = (int)*(short*)((int)fVar2 + 0x40) / (int)*(short*)((int)fVar2 + 0x38);
+        fVar16 = _graphicUiRemapY2(154.0f);
+        fVar13 = _graphicUiRemapX2(8.0f);
+        fVar14 = _graphicUiRemapY2(835.0f);
+        fVar15 = _graphicUiRemapX2(150.0f);
+        _FUN_008e6cc0(fVar15 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar14, fVar13, fVar16, iVar5, iVar10, iVar11);
+        iVar11 = (int)(*(float*)((int)fVar2 + 0x74));
+        iVar10 = (int)(*(float*)((int)fVar2 + 0x70));
+        iVar5 = (int)(*(float*)((int)fVar2 + 0x6c));
+        iVar6 = (int)(*(float*)((int)fVar2 + 0x68));
+        _TOMakePktScissor(iVar6, iVar5, iVar10, iVar11);
+        //(**(code**)((int)fVar2 + 0x88))(fVar2);
+        functionAddress = Marshal.ReadIntPtr((IntPtr)fVar2, 0x88);
+        var updateMenu = Marshal.GetDelegateForFunctionPointer<updateMenu>(functionAddress);
+        updateMenu((IntPtr)fVar2);
+        uVar31 = (uint)*(short*)((int)fVar2 + 0x40);
+        local_20 = *(int*)((int)fVar2 + 0x24);
+        local_10 = local_20;
+        if ((int)uVar31 <= (int)local_20)
+        {
+            local_10 = (float)((int)uVar31 < 0 ? 0 : uVar31);
+        }
+        uVar31 = (uint)((int)*(short*)((int)fVar2 + 0x38) * (int)*(short*)((int)fVar2 + 0x3a) + (int)local_10);
+        if ((int)uVar31 <= (int)local_20)
+        {
+            local_20 = (float)((int)uVar31 < 0 ? 0 : uVar31);
+        }
+        if ((int)local_10 < (int)local_20)
+        {
+            do
+            {
+                sVar1 = *(short*)(*(int*)((int)fVar2 + 0x20) + (int)local_10 * 2);
+                uVar31 = _TOCheckBtlCommandUse((uint)(int)*(short*)((int)fVar2 + 8), (uint)(int)sVar1);
+                fVar16 = local_10;
+                if ((sVar1 != 0xff) && (uVar31 != 0xfffffffc))
+                {
+                    local_28 = _MsGetComData((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)local_10 * 2), (int*)&local_2c);
+                    sVar1 = *(short*)((int)fVar2 + 0x38);
+                    pbVar7 = local_2c + local_28->name_offset;
+                    uVar33 = (uint)(fVar16 == (float)(int)*(short*)((int)fVar2 + 0x42) ? 1 : 0);
+                    local_8 = (float)(((int)fVar16 % (int)sVar1) * (int)*(short*)((int)fVar2 + 0x62));
+                    iVar11 = (int)(*(float*)((int)fVar2 + 0x68));
+                    local_14 = (float)((int)local_8 + iVar11);
+                    local_8 = local_14;
+                    fVar13 = _graphicUiRemapY2((float)((((int)fVar16 - (int)*(short*)((int)fVar2 + 0x40)) / (int)sVar1) * 0x34));
+                    iVar11 = (int)(fVar13 + *(float*)((int)fVar2 + 0x7c));
+                    local_18 = 0.0f;
+                    if (0 < *(short*)((int)fVar2 + 0x28))
+                    {
+                        local_1c = (float)((int)fVar2 + 0x2c);
+                        do
+                        {
+                            fVar13 = local_18;
+                            switch (*(byte*)((int)local_1c + 1))
+                            {
+                                case 1:
+                                    bVar32 = 0x80;
+                                    bVar3 = local_28->icon;
+                                    bVar29 = 0x80;
+                                    bVar26 = 0x80;
+                                    bVar23 = 0x80;
+                                    fVar15 = _graphicUiRemapY2(36.0f);
+                                    fVar19 = _graphicUiRemapX2(29.0f);
+                                    fVar14 = _graphicUiRemapY2(3.0f);
+                                    fVar14 = fVar14 + (float)iVar11;
+                                    fVar21 = _graphicUiRemapX2(37.0f);
+                                    _DrawCrossMenuIconXYWHRGBA(fVar21 + (float)(int)local_14, fVar14, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
+                                    break;
+                                case 2:
+                                    local_24 = (float)_MsGetSaveItemNum((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
+                                    if ((0 < (int)local_24) || (*(short*)((int)fVar2 + 0x2a) == 1))
+                                    {
+                                        iVar10 = (int)*(short*)((int)fVar2 + 0x62) + (int)local_8;
+                                        uVar8 = (uint)local_c & 0xff;
+                                        uVar25 = 1.0f;
+                                        fVar19 = 0.78f;
+                                        fVar14 = (float)iVar11;
+                                        fVar15 = _graphicUiRemapX2(28.0f);
+                                        _FUN_009055c0((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                    }
+                                    break;
+                                case 4:
+                                    local_24 = (float)_MsGetCommandMP((uint)(int)*(short*)((int)fVar2 + 8), (uint)local_28);
+                                    if ((0 < (int)local_24) || (*(short*)((int)fVar2 + 0x2a) == 1))
+                                    {
+                                        iVar10 = (int)*(short*)((int)fVar2 + 0x62) + (int)local_8;
+                                        uVar8 = (uint)local_c & 0xff;
+                                        uVar25 = 1.0f;
+                                        fVar19 = 0.78f;
+                                        fVar14 = (float)iVar11;
+                                        fVar15 = _graphicUiRemapX2(28.0f);
+                                        _FUN_009055c0((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                    }
+                                    break;
+                                case 5:
+                                    local_24 = (float)_MsGetRamChrHP((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
+                                    if ((0 < (int)local_24) || (*(short*)((int)fVar2 + 0x2a) == 1))
+                                    {
+                                        iVar10 = (int)*(short*)((int)fVar2 + 0x62) + (int)local_8;
+                                        uVar8 = (uint)local_c & 0xff;
+                                        uVar25 = 1.0f;
+                                        fVar19 = 0.78f;
+                                        fVar14 = (float)iVar11;
+                                        fVar15 = _graphicUiRemapX2(28.0f);
+                                        _FUN_009055c0((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                    }
+                                    break;
+                                case 6:
+                                    local_24 = (float)_MsGetRamChrMP((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
+                                    if ((0 < (int)local_24) || (*(short*)((int)fVar2 + 0x2a) == 1))
+                                    {
+                                        iVar10 = (int)*(short*)((int)fVar2 + 0x62) + (int)local_8;
+                                        uVar8 = (uint)local_c & 0xff;
+                                        uVar25 = 1.0f;
+                                        fVar19 = 0.78f;
+                                        fVar14 = (float)iVar11;
+                                        fVar15 = _graphicUiRemapX2(28.0f);
+                                        _FUN_009055c0((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                    }
+                                    break;
+                                case 7:
+                                    pSVar9 = _MsGetSaveWeapon((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2), &local_2c);
+                                    local_24 = (float)iVar11;
+                                    bVar32 = 0x80;
+                                    bVar29 = 0x80;
+                                    bVar26 = 0x80;
+                                    fVar14 = (float)(int)local_14;
+                                    bVar23 = 0x80;
+                                    if (pSVar9->owner == 7)
+                                    {
+                                        bVar3 = (byte)(37 * 2 + 2 + pSVar9->type);
+                                    }
+                                    else
+                                    {
+                                        bVar3 = (byte)(pSVar9->owner * 2 + 1 + pSVar9->type);
+                                    }
+                                    fVar15 = _graphicUiRemapY2(36.0f);
+                                    fVar19 = _graphicUiRemapX2(29.0f);
+                                    fVar13 = _graphicUiRemapY2(2.0f);
+                                    fVar13 = fVar13 + local_24;
+                                    fVar21 = _graphicUiRemapX2(37.0f);
+                                    _DrawCrossMenuIconXYWHRGBA(fVar21 + fVar14, fVar13, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
+                                    fVar13 = local_18;
+                                    if (pSVar9->owner == pSVar9->equipped_by)
+                                    {
+                                        bVar32 = 0x80;
+                                        bVar29 = 0x80;
+                                        bVar26 = 0x80;
+                                        bVar23 = 0x80;
+                                        bVar3 = 0x31;
+                                        fVar15 = _graphicUiRemapY2(36.0f);
+                                        fVar19 = _graphicUiRemapX2(29.0f);
+                                        fVar13 = _graphicUiRemapY2(2.0f);
+                                        fVar13 = fVar13 + local_24;
+                                        fVar21 = _graphicUiRemapX2(37.0f);
+                                        _DrawCrossMenuIconXYWHRGBA(fVar21 + fVar14, fVar13, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
+                                        fVar13 = local_18;
+                                    }
+                                    break;
+                                case 0x10:
+                                    local_c = (uVar31 < 0 ? 1.0f : 0.0f);
+                                    iVar10 = 0;
+                                    if (*(int*)((int)fVar2 + 0xe4) == 0)
+                                    {
+                                        _FUN_00904ba0((byte*)pbVar7, (float)((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5 + (float)(int)local_14), (float)iVar11,
+                                        (float)(int)*(short*)((int)fVar2 + 0x66), (byte)(uVar31 < 0 ? 1 : 0), 0.78f, (uint)1.0f, 1, (int)uVar33, 0);
+                                    }
+                                    else
+                                    {
+                                        iVar5 = 0;
+                                        uVar25 = 1.0f;
+                                        fVar24 = 0.78f;
+                                        fVar14 = (float)(int)*(short*)((int)fVar2 + 0x66);
+                                        fVar15 = (float)iVar11;
+                                        fVar19 = local_c;
+                                        uVar8 = uVar33;
+                                        fVar21 = _graphicUiRemapX2(72.0f);
+                                        _FUN_00904ba0((byte*)pbVar7, fVar21 + (float)(int)local_14, fVar15, fVar14, (byte)fVar19, fVar24, (uint)uVar25, iVar5, (int)uVar8,
+                                        iVar10);
+                                    }
+                                    break;
+                            }
+                            local_1c = (float)((int)local_1c + 2);
+                            local_18 = (float)((int)fVar13 + 1);
+                        } while ((int)local_18 < (int)*(short*)((int)fVar2 + 0x28));
+                    }
+                }
+                local_10 = (float)((int)local_10 + 1);
+            } while ((int)local_10 < (int)local_20);
+        }
+        return 0;
     }
 
     int h_MsGetItemInternal_00798C20(int param_1, int param_2, int param_3)
