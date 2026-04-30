@@ -2121,12 +2121,12 @@ public unsafe class TemplateModule : FhModule {
         byte bVar29;
         RGBA8 RVar30;
         RGBA8 color_1;
-        uint uVar31;
+        int uVar31;
         byte bVar32;
         RGBA8 color_2;
         RGBA8 color_2_00;
         RGBA8 color_2_01;
-        uint uVar33;
+        Uint uVar33;
         int local_48;
         byte* local_2c;
         Command* local_28;
@@ -2293,7 +2293,7 @@ public unsafe class TemplateModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar17 = _graphicUiRemapY2(local_10);
                     fVar18 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30(fVar18, fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, uVar31, uVar33);
+                    _FUN_008e7d30(fVar18, fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = fVar13 + 210.0f;
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
@@ -2307,7 +2307,7 @@ public unsafe class TemplateModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar27 = _graphicUiRemapY2(local_10);
                     fVar17 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar14, fVar21, fVar13, fVar19, fVar18, fVar20, uVar25, uVar28, uVar31, uVar33);
+                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar14, fVar21, fVar13, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = local_20 * 50.0f;
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
@@ -2322,7 +2322,7 @@ public unsafe class TemplateModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar27 = _graphicUiRemapY2(local_8);
                     fVar17 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30(fVar17, fVar27, fVar14, fVar21, fVar19, fVar13, fVar18, fVar20, uVar25, uVar28, uVar31, uVar33);
+                    _FUN_008e7d30(fVar17, fVar27, fVar14, fVar21, fVar19, fVar13, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
                     uVar28 = 40.0f;
@@ -2335,7 +2335,7 @@ public unsafe class TemplateModule : FhModule {
                     fVar13 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar27 = _graphicUiRemapY2(local_8);
                     fVar17 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar13, fVar21, fVar14, fVar19, fVar18, fVar20, uVar25, uVar28, uVar31, uVar33);
+                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar13, fVar21, fVar14, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = local_24 * 20.0f;
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
@@ -2350,7 +2350,7 @@ public unsafe class TemplateModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar17 = _graphicUiRemapY2(local_10);
                     fVar18 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30(fVar18 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, uVar31, uVar33);
+                    _FUN_008e7d30(fVar18 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = fVar13 + 210.0f;
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
@@ -2363,7 +2363,7 @@ public unsafe class TemplateModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar21 = _graphicUiRemapY2(local_10);
                     fVar27 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar14, fVar19, fVar13, fVar16, fVar17, fVar18, uVar25, uVar28, uVar31, uVar33);
+                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar14, fVar19, fVar13, fVar16, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
                     uVar28 = 40.0f;
@@ -2376,7 +2376,7 @@ public unsafe class TemplateModule : FhModule {
                     fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar21 = _graphicUiRemapY2(local_8);
                     fVar27 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30(fVar27 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, uVar31, uVar33);
+                    _FUN_008e7d30(fVar27 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
                     uVar28 = 40.0f;
@@ -2389,7 +2389,7 @@ public unsafe class TemplateModule : FhModule {
                     fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar21 = _graphicUiRemapY2(local_8);
                     fVar27 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, uVar31, uVar33);
+                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     local_1c = (float)((int)fVar15 + 0x34);
                     local_8 = fVar24;
                 } while ((int)local_1c < 0x9c);
@@ -2412,14 +2412,14 @@ public unsafe class TemplateModule : FhModule {
         functionAddress = Marshal.ReadIntPtr((IntPtr)fVar2, 0x88);
         var updateMenu = Marshal.GetDelegateForFunctionPointer<updateMenu>(functionAddress);
         updateMenu((IntPtr)fVar2);
-        uVar31 = (uint)*(short*)((int)fVar2 + 0x40);
+        uVar31 = *(short*)((int)fVar2 + 0x40);
         local_20 = *(int*)((int)fVar2 + 0x24);
         local_10 = local_20;
         if ((int)uVar31 <= (int)local_20)
         {
             local_10 = (float)((int)uVar31 < 0 ? 0 : uVar31);
         }
-        uVar31 = (uint)((int)*(short*)((int)fVar2 + 0x38) * (int)*(short*)((int)fVar2 + 0x3a) + (int)local_10);
+        uVar31 = ((int)*(short*)((int)fVar2 + 0x38) * (int)*(short*)((int)fVar2 + 0x3a) + (int)local_10);
         if ((int)uVar31 <= (int)local_20)
         {
             local_20 = (float)((int)uVar31 < 0 ? 0 : uVar31);
@@ -2429,9 +2429,9 @@ public unsafe class TemplateModule : FhModule {
             do
             {
                 sVar1 = *(short*)(*(int*)((int)fVar2 + 0x20) + (int)local_10 * 2);
-                uVar31 = _TOCheckBtlCommandUse((uint)(int)*(short*)((int)fVar2 + 8), (uint)(int)sVar1);
+                uVar31 = (int)_TOCheckBtlCommandUse((uint)(int)*(short*)((int)fVar2 + 8), (uint)(int)sVar1);
                 fVar16 = local_10;
-                if ((sVar1 != 0xff) && (uVar31 != 0xfffffffc))
+                if ((sVar1 != 0xff) && (uVar31 != -4))
                 {
                     local_28 = _MsGetComData((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)local_10 * 2), (int*)&local_2c);
                     sVar1 = *(short*)((int)fVar2 + 0x38);
