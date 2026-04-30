@@ -2126,7 +2126,7 @@ public unsafe class TemplateModule : FhModule {
         RGBA8 color_2;
         RGBA8 color_2_00;
         RGBA8 color_2_01;
-        Uint uVar33;
+        uint uVar33;
         int local_48;
         byte* local_2c;
         Command* local_28;
