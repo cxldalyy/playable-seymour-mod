@@ -34,8 +34,8 @@ public unsafe class TemplateModule : FhModule {
             seymour_gear_names[i] = (nint)name_ptr;
         }
 
-        _filteredSummonHandle = GCHandle.Alloc(_filteredSummonList, GCHandleType.Pinned);
-        _filteredSummonPtr = (ushort*)_filteredSummonHandle.AddrOfPinnedObject();
+        summonlisthandle = GCHandle.Alloc(summonlist, GCHandleType.Pinned);
+        summonlistptr = (ushort*)summonlisthandle.AddrOfPinnedObject();
     }
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -338,6 +338,59 @@ public unsafe class TemplateModule : FhModule {
     public const nint __addr_MsGetSaveConfigHiragana = 0x3852B0;
     private MsGetSaveConfigHiragana _MsGetSaveConfigHiragana;
 
+    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    public delegate double graphicGetTime();
+    public const nint __addr_graphicGetTime = 0x2415C0;
+    private graphicGetTime _graphicGetTime;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FUN_008e6cc0(float param_1, float param_2, float param_3, float param_4, int param_5, int param_6, int param_7);
+    public const nint __addr_FUN_008e6cc0 = 0x4E6CC0;
+    private FUN_008e6cc0 _FUN_008e6cc0;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void TOMakePktScissor(int param_1, int param_2, int param_3, int param_4);
+    public const nint __addr_TOMakePktScissor = 0x4FDEE0;
+    private TOMakePktScissor _TOMakePktScissor;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate uint TOCheckBtlCommandUse(uint param_1, uint param_2);
+    public const nint __addr_TOCheckBtlCommandUse = 0x49AC10;
+    private TOCheckBtlCommandUse _TOCheckBtlCommandUse;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate Command* MsGetComData(uint com_id, int* out_name);
+    public const nint __addr_MsGetComData = 0x39A4C0;
+    private MsGetComData _MsGetComData;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate uint MsGetSaveItemNum(uint param_1);
+    public const nint __addr_MsGetSaveItemNum = 0x390500;
+    private MsGetSaveItemNum _MsGetSaveItemNum;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate int MsGetCommandMP(uint chr_id, uint command);
+    public const nint __addr_MsGetCommandMP = 0x38D030;
+    private MsGetCommandMP _MsGetCommandMP;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate uint MsGetRamChrHP(uint chr_id);
+    public const nint __addr_MsGetRamChrHP = 0x39ADE0;
+    private MsGetRamChrHP _MsGetRamChrHP;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate uint MsGetRamChrMP(uint chr_id);
+    public const nint __addr_MsGetRamChrMP = 0x39AE60;
+    private MsGetRamChrMP _MsGetRamChrMP;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FUN_00904ba0(byte* param_1, float param_2, float param_3, float param_4, byte param_5, float param_6, uint param_7, int param_8, int param_9, int param_10);
+    public const nint __addr_FUN_00904ba0 = 0x504BA0;
+    private FUN_00904ba0 _FUN_00904ba0;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void updateMenu(IntPtr menu);
+
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int FUN_00798be0(BtlRewardData* get_data);
     public const nint __addr_FUN_00798be0 = 0x398BE0;
@@ -441,6 +494,21 @@ public unsafe class TemplateModule : FhModule {
     public const nint __addr_ToMakeBtlEasyFont = 0x505AB0;
     private ToMakeBtlEasyFont _ToMakeBtlEasyFont = FhUtil.get_fptr<ToMakeBtlEasyFont>(FhCall.__addr_ToMakeBtlEasyFont);
 
+    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    public delegate int FUN_008c1ba0();
+    public const nint __addr_FUN_008c1ba0 = 0x4C1BA0;
+    private FUN_008c1ba0 _FUN_008c1ba0;
+    
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate int FUN_008c9b90(int param_1, uint param_2, int param_3, int param_4);
+    public const nint __addr_FUN_008c9b90 = 0x4C9B90;
+    private FUN_008c9b90 _FUN_008c9b90;
+    
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate int FUN_007aba10(uint param_1, uint param_2);
+    public const nint __addr_FUN_007aba10 = 0x3ABA10;
+    private FUN_007aba10 _FUN_007aba10;
+
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint MsGetRamChrMonster(uint mon_id);
     public const nint __addr_MsGetRamChrMonster = 0x39AF00;
@@ -472,57 +540,14 @@ public unsafe class TemplateModule : FhModule {
     private TkMenuGetCurrentPlayer _TkMenuGetCurrentPlayer;
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-    public delegate double graphicGetTime();
-    public const nint __addr_graphicGetTime = 0x2415C0;
-    private graphicGetTime _graphicGetTime;
+    public delegate ushort getScenerioFlag();
+    public const nint __addr_getScenerioFlag = 0x387420;
+    private getScenerioFlag _getScenerioFlag;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void FUN_008e6cc0(float param_1, float param_2, float param_3, float param_4, int param_5, int param_6, int param_7);
-    public const nint __addr_FUN_008e6cc0 = 0x4E6CC0;
-    private FUN_008e6cc0 _FUN_008e6cc0;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void TOMakePktScissor(int param_1, int param_2, int param_3, int param_4);
-    public const nint __addr_TOMakePktScissor = 0x4FDEE0;
-    private TOMakePktScissor _TOMakePktScissor;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate uint TOCheckBtlCommandUse(uint param_1, uint param_2);
-    public const nint __addr_TOCheckBtlCommandUse = 0x49AC10;
-    private TOCheckBtlCommandUse _TOCheckBtlCommandUse;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate Command* MsGetComData(uint com_id, int* out_name);
-    public const nint __addr_MsGetComData = 0x39A4C0;
-    private MsGetComData _MsGetComData;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate uint MsGetSaveItemNum(uint param_1);
-    public const nint __addr_MsGetSaveItemNum = 0x390500;
-    private MsGetSaveItemNum _MsGetSaveItemNum;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate int MsGetCommandMP(uint chr_id, uint command);
-    public const nint __addr_MsGetCommandMP = 0x38D030;
-    private MsGetCommandMP _MsGetCommandMP;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate uint MsGetRamChrHP(uint chr_id);
-    public const nint __addr_MsGetRamChrHP = 0x39ADE0;
-    private MsGetRamChrHP _MsGetRamChrHP;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate uint MsGetRamChrMP(uint chr_id);
-    public const nint __addr_MsGetRamChrMP = 0x39AE60;
-    private MsGetRamChrMP _MsGetRamChrMP;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void FUN_00904ba0(byte* param_1, float param_2, float param_3, float param_4, byte param_5, float param_6, uint param_7, int param_8, int param_9, int param_10);
-    public const nint __addr_FUN_00904ba0 = 0x504BA0;
-    private FUN_00904ba0 _FUN_00904ba0;
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void updateMenu(IntPtr menu);
+    public delegate MsChrAbilityMap* MsGetChrAbilityMap(uint chr_id);
+    public const nint __addr_MsGetChrAbilityMap = 0x398800;
+    private MsGetChrAbilityMap _MsGetChrAbilityMap;
 
 
     // Hooks
@@ -583,9 +608,9 @@ public unsafe class TemplateModule : FhModule {
     private FhMethodHandle<AtelPushMember> _AtelPushMember;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate int FUN_0086dd40(AtelBasicWorker* work, int* storage, AtelStack* stack);
-    public const nint __addr_FUN_0086dd40 = 0x46DD40;
-    private FhMethodHandle<FUN_0086dd40> _FUN_0086dd40;
+    public delegate int AtelPopMember(AtelBasicWorker* work, int* storage, AtelStack* stack);
+    public const nint __addr_AtelPopMember = 0x46DD40;
+    private FhMethodHandle<AtelPopMember> _AtelPopMember;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008bc300(int param_1);
@@ -644,7 +669,7 @@ public unsafe class TemplateModule : FhModule {
         "Earth Breaker",       // Stonestrike
         "Serpent's Fang",      // Poisonstrike
         "Eternal Slumber",     // Sleepstrike
-        "Inhibition",          // Silencestrike
+        "Inhibitor",           // Silencestrike
         "Nightfall",           // Darkstrike
         "Monk's Scepter",      // At least 3x Strength +X%s
         "Priest's Scepter",    // At least 3x Magic +X%s
@@ -816,6 +841,15 @@ public unsafe class TemplateModule : FhModule {
         public byte field2_0x3;
     }
 
+    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    public delegate int FUN_008c9f80();
+    public const nint __addr_FUN_008c9f80 = 0x4C9F80;
+    private FhMethodHandle<FUN_008c9f80> _FUN_008c9f80;
+    private short* DAT_0186a3a6 => FhUtil.ptr_at<short>(0x0146a3a6);
+    private short* DAT_0186a3a4 => FhUtil.ptr_at<short>(0x0146a3a4);
+
+
+
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsLimitTypeDamageCheck(uint param_1, int param_2, uint param_3, int param_4, int param_5, int param_6, int param_7);
     public const nint __addr_MsLimitTypeDamageCheck = 0x3B0D60;
@@ -840,9 +874,7 @@ public unsafe class TemplateModule : FhModule {
     public delegate int MsLimitTypeWinCheck();
     public const nint __addr_MsLimitTypeWinCheck = 0x3B1550;
     private FhMethodHandle<MsLimitTypeWinCheck> _MsLimitTypeWinCheck;
-
-
-    // Seymour Specific
+    
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate void MsSetSaveStartGame();
     public const nint __addr_MsSetSaveStartGame = 0x386BC0;
@@ -852,6 +884,7 @@ public unsafe class TemplateModule : FhModule {
     public delegate int FUN_00635c20(uint param_1);
     public const nint __addr_FUN_00635c20 = 0x235C20;
     private FhMethodHandle<FUN_00635c20> _FUN_00635c20;
+    private int g_eventId => FhUtil.get_at<int>(0x00EFBBF8);
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsParseCommand(byte* param_1);
@@ -868,9 +901,9 @@ public unsafe class TemplateModule : FhModule {
     public delegate ushort* TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength);
     public const nint __addr_TOGetSaveWindow = 0x49B510;
     private FhMethodHandle<TOGetSaveWindow> _TOGetSaveWindow;
-    private static ushort[] _filteredSummonList = new ushort[9];
-    private static ushort* _filteredSummonPtr;
-    private static GCHandle _filteredSummonHandle;
+    private static ushort[] summonlist = new ushort[9];
+    private static ushort* summonlistptr;
+    private static GCHandle summonlisthandle;
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int TkMenuSummonEnableMask();
@@ -881,6 +914,31 @@ public unsafe class TemplateModule : FhModule {
     public delegate void MsSetSaveParam(uint chr_id);
     public const nint __addr_MsSetSaveParam = 0x3861B0;
     private FhMethodHandle<MsSetSaveParam> _MsSetSaveParam;
+    private static uint aeon = 0;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate int* FUN_00785c20(uint chr_id, uint* param_2);
+    public const nint __addr_FUN_00785c20 = 0x385C20;
+    private FhMethodHandle<FUN_00785c20> _FUN_00785c20;
+    public struct MsChrAbilityMap
+    {
+        public int hp;
+        public int mp;
+        public byte strength;
+        public byte defense;
+        public byte magic;
+        public byte magic_defense;
+        public byte agility;
+        public byte luck;
+        public byte evasion;
+        public byte accuracy;
+        public AbilityInlineArray abilities;
+    }
+    [InlineArray(6)]
+    public struct AbilityInlineArray
+    {
+        private ushort _data;
+    }
 
     private ushort* _NkSeymourLegend = FhUtil.ptr_at<ushort>(0x00886D80);
 
@@ -946,6 +1004,16 @@ public unsafe class TemplateModule : FhModule {
         _MsGetSaveWeaponName = FhUtil.get_fptr<MsGetSaveWeaponName>(__addr_MsGetSaveWeaponName);
         _DrawCrossMenuIconXYWHRGBA = FhUtil.get_fptr<DrawCrossMenuIconXYWHRGBA>(__addr_DrawCrossMenuIconXYWHRGBA);
         _MsGetSaveConfigHiragana = FhUtil.get_fptr<MsGetSaveConfigHiragana>(__addr_MsGetSaveConfigHiragana);
+        _graphicGetTime = FhUtil.get_fptr<graphicGetTime>(__addr_graphicGetTime);
+        _FUN_008e6cc0 = FhUtil.get_fptr<FUN_008e6cc0>(__addr_FUN_008e6cc0);
+        _TOMakePktScissor = FhUtil.get_fptr<TOMakePktScissor>(__addr_TOMakePktScissor);
+        _TOCheckBtlCommandUse = FhUtil.get_fptr<TOCheckBtlCommandUse>(__addr_TOCheckBtlCommandUse);
+        _MsGetComData = FhUtil.get_fptr<MsGetComData>(__addr_MsGetComData);
+        _MsGetSaveItemNum = FhUtil.get_fptr<MsGetSaveItemNum>(__addr_MsGetSaveItemNum);
+        _MsGetCommandMP = FhUtil.get_fptr<MsGetCommandMP>(__addr_MsGetCommandMP);
+        _MsGetRamChrHP = FhUtil.get_fptr<MsGetRamChrHP>(__addr_MsGetRamChrHP);
+        _MsGetRamChrMP = FhUtil.get_fptr<MsGetRamChrMP>(__addr_MsGetRamChrMP);
+        _FUN_00904ba0 = FhUtil.get_fptr<FUN_00904ba0>(__addr_FUN_00904ba0);
         _FUN_00798be0 = FhUtil.get_fptr<FUN_00798be0>(__addr_FUN_00798be0);
         _MsGetSavePlyJoined = FhUtil.get_fptr<MsGetSavePlyJoined>(__addr_MsGetSavePlyJoined);
         _Brnd = FhUtil.get_fptr<Brnd>(__addr_Brnd);
@@ -962,22 +1030,17 @@ public unsafe class TemplateModule : FhModule {
         _ToGetBtlEasyFontWidth = FhUtil.get_fptr<ToGetBtlEasyFontWidth>(__addr_ToGetBtlEasyFontWidth);
         _FUN_008d8a70 = FhUtil.get_fptr<FUN_008d8a70>(__addr_FUN_008d8a70);
         _ToMakeBtlEasyFont = FhUtil.get_fptr<ToMakeBtlEasyFont>(__addr_ToMakeBtlEasyFont);
+        _FUN_008c1ba0 = FhUtil.get_fptr<FUN_008c1ba0>(__addr_FUN_008c1ba0);
+        _FUN_008c9b90 = FhUtil.get_fptr<FUN_008c9b90>(__addr_FUN_008c9b90);
+        _FUN_007aba10 = FhUtil.get_fptr<FUN_007aba10>(__addr_FUN_007aba10);
         _MsGetRamChrMonster = FhUtil.get_fptr<MsGetRamChrMonster>(__addr_MsGetRamChrMonster);
         _MsLimitUp = FhUtil.get_fptr<MsLimitUp>(__addr_MsLimitUp);
         _MsGetChr = FhUtil.get_fptr<MsGetChr>(__addr_MsGetChr);
         _MsCalcWeakLevel = FhUtil.get_fptr<MsCalcWeakLevel>(__addr_MsCalcWeakLevel);
         _MsGetRomPlyCommand = FhUtil.get_fptr<MsGetRomPlyCommand>(__addr_MsGetRomPlyCommand);
         _TkMenuGetCurrentPlayer = FhUtil.get_fptr<TkMenuGetCurrentPlayer>(__addr_TkMenuGetCurrentPlayer);
-        _graphicGetTime = FhUtil.get_fptr<graphicGetTime>(__addr_graphicGetTime);
-        _FUN_008e6cc0 = FhUtil.get_fptr<FUN_008e6cc0>(__addr_FUN_008e6cc0);
-        _TOMakePktScissor = FhUtil.get_fptr<TOMakePktScissor>(__addr_TOMakePktScissor);
-        _TOCheckBtlCommandUse = FhUtil.get_fptr<TOCheckBtlCommandUse>(__addr_TOCheckBtlCommandUse);
-        _MsGetComData = FhUtil.get_fptr<MsGetComData>(__addr_MsGetComData);
-        _MsGetSaveItemNum = FhUtil.get_fptr<MsGetSaveItemNum>(__addr_MsGetSaveItemNum);
-        _MsGetCommandMP = FhUtil.get_fptr<MsGetCommandMP>(__addr_MsGetCommandMP);
-        _MsGetRamChrHP = FhUtil.get_fptr<MsGetRamChrHP>(__addr_MsGetRamChrHP);
-        _MsGetRamChrMP = FhUtil.get_fptr<MsGetRamChrMP>(__addr_MsGetRamChrMP);
-        _FUN_00904ba0 = FhUtil.get_fptr<FUN_00904ba0>(__addr_FUN_00904ba0);
+        _getScenerioFlag = FhUtil.get_fptr<getScenerioFlag>(__addr_getScenerioFlag);
+        _MsGetChrAbilityMap = FhUtil.get_fptr<MsGetChrAbilityMap>(__addr_MsGetChrAbilityMap);
     }
     public override bool init(FhModContext mod_context, FileStream global_state_file) 
     {
@@ -986,7 +1049,7 @@ public unsafe class TemplateModule : FhModule {
         _FUN_008e0ba0 = new FhMethodHandle<FUN_008e0ba0>(this, game, __addr_FUN_008e0ba0, h_FUN_008e0ba0);
         _FUN_008c0220 = new FhMethodHandle<FUN_008c0220>(this, game, __addr_FUN_008c0220, h_FUN_008c0220);
         _AtelPushMember = new FhMethodHandle<AtelPushMember>(this, game, __addr_AtelPushMember, h_AtelPushMember);
-        _FUN_0086dd40 = new FhMethodHandle<FUN_0086dd40>(this, game, __addr_FUN_0086dd40, h_FUN_0086dd40);
+        _AtelPopMember = new FhMethodHandle<AtelPopMember>(this, game, __addr_AtelPopMember, h_AtelPopMember);
         _FUN_008bc300 = new FhMethodHandle<FUN_008bc300>(this, game, __addr_FUN_008bc300, h_FUN_008bc300);
         _MsWeaponName = new FhMethodHandle<MsWeaponName>(this, game, __addr_MsWeaponName, h_MsWeaponName);
         _FUN_008e67f0 = new FhMethodHandle<FUN_008e67f0>(this, game, __addr_FUN_008e67f0, h_FUN_008e67f0);
@@ -995,19 +1058,20 @@ public unsafe class TemplateModule : FhModule {
         _MsGetItemInternal_00798C20 = new FhMethodHandle<MsGetItemInternal_00798C20>(this, game, __addr_MsGetItemInternal_00798C20, h_MsGetItemInternal_00798C20);
         _MsChangeWeaponInvisible = new FhMethodHandle<MsChangeWeaponInvisible>(this, game, __addr_MsChangeWeaponInvisible, h_MsChangeWeaponInvisible);
         _FUN_008d85f0 = new FhMethodHandle<FUN_008d85f0>(this, game, __addr_FUN_008d85f0, h_FUN_008d85f0);
+        _FUN_008c9f80 = new FhMethodHandle<FUN_008c9f80>(this, game, __addr_FUN_008c9f80, h_FUN_008c9f80);
         _MsLimitTypeDamageCheck = new FhMethodHandle<MsLimitTypeDamageCheck>(this, game, __addr_MsLimitTypeDamageCheck, h_MsLimitTypeDamageCheck);
         _MsLimitTypeDeathCheck = new FhMethodHandle<MsLimitTypeDeathCheck>(this, game, __addr_MsLimitTypeDeathCheck, h_MsLimitTypeDeathCheck);
         _FUN_007b10d0 = new FhMethodHandle<FUN_007b10d0>(this, game, __addr_FUN_007b10d0, h_FUN_007b10d0);
         _MsLimitTypeTurnCheck = new FhMethodHandle<MsLimitTypeTurnCheck>(this, game, __addr_MsLimitTypeTurnCheck, h_MsLimitTypeTurnCheck);
         _MsLimitTypeWinCheck = new FhMethodHandle<MsLimitTypeWinCheck>(this, game, __addr_MsLimitTypeWinCheck, h_MsLimitTypeWinCheck);
-
-        // Seymour Specific
         _MsSetSaveStartGame = new FhMethodHandle<MsSetSaveStartGame>(this, game, __addr_MsSetSaveStartGame, h_MsSetSaveStartGame);
         _FUN_00635c20 = new FhMethodHandle<FUN_00635c20>(this, game, __addr_FUN_00635c20, h_FUN_00635c20);
         _MsParseCommand = new FhMethodHandle<MsParseCommand>(this, game, __addr_MsParseCommand, h_MsParseCommand);
         _TOBtlCtrlHelpWin = new FhMethodHandle<TOBtlCtrlHelpWin>(this, game, __addr_TOBtlCtrlHelpWin, h_TOBtlCtrlHelpWin);
         _TOGetSaveWindow = new FhMethodHandle<TOGetSaveWindow>(this, game, __addr_TOGetSaveWindow, h_TOGetSaveWindow);
         _TkMenuSummonEnableMask = new FhMethodHandle<TkMenuSummonEnableMask>(this, game, __addr_TkMenuSummonEnableMask, h_TkMenuSummonEnableMask);
+        _MsSetSaveParam = new FhMethodHandle<MsSetSaveParam>(this, game, __addr_MsSetSaveParam, h_MsSetSaveParam);
+        _FUN_00785c20 = new FhMethodHandle<FUN_00785c20>(this, game, __addr_FUN_00785c20, h_FUN_00785c20);
 
         init_fptrs();
 
@@ -1021,7 +1085,7 @@ public unsafe class TemplateModule : FhModule {
                _FUN_008e0ba0.hook() &&
                _FUN_008c0220.hook() &&
                _AtelPushMember.hook() &&
-               _FUN_0086dd40.hook() &&
+               _AtelPopMember.hook() &&
                _FUN_008bc300.hook() &&
                _MsWeaponName.hook() &&
                _FUN_008e67f0.hook() &&
@@ -1030,6 +1094,7 @@ public unsafe class TemplateModule : FhModule {
                _MsGetItemInternal_00798C20.hook() &&
                _MsChangeWeaponInvisible.hook() &&
                _FUN_008d85f0.hook() &&
+               //_FUN_008c9f80.hook() &&
                _MsLimitTypeDamageCheck.hook() &&
                _MsLimitTypeDeathCheck.hook() &&
                _FUN_007b10d0.hook() &&
@@ -1040,7 +1105,9 @@ public unsafe class TemplateModule : FhModule {
                _MsParseCommand.hook() &&
                _TOBtlCtrlHelpWin.hook() &&
                _TOGetSaveWindow.hook() &&
-               _TkMenuSummonEnableMask.hook();
+               _TkMenuSummonEnableMask.hook() &&
+               _MsSetSaveParam.hook() &&
+               _FUN_00785c20.hook();
     }
     public override void load_local_state(FileStream? local_state_file, FhLocalStateInfo local_state_info) { }
     public override void save_local_state(FileStream  local_state_file)                                    { }
@@ -1600,7 +1667,7 @@ public unsafe class TemplateModule : FhModule {
     }
 
     // Restore Party
-    int h_FUN_0086dd40(AtelBasicWorker* work, int* storage, AtelStack* stack)
+    int h_AtelPopMember(AtelBasicWorker* work, int* storage, AtelStack* stack)
     {
         byte bVar1;
         SaveData* pSVar2;
@@ -2651,11 +2718,6 @@ public unsafe class TemplateModule : FhModule {
             iVar7 = iVar7 + 1;
         } while (iVar7 < 8);
         bVar1 = (byte)param_1;
-        /*if (Globals.Battle.btl->battlefield_id == 223 && bVar1 == 7) // If KINO03_10 and Seymour,
-        {
-            _logger.Debug($"Skipping Seymour, forcing to Kimahri");
-            bVar1 = 3;
-        }*/
     LAB_00798cb8:
         *(byte*)(iVar4 + 0x102 + param_3) = bVar1;
         uVar5 = _Brnd(0xc);
@@ -2914,6 +2976,82 @@ public unsafe class TemplateModule : FhModule {
         return;
     }
 
+    // Equipment Sorting
+    int h_FUN_008c9f80()
+    {
+        int iVar1;
+        Equipment* pSVar2;
+        int iVar3;
+        OverdriveMenu* pOVar4;
+        int iVar5;
+        int iVar6;
+        uint uVar7;
+        byte* local_424;
+        int local_420;
+        int local_41c;
+        int local_418;
+        int local_414;
+        uint local_410;
+        byte* local_40c;
+        byte* local_408 = stackalloc byte [1024];
+    
+        local_40c = (byte*)0x0;
+        iVar1 = _FUN_008c1ba0();
+        iVar3 = 0;
+        local_418 = iVar1;
+        if (0 < iVar1)
+        {
+            do
+            {
+                pSVar2 = _MsGetSaveWeapon(p_DAT_01597730_OvrModesMenuList[iVar3].overdrive_id, &local_424);
+                iVar5 = iVar3 + 1;
+                local_408[iVar3] = pSVar2->owner;
+                iVar3 = iVar5;
+            } while (iVar5 < iVar1);
+        }
+        uVar7 = 0;
+        iVar3 = 0;
+        do
+        {
+            iVar5 = (int)((uint)(ushort)(DAT_0186a3a6)[uVar7 * 2] + (uint)(ushort)(DAT_0186a3a4)[uVar7 * 2]);
+            iVar6 = 0;
+            local_414 = iVar5 + iVar3;
+            iVar1 = local_414 + -1;
+            if (iVar5 != 0)
+            {
+                pOVar4 = p_DAT_01597730_OvrModesMenuList + iVar3;
+                local_40c = local_408 + (int)local_40c;
+                local_420 = iVar5;
+                do
+                {
+                    local_410 = (uint)local_40c[iVar6];
+                    if (local_410 != uVar7)
+                    {
+                        local_41c = _FUN_008c9b90((int)local_408, uVar7, iVar1 + 1, local_418);
+                        if (local_41c < 0)
+                        {
+                            return 0;
+                        }
+                        _FUN_007aba10(pOVar4->overdrive_id, (uint)+p_DAT_01597730_OvrModesMenuList[local_41c].overdrive_id);
+                        local_40c[iVar6] = local_408[local_41c];
+                        local_408[local_41c] = (byte)local_410;
+                        iVar1 = local_41c;
+                        iVar5 = local_420;
+                    }
+                    iVar6 = iVar6 + 1;
+                    pOVar4 = pOVar4 + 1;
+                } while (iVar6 < iVar5);
+            }
+            uVar7 = uVar7 + 1;
+            iVar3 = local_414;
+            local_40c = (byte*)local_414;
+        } while ((int)uVar7 < 8);
+        return 1;
+    }
+
+
+
+    // Overdrive Mode Learning
     int h_MsLimitTypeDamageCheck(uint param_1, int param_2, uint param_3, int param_4, int param_5, int param_6, int param_7)
     {
         uint uVar1;
@@ -3179,6 +3317,7 @@ public unsafe class TemplateModule : FhModule {
         _MsSetSaveStartGame.orig_fptr();
 
         Globals.save_data->ability_map_limit.has_extra_24 = true;
+        Globals.save_data->ability_map_limit.has_extra_25 = true;
 
         for (int i = 0; i < 200; i++)
         {
@@ -3203,6 +3342,13 @@ public unsafe class TemplateModule : FhModule {
         }
 
         PlySave* seymour = _MsGetSavePlayerPtr(7);
+        seymour->base_mp = 319;
+        seymour->mp = 319;
+        seymour->max_mp = 319;
+        seymour->base_defense = 18;
+        seymour->base_magic_defense = 50;
+        seymour->base_evasion = 3;
+        seymour->slv_spent = 30;
         seymour->abi_map.has_weapon_change = true;
         seymour->abi_map.has_armor_change = true;
         seymour->limit_mode_ctr_warrior = 150;
@@ -3247,11 +3393,28 @@ public unsafe class TemplateModule : FhModule {
     // Show Seymour's Armor model
     int h_FUN_00635c20(uint param_1) 
     {
-        if (param_1 == 0x4067)
+        short sVar1;
+
+        sVar1 = (short)_getScenerioFlag();
+        if (param_1 != 0x4068)
         {
-            param_1 = 0x4068;
+            if (sVar1 == 0x2e)
+            {
+                if (param_1 != 5 && param_1 != 6 && param_1 != 0x109b && param_1 != 0x5001 && param_1 != 0x5002)
+                {
+                    return (int)(param_1 & 0xffffff00);
+                }
+            }
+            else
+            {
+                param_1 &= 0xfffff000;
+                if (g_eventId != 0x17e || (int)param_1 > 0x3fff)
+                {
+                    return (int)(param_1 & 0xffffff00);
+                }
+            }
         }
-        return _FUN_00635c20.orig_fptr(param_1);
+        return (int)((param_1 & 0xffffff00) | 0x01);
     }
 
     // Extra24 = Seymour Summon
@@ -3290,35 +3453,40 @@ public unsafe class TemplateModule : FhModule {
     // Battle Summon List
     ushort* h_TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength)
     {
+        ushort* originallist;
+        int originalcount;
+        int newcount;
+        ushort aeonId;
+        
         if ((uint)window_type == 5)
         {
-            ushort* originallist = _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
-            int originalcount = *summonlistlength;
-            int newcount = 0;
+            originallist = _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
+            originalcount = *summonlistlength;
+            newcount = 0;
 
             for (int i = 0; i < originalcount; i++)
             {
-                ushort aeonId = originallist[i];
+                aeonId = originallist[i];
                 if (aeonId == 0xFFFF)
                     break;
                 if (chr_id == 7)
                 {
                     if (aeonId == 0x000D)
                     {
-                        _filteredSummonList[newcount++] = aeonId;
+                        summonlist[newcount++] = aeonId;
                     }
                 }
                 else if (chr_id != 7)
                 {
                     if (aeonId != 0x000D || Globals.save_data->has_anima) // Can't summon Anima until Baaj Sidequest
                     {
-                        _filteredSummonList[newcount++] = aeonId;
+                        summonlist[newcount++] = aeonId;
                     }
                 }
             }
-            _filteredSummonList[newcount] = 0xFFFF;
+            summonlist[newcount] = 0xFFFF;
             *summonlistlength = newcount;
-            return _filteredSummonPtr;
+            return summonlistptr;
         }
         return _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
     }
@@ -3326,16 +3494,64 @@ public unsafe class TemplateModule : FhModule {
     // Overdrive Menus
     int h_TkMenuSummonEnableMask()
     {
-        uint cur_chr_id = _TkMenuGetCurrentPlayer();
-        uint original = (uint)_TkMenuSummonEnableMask.orig_fptr();
-
-        if (cur_chr_id == 1)
+        if (_TkMenuGetCurrentPlayer() == 1)
         {
             if (!Globals.save_data->has_anima)
             {
-                return (int)(original & ~(1u << 0x0D)); // Display Anima in Yuna's menu once unlocked
+                return (int)(_TkMenuSummonEnableMask.orig_fptr() & ~(1u << 0x0D)); // Display Anima in Yuna's menu once unlocked
             }
         }
-        return (int)original;
+        return _TkMenuSummonEnableMask.orig_fptr();
+    }
+
+    // Anima Stat Scaling with Seymour
+    void h_MsSetSaveParam(uint chr_id)
+    {
+        aeon = chr_id;
+        _MsSetSaveParam.orig_fptr(chr_id);
+        aeon = 0;
+    }
+
+    int* h_FUN_00785c20(uint chr_id, uint* param_2)
+    {
+        MsChrAbilityMap* pMVar1;
+    
+        if (chr_id == 1 && aeon == 0x0D)
+        {
+            chr_id = 7;
+        }
+        pMVar1 = _MsGetChrAbilityMap(chr_id);
+        param_2[8] = Globals.save_data->ply_saves[(int)chr_id].base_hp;
+        param_2[9] = Globals.save_data->ply_saves[(int)chr_id].base_mp;
+        if (chr_id == 7 && aeon == 0x0D)
+        {
+            *param_2 = 0;
+            param_2[1] = 0;
+        }
+        else
+        {
+            *param_2 = Globals.save_data->ply_saves[(int)chr_id].base_strength;
+            param_2[1] = Globals.save_data->ply_saves[(int)chr_id].base_defense;
+        }
+        param_2[2] = Globals.save_data->ply_saves[(int)chr_id].base_magic;
+        param_2[3] = Globals.save_data->ply_saves[(int)chr_id].base_magic_defense;
+        param_2[4] = Globals.save_data->ply_saves[(int)chr_id].base_agility;
+        param_2[5] = Globals.save_data->ply_saves[(int)chr_id].base_luck;
+        param_2[6] = Globals.save_data->ply_saves[(int)chr_id].base_evasion;
+        param_2[7] = Globals.save_data->ply_saves[(int)chr_id].base_accuracy;
+        if (pMVar1 != (MsChrAbilityMap*)0x0)
+        {
+            param_2[8] = (uint)(param_2[8] + pMVar1->hp * 0x32);
+            param_2[9] = (uint)(param_2[9] + pMVar1->mp * 5);
+            *param_2 = *param_2 + pMVar1->strength;
+            param_2[1] = param_2[1] + pMVar1->defense;
+            param_2[2] = param_2[2] + pMVar1->magic;
+            param_2[3] = param_2[3] + pMVar1->magic_defense;
+            param_2[4] = param_2[4] + pMVar1->agility;
+            param_2[5] = param_2[5] + pMVar1->luck;
+            param_2[6] = param_2[6] + pMVar1->evasion;
+            param_2[7] = param_2[7] + pMVar1->accuracy;
+        }
+        return &pMVar1->hp;
     }
 }
