@@ -3317,7 +3317,6 @@ public unsafe class TemplateModule : FhModule {
         _MsSetSaveStartGame.orig_fptr();
 
         Globals.save_data->ability_map_limit.has_extra_24 = true;
-        Globals.save_data->ability_map_limit.has_extra_25 = true;
 
         for (int i = 0; i < 200; i++)
         {
@@ -3498,7 +3497,7 @@ public unsafe class TemplateModule : FhModule {
         {
             if (!Globals.save_data->has_anima)
             {
-                return (int)(_TkMenuSummonEnableMask.orig_fptr() & ~(1u << 0x0D)); // Display Anima in Yuna's menu once unlocked
+                return (int)(_TkMenuSummonEnableMask.orig_fptr() & ~(1u << 0x0D)); // Only display Anima in Yuna's party menu once unlocked
             }
         }
         return _TkMenuSummonEnableMask.orig_fptr();
