@@ -1104,10 +1104,10 @@ public unsafe class TemplateModule : FhModule {
                _FUN_00635c20.hook() &&
                _MsParseCommand.hook() &&
                _TOBtlCtrlHelpWin.hook() &&
-               _TOGetSaveWindow.hook() &&
-               _TkMenuSummonEnableMask.hook() &&
-               _MsSetSaveParam.hook() &&
-               _FUN_00785c20.hook();
+               _TOGetSaveWindow.hook();
+               //_TkMenuSummonEnableMask.hook() &&
+               //_MsSetSaveParam.hook() &&
+               //_FUN_00785c20.hook();
     }
     public override void load_local_state(FileStream? local_state_file, FhLocalStateInfo local_state_info) { }
     public override void save_local_state(FileStream  local_state_file)                                    { }
