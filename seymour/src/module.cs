@@ -6,7 +6,6 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
-using TerraFX.Interop.Windows;
 
 namespace Fahrenheit.Mods.Template;
 
@@ -482,7 +481,7 @@ public unsafe class TemplateModule : FhModule {
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void ToGetBtlEasyFontWidth(byte* text, float* ref_width, int param_3, float scale);
     public const nint __addr_ToGetBtlEasyFontWidth = 0x505290;
-    private ToGetBtlEasyFontWidth _ToGetBtlEasyFontWidth = FhUtil.get_fptr<ToGetBtlEasyFontWidth>(FhCall.__addr_ToGetBtlEasyFontWidth);
+    private ToGetBtlEasyFontWidth _ToGetBtlEasyFontWidth = FhUtil.get_fptr<ToGetBtlEasyFontWidth>(FFX.FhCall.__addr_ToGetBtlEasyFontWidth);
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008d8a70(float param_1, float param_2, int param_3);
@@ -492,7 +491,7 @@ public unsafe class TemplateModule : FhModule {
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void ToMakeBtlEasyFont(byte* param_1, float param_2, float param_3, float param_4, float param_5);
     public const nint __addr_ToMakeBtlEasyFont = 0x505AB0;
-    private ToMakeBtlEasyFont _ToMakeBtlEasyFont = FhUtil.get_fptr<ToMakeBtlEasyFont>(FhCall.__addr_ToMakeBtlEasyFont);
+    private ToMakeBtlEasyFont _ToMakeBtlEasyFont = FhUtil.get_fptr<ToMakeBtlEasyFont>(FFX.FhCall.__addr_ToMakeBtlEasyFont);
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int FUN_008c1ba0();
@@ -1621,7 +1620,7 @@ public unsafe class TemplateModule : FhModule {
     {
         byte bVar1;
         SaveData* pSVar2;
-        BOOL BVar3;
+        bool BVar3;
         byte* puVar4;
         uint* puVar5;
         int iVar6;
@@ -1655,7 +1654,7 @@ public unsafe class TemplateModule : FhModule {
         do
         {
             BVar3 = _MsGetSavePlyJoin(chr_id);
-            if (BVar3 == 1)
+            if (BVar3)
             {
                 *(uint*)&pSVar2->atel_push_party = *(uint*)&pSVar2->atel_push_party | uVar7;
             }
