@@ -4,8 +4,8 @@ This mod features modded files to be used in conjunction with [Fahrenheit](https
 ### This mod does not contain any original SquareEnix assets, only .xdelta patches.
 
 ### Installation:
-- Extract your original, unmodified `ffx_ps2` folder from `FFX_Data.vbf` using the [VBF Browser](https://www.nexusmods.com/finalfantasy12/mods/3).
-- Place the extracted `ffx_ps2` folder into the `/original` folder within this release.
+- Extract your original, unmodified `FFX_Data` and `ffx_ps2` folders from `FFX_Data.vbf` using the [VBF Browser](https://www.nexusmods.com/finalfantasy12/mods/3).
+- Place the extracted `FFX_Data` and `ffx_ps2` folders into the `/original` folder within this release.
 - Run "apply_mods.bat".
 - This will convert the .xdelta patches in `/patches` into the modded files ready for EFL use.
 - Copy the new modded files in `efl/x` into your Fahrenheit EFL.
