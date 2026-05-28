@@ -25,17 +25,4 @@
     <ItemGroup>
         <None Include="$(SolutionDir).editorconfig" Link=".editorconfig" />
     </ItemGroup>
-
-    <!-- PROJECT REFERENCES -->
-	<!-- BUILD EVENTS -->
-	<Target Name="CopyAssets" AfterTargets="Publish">
-		<PropertyGroup>
-			<AssetsDir>$(ProjectDir)assets\</AssetsDir>
-			<AssetDestination>$(PublishDir)fahrenheit\mods\$(AssemblyName)</AssetDestination>
-		</PropertyGroup>
-		<Message Text="Copy solution assets..." />
-		<Exec Condition="'$(OS)' == 'Windows_NT'" Command="powershell -Command &quot;robocopy '$(AssetsDir)' '$(AssetDestination)' /MIR /R:0 /W:0" ContinueOnError="true" IgnoreExitCode="true" />
-		<Exec Condition="'$(OS)' == 'Unix'" Command="rsync -acu --delete '$(AssetsDir)/' '$(AssetDestination)'" ContinueOnError="true" IgnoreExitCode="true" />
-	</Target>
-
 </Project>
