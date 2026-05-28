@@ -2,6 +2,7 @@
 
 using Fahrenheit.Atel;
 using Fahrenheit.FFX.Battle;
+using Fahrenheit.FFX.Ids;
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -33,8 +34,8 @@ public unsafe class TemplateModule : FhModule {
             seymour_gear_names[i] = (nint)name_ptr;
         }
 
-        summonlisthandle = GCHandle.Alloc(summonlist, GCHandleType.Pinned);
-        summonlistptr = (ushort*)summonlisthandle.AddrOfPinnedObject();
+        //summonlisthandle = GCHandle.Alloc(summonlist, GCHandleType.Pinned);
+        //summonlistptr = (ushort*)summonlisthandle.AddrOfPinnedObject();
     }
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -900,9 +901,9 @@ public unsafe class TemplateModule : FhModule {
     public delegate ushort* TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength);
     public const nint __addr_TOGetSaveWindow = 0x49B510;
     private FhMethodHandle<TOGetSaveWindow> _TOGetSaveWindow;
-    private static ushort[] summonlist = new ushort[9];
-    private static ushort* summonlistptr;
-    private static GCHandle summonlisthandle;
+    //private static ushort[] summonlist = new ushort[9];
+    //private static ushort* summonlistptr;
+    //private static GCHandle summonlisthandle;
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int TkMenuSummonEnableMask();
@@ -3452,39 +3453,26 @@ public unsafe class TemplateModule : FhModule {
     ushort* h_TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength)
     {
         ushort* originallist;
-        int originalcount;
-        int newcount;
-        ushort aeonId;
         
         if ((uint)window_type == 5)
         {
             originallist = _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
-            originalcount = *summonlistlength;
-            newcount = 0;
 
-            for (int i = 0; i < originalcount; i++)
-            {
-                aeonId = originallist[i];
-                if (aeonId == 0xFFFF)
-                    break;
-                if (chr_id == 7)
-                {
-                    if (aeonId == 0x000D)
-                    {
-                        summonlist[newcount++] = aeonId;
-                    }
+            Span<ushort> listSpan = new(originallist, *summonlistlength);
+            if (chr_id == 7) {
+                if (listSpan.Contains<ushort>(PlySaveId.PC_ANIMA)) {
+                    listSpan.Fill(0xFFFF);
+                    listSpan[0] = PlySaveId.PC_ANIMA;
+                    *summonlistlength = 1;
+                    return originallist;
+                } else {
+                    listSpan.Fill(0xFFFF);
+                    *summonlistlength = 0;
+                    return originallist;
                 }
-                else if (chr_id != 7)
-                {
-                    if (aeonId != 0x000D || Globals.save_data->has_anima) // Can't summon Anima until Baaj Sidequest
-                    {
-                        summonlist[newcount++] = aeonId;
-                    }
-                }
+            } else {
+                return originallist;
             }
-            summonlist[newcount] = 0xFFFF;
-            *summonlistlength = newcount;
-            return summonlistptr;
         }
         return _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
     }
