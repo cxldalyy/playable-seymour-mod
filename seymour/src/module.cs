@@ -549,6 +549,11 @@ public unsafe class TemplateModule : FhModule {
     public const nint __addr_MsGetChrAbilityMap = 0x398800;
     private MsGetChrAbilityMap _MsGetChrAbilityMap;
 
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FUN_0079b480(int chr_id, int com_id, int is_disabled);
+    public const nint __addr_FUN_0079b480 = 0x39b480;
+    private FUN_0079b480 _set_command_disabled;
+
 
     // Hooks
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -940,6 +945,11 @@ public unsafe class TemplateModule : FhModule {
         private ushort _data;
     }
 
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void MsBtlReadManage();
+    public const nint __addr_MsBtlReadManage = 0x3830d0;
+    private FhMethodHandle<MsBtlReadManage> _MsBtlReadManage;
+
     private ushort* _NkSeymourLegend = FhUtil.ptr_at<ushort>(0x00886D80);
 
     public void init_fptrs()
@@ -1041,6 +1051,7 @@ public unsafe class TemplateModule : FhModule {
         _TkMenuGetCurrentPlayer = FhUtil.get_fptr<TkMenuGetCurrentPlayer>(__addr_TkMenuGetCurrentPlayer);
         _getScenerioFlag = FhUtil.get_fptr<getScenerioFlag>(__addr_getScenerioFlag);
         _MsGetChrAbilityMap = FhUtil.get_fptr<MsGetChrAbilityMap>(__addr_MsGetChrAbilityMap);
+        _set_command_disabled = FhUtil.get_fptr<FUN_0079b480>(__addr_FUN_0079b480);
     }
     public override bool init(FhModContext mod_context, FileStream global_state_file) 
     {
@@ -1072,6 +1083,7 @@ public unsafe class TemplateModule : FhModule {
         _TkMenuSummonEnableMask = new FhMethodHandle<TkMenuSummonEnableMask>(this, game, __addr_TkMenuSummonEnableMask, h_TkMenuSummonEnableMask);
         _MsSetSaveParam = new FhMethodHandle<MsSetSaveParam>(this, game, __addr_MsSetSaveParam, h_MsSetSaveParam);
         _FUN_00785c20 = new FhMethodHandle<FUN_00785c20>(this, game, __addr_FUN_00785c20, h_FUN_00785c20);
+        _MsBtlReadManage = new FhMethodHandle<MsBtlReadManage>(this, game, __addr_MsBtlReadManage, h_MsBtlReadManage);
 
         init_fptrs();
 
@@ -1104,7 +1116,8 @@ public unsafe class TemplateModule : FhModule {
                _FUN_00635c20.hook() &&
                _MsParseCommand.hook() &&
                _TOBtlCtrlHelpWin.hook() &&
-               _TOGetSaveWindow.hook();
+               _TOGetSaveWindow.hook() &&
+               _MsBtlReadManage.hook();
                //_TkMenuSummonEnableMask.hook() &&
                //_MsSetSaveParam.hook() &&
                //_FUN_00785c20.hook();
@@ -3539,5 +3552,29 @@ public unsafe class TemplateModule : FhModule {
             param_2[7] = param_2[7] + pMVar1->accuracy;
         }
         return &pMVar1->hp;
+    }
+
+    // Seymour softlocks when using Spare Change/Bribe/Provoke/Threaten/Grenades
+    void h_MsBtlReadManage() {
+        int old_state = Globals.Battle.btl->battle_state;
+
+        _MsBtlReadManage.orig_fptr();
+
+        if (Globals.Battle.btl->battle_state != 13 || old_state == Globals.Battle.btl->battle_state) return;
+
+        // Post Battle Start
+
+        if (Globals.Battle.player_characters == null) return;
+
+        _logger.Info("Disabling Spare Change/Bribe/Provoke/Threaten/Use for Seymour");
+
+        _set_command_disabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_SPARE_CHANGE, 1);
+        _set_command_disabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_BRIBE, 1);
+        _set_command_disabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_PROVOKE, 1);
+        _set_command_disabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_THREATEN, 1);
+        _set_command_disabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_USE, 1);
+        // Can't disable individual Use items
+        //_set_command_disabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_GRENADE, 1);
+        //_set_command_disabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_FRAG_GRENADE, 1);
     }
 }
