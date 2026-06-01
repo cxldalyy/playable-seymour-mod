@@ -2,11 +2,11 @@
 
 using Fahrenheit.Atel;
 using Fahrenheit.FFX.Battle;
+using Fahrenheit.FFX.Ids;
 using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
-using TerraFX.Interop.Windows;
 
 namespace Fahrenheit.Mods.Template;
 
@@ -33,9 +33,6 @@ public unsafe class TemplateModule : FhModule {
             _ = FhEncoding.encode(weapon_name_utf8, new(name_ptr, weapon_name_len));
             seymour_gear_names[i] = (nint)name_ptr;
         }
-
-        summonlisthandle = GCHandle.Alloc(summonlist, GCHandleType.Pinned);
-        summonlistptr = (ushort*)summonlisthandle.AddrOfPinnedObject();
     }
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -482,7 +479,7 @@ public unsafe class TemplateModule : FhModule {
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void ToGetBtlEasyFontWidth(byte* text, float* ref_width, int param_3, float scale);
     public const nint __addr_ToGetBtlEasyFontWidth = 0x505290;
-    private ToGetBtlEasyFontWidth _ToGetBtlEasyFontWidth = FhUtil.get_fptr<ToGetBtlEasyFontWidth>(FhCall.__addr_ToGetBtlEasyFontWidth);
+    private ToGetBtlEasyFontWidth _ToGetBtlEasyFontWidth;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008d8a70(float param_1, float param_2, int param_3);
@@ -492,7 +489,7 @@ public unsafe class TemplateModule : FhModule {
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void ToMakeBtlEasyFont(byte* param_1, float param_2, float param_3, float param_4, float param_5);
     public const nint __addr_ToMakeBtlEasyFont = 0x505AB0;
-    private ToMakeBtlEasyFont _ToMakeBtlEasyFont = FhUtil.get_fptr<ToMakeBtlEasyFont>(FhCall.__addr_ToMakeBtlEasyFont);
+    private ToMakeBtlEasyFont _ToMakeBtlEasyFont;
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int FUN_008c1ba0();
@@ -901,9 +898,6 @@ public unsafe class TemplateModule : FhModule {
     public delegate ushort* TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength);
     public const nint __addr_TOGetSaveWindow = 0x49B510;
     private FhMethodHandle<TOGetSaveWindow> _TOGetSaveWindow;
-    private static ushort[] summonlist = new ushort[9];
-    private static ushort* summonlistptr;
-    private static GCHandle summonlisthandle;
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int TkMenuSummonEnableMask();
@@ -1134,7 +1128,6 @@ public unsafe class TemplateModule : FhModule {
         ply_save->hp = ply_save->max_hp;
         return (int)ply_save->max_hp;
     }
-
     int h_CT_RetInt_0172_restoreCharMp(AtelBasicWorker* work, int* storage, AtelStack* stack)
     {
         uint chr_id;
@@ -1510,8 +1503,7 @@ public unsafe class TemplateModule : FhModule {
         _TkVU1SyncPath();
         return;
     }
-
-    // Portrait in menus
+    // Portrait in Menus
     void h_FUN_008c0220(uint param_1, float param_2, float param_3, float param_4, float param_5)
     {
         float fVar1;
@@ -1621,7 +1613,7 @@ public unsafe class TemplateModule : FhModule {
     {
         byte bVar1;
         SaveData* pSVar2;
-        BOOL BVar3;
+        bool BVar3;
         byte* puVar4;
         uint* puVar5;
         int iVar6;
@@ -1655,7 +1647,7 @@ public unsafe class TemplateModule : FhModule {
         do
         {
             BVar3 = _MsGetSavePlyJoin(chr_id);
-            if (BVar3 == 1)
+            if (BVar3)
             {
                 *(uint*)&pSVar2->atel_push_party = *(uint*)&pSVar2->atel_push_party | uVar7;
             }
@@ -1665,7 +1657,6 @@ public unsafe class TemplateModule : FhModule {
         pSVar2->atel_is_push_member = 1;
         return bVar1;
     }
-
     // Restore Party
     int h_AtelPopMember(AtelBasicWorker* work, int* storage, AtelStack* stack)
     {
@@ -1708,7 +1699,7 @@ public unsafe class TemplateModule : FhModule {
         return bVar1;
     }
 
-    // Battle Results Screen
+    // Battle Results: AP Earned
     void h_FUN_008bc300(int param_1)
     {
         byte* name;
@@ -2003,7 +1994,8 @@ public unsafe class TemplateModule : FhModule {
     switchD_008bc339_caseD_0:
         return;
     }
-
+    
+    // Seymour Gear Names
     byte* h_MsWeaponName(int name_id, int owner, int simplified, ushort* ref_model_id)
     {
         if (owner != 7)
@@ -2028,8 +2020,7 @@ public unsafe class TemplateModule : FhModule {
         }
         return (byte*)seymour_gear_names[gearid];
     }
-
-    // Battle Results Equipment Discard, Party Menu & Customize: Equipment Names + Icons
+    // Equipment Names + Icons for Swap/Discard, Equip & Customize Menus
     void h_FUN_008e67f0(uint param_1, float param_2, float param_3, float param_4)
     {
         Equipment* pSVar1;
@@ -2091,8 +2082,7 @@ public unsafe class TemplateModule : FhModule {
         }
         return;
     }
-
-    // Shop & Inventory: Equipment Names + Icons
+    // Equipment Names + Icons for Shops & Inventory
     void h_DrawCrossMenuIconWeaponName2(ushort* param_1, float param_2, float param_3, float param_4)
     {
         uint hiragana;
@@ -2153,8 +2143,7 @@ public unsafe class TemplateModule : FhModule {
         }
         return;
     }
-
-    // Battle Menus: Equipment Names + Icons
+    // Equipment Names + Icons for Battle Menus
     int h_FUN_0089f300(uint param_1)
     {
         short sVar1;
@@ -2656,7 +2645,7 @@ public unsafe class TemplateModule : FhModule {
         }
         return 0;
     }
-
+    // Battle Results Equipment Drops
     int h_MsGetItemInternal_00798C20(int param_1, int param_2, int param_3)
     {
         byte bVar1;
@@ -2801,7 +2790,7 @@ public unsafe class TemplateModule : FhModule {
         _MsWeaponName.hook_fptr((int)(uint)uVar3, (int)(uint)gear->owner, 0, &gear->model_id);
         return 0;
     }
-
+    // Show Gear in Menus
     void h_MsChangeWeaponInvisible(uint param_1, byte param_2)
     {
         byte gear;
@@ -2833,8 +2822,7 @@ public unsafe class TemplateModule : FhModule {
         }
         return;
     }
-
-    // Gear Ability preview in shops
+    // Gear Ability Preview in Shops
     void h_FUN_008d85f0(int param_1, int param_2)
     {
         void* pvVar1;
@@ -2977,6 +2965,7 @@ public unsafe class TemplateModule : FhModule {
     }
 
     // Equipment Sorting
+    // Sort by Owner
     int h_FUN_008c9f80()
     {
         int iVar1;
@@ -3136,7 +3125,6 @@ public unsafe class TemplateModule : FhModule {
         }
         return iVar4;
     }
-
     int h_MsLimitTypeDeathCheck(int param_1, int param_2, uint param_3, int param_4)
     {
         int uVar1;
@@ -3187,7 +3175,6 @@ public unsafe class TemplateModule : FhModule {
         }
         return 0;
     }
-
     int h_FUN_007b10d0(uint chr_id, uint limit_mode, int param_3)
     {
         Chr* chr = _MsGetChr(chr_id);
@@ -3215,7 +3202,6 @@ public unsafe class TemplateModule : FhModule {
         }
         return 0;
     }
-
     int h_MsLimitTypeTurnCheck(uint param_1, int param_2)
     {
         uint uVar1;
@@ -3286,7 +3272,6 @@ public unsafe class TemplateModule : FhModule {
         }
         return local_8 + 1;
     }
-
     int h_MsLimitTypeWinCheck()
     {
         Chr* character;
@@ -3344,8 +3329,10 @@ public unsafe class TemplateModule : FhModule {
         seymour->base_mp = 319;
         seymour->mp = 319;
         seymour->max_mp = 319;
-        seymour->base_defense = 18;
-        seymour->base_magic_defense = 50;
+        seymour->base_defense = 17;
+        seymour->base_magic = 32;
+        seymour->base_magic_defense = 40;
+        seymour->base_agility = 15;
         seymour->base_evasion = 3;
         seymour->slv_spent = 30;
         seymour->abi_map.has_weapon_change = true;
@@ -3389,12 +3376,13 @@ public unsafe class TemplateModule : FhModule {
         extra24->limit_cost = 100;
     }
 
-    // Show Seymour's Armor model
+    // Show Seymour's Armor Model
     int h_FUN_00635c20(uint param_1) 
     {
         short sVar1;
 
         sVar1 = (short)_getScenerioFlag();
+        //if (param_1 != 0x4067)
         if (param_1 != 0x4068)
         {
             if (sVar1 == 0x2e)
@@ -3416,6 +3404,7 @@ public unsafe class TemplateModule : FhModule {
         return (int)((param_1 & 0xffffff00) | 0x01);
     }
 
+    // Summoning
     // Extra24 = Seymour Summon
     int h_MsParseCommand(byte* param_1)
     {
@@ -3432,8 +3421,7 @@ public unsafe class TemplateModule : FhModule {
         }
         return _MsParseCommand.orig_fptr(param_1);
     }
-
-    // Extra24 Summon Help text
+    // Extra24 Summon Help Text
     void h_TOBtlCtrlHelpWin(int param_1)
     {
         int win_idx = *toBwNum;
@@ -3448,48 +3436,57 @@ public unsafe class TemplateModule : FhModule {
         }
         _TOBtlCtrlHelpWin.orig_fptr(param_1);
     }
-
-    // Battle Summon List
+    // Battle Summon Menu
     ushort* h_TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength)
     {
-        ushort* originallist;
-        int originalcount;
-        int newcount;
-        ushort aeonId;
-        
         if ((uint)window_type == 5)
         {
-            originallist = _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
-            originalcount = *summonlistlength;
-            newcount = 0;
-
-            for (int i = 0; i < originalcount; i++)
+            ushort* originallist = _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
+            Span<ushort> listSpan = new(originallist, *summonlistlength);
+            if (chr_id == 1)
             {
-                aeonId = originallist[i];
-                if (aeonId == 0xFFFF)
-                    break;
-                if (chr_id == 7)
+                if (!Globals.save_data->has_anima && listSpan.Contains<ushort>(PlySaveId.PC_ANIMA))
                 {
-                    if (aeonId == 0x000D)
+                    int newLength = 0;
+                    for (int i = 0; i < *summonlistlength; i++)
                     {
-                        summonlist[newcount++] = aeonId;
+                        if (listSpan[i] != PlySaveId.PC_ANIMA)
+                        {
+                            listSpan[newLength] = listSpan[i];
+                            newLength++;
+                        }
                     }
+                    for (int i = newLength; i < *summonlistlength; i++)
+                    {
+                        listSpan[i] = 0xFFFF;
+                    }
+                    *summonlistlength = newLength;
                 }
-                else if (chr_id != 7)
+                return originallist;
+            }
+            if (chr_id == 7)
+            {
+                if (listSpan.Contains<ushort>(PlySaveId.PC_ANIMA))
                 {
-                    if (aeonId != 0x000D || Globals.save_data->has_anima) // Can't summon Anima until Baaj Sidequest
-                    {
-                        summonlist[newcount++] = aeonId;
-                    }
+                    listSpan.Fill(0xFFFF);
+                    listSpan[0] = PlySaveId.PC_ANIMA;
+                    *summonlistlength = 1;
+                    return originallist;
+                }
+                else
+                {
+                    listSpan.Fill(0xFFFF);
+                    *summonlistlength = 0;
+                    return originallist;
                 }
             }
-            summonlist[newcount] = 0xFFFF;
-            *summonlistlength = newcount;
-            return summonlistptr;
+            else
+            {
+                return originallist;
+            }
         }
         return _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
     }
-
     // Overdrive Menus
     int h_TkMenuSummonEnableMask()
     {
@@ -3502,7 +3499,6 @@ public unsafe class TemplateModule : FhModule {
         }
         return _TkMenuSummonEnableMask.orig_fptr();
     }
-
     // Anima Stat Scaling with Seymour
     void h_MsSetSaveParam(uint chr_id)
     {
@@ -3510,7 +3506,6 @@ public unsafe class TemplateModule : FhModule {
         _MsSetSaveParam.orig_fptr(chr_id);
         aeon = 0;
     }
-
     int* h_FUN_00785c20(uint chr_id, uint* param_2)
     {
         MsChrAbilityMap* pMVar1;
