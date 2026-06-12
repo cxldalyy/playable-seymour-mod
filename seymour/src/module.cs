@@ -33,6 +33,21 @@ public unsafe class TemplateModule : FhModule {
             _ = FhEncoding.encode(weapon_name_utf8, new(name_ptr, weapon_name_len));
             seymour_gear_names[i] = (nint)name_ptr;
         }
+
+        string scene0 = "scene0";
+        ReadOnlySpan<byte> scene0Utf8 = Encoding.UTF8.GetBytes(scene0);
+        scene0String = (byte*)NativeMemory.AllocZeroed((nuint)scene0Utf8.Length + 1);
+        scene0Utf8.CopyTo(new Span<byte>(scene0String, scene0Utf8.Length));
+        
+        string scene11 = "scene11";
+        ReadOnlySpan<byte> scene11Utf8 = Encoding.UTF8.GetBytes(scene11);
+        scene11String = (byte*)NativeMemory.AllocZeroed((nuint)scene11Utf8.Length + 1);
+        scene11Utf8.CopyTo(new Span<byte>(scene11String, scene11Utf8.Length));
+        
+        string scene20 = "scene20";
+        ReadOnlySpan<byte> scene20Utf8 = Encoding.UTF8.GetBytes(scene20);
+        scene20String = (byte*)NativeMemory.AllocZeroed((nuint)scene20Utf8.Length + 1);
+        scene20Utf8.CopyTo(new Span<byte>(scene20String, scene20Utf8.Length));
     }
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -387,6 +402,26 @@ public unsafe class TemplateModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void updateMenu(IntPtr menu);
+
+    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    public delegate uint FUN_008a9820();
+    public const nint __addr_FUN_008a9820 = 0x4A9820;
+    private FUN_008a9820 _FUN_008a9820;
+    
+    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    public delegate bool FUN_008cfc00();
+    public const nint __addr_FUN_008cfc00 = 0x4CFC00;
+    private FUN_008cfc00 _FUN_008cfc00;
+    
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FUN_008cfcf0(int param_1, int param_2);
+    public const nint __addr_FUN_008cfcf0 = 0x4CFCF0;
+    private FUN_008cfcf0 _FUN_008cfcf0;
+    
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FUN_008c2bd0(byte* param_1);
+    public const nint __addr_FUN_008c2bd0 = 0x4C2BD0;
+    private FUN_008c2bd0 _FUN_008c2bd0;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int FUN_00798be0(BtlRewardData* get_data);
@@ -813,6 +848,27 @@ public unsafe class TemplateModule : FhModule {
     private FhMethodHandle<FUN_0089f300> _FUN_0089f300;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void FUN_008cf800(int param_1);
+    public const nint __addr_FUN_008cf800 = 0x4CF800;
+    private FhMethodHandle<FUN_008cf800> _FUN_008cf800;
+    private int* DAT_0186a5ec => FhUtil.ptr_at<int>(0x0146a5ec);
+    private int* DAT_0186a5f0 => FhUtil.ptr_at<int>(0x0146a5f0);
+    private int* TKMenuFaceRatio => FhUtil.ptr_at<int>(0x01fcc3c8);
+    private int* TkMenuFaceKeep => FhUtil.ptr_at<int>(0x01fcc3c4);
+    private int* TkMenuFaceNew => FhUtil.ptr_at<int>(0x01fcc3c0);
+    private int* TkMenuFaceOld => FhUtil.ptr_at<int>(0x01fcc3bc);
+    private int* DAT_0186a634 => FhUtil.ptr_at<int>(0x0146a634);
+    private int* DAT_0186a614 => FhUtil.ptr_at<int>(0x0146a614);
+    private int* DAT_0186a654 => FhUtil.ptr_at<int>(0x0146a654);
+    private int* DAT_0186a674 => FhUtil.ptr_at<int>(0x0146a674);
+    private int* DAT_0186a5e4 => FhUtil.ptr_at<int>(0x0146a5e4);
+    private int* DAT_0186a5d8 => FhUtil.ptr_at<int>(0x0146a5d8);
+    private int* DAT_0186a5d4 => FhUtil.ptr_at<int>(0x0146a5d4);
+    private static byte* scene0String;
+    private static byte* scene11String;
+    private static byte* scene20String;
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsGetItemInternal_00798C20(int param_1, int param_2, int param_3);
     public const nint __addr_MsGetItemInternal_00798C20 = 0x398C20;
     private FhMethodHandle<MsGetItemInternal_00798C20> _MsGetItemInternal_00798C20;
@@ -1008,6 +1064,10 @@ public unsafe class TemplateModule : FhModule {
         _MsGetRamChrHP = FhUtil.get_fptr<MsGetRamChrHP>(__addr_MsGetRamChrHP);
         _MsGetRamChrMP = FhUtil.get_fptr<MsGetRamChrMP>(__addr_MsGetRamChrMP);
         _FUN_00904ba0 = FhUtil.get_fptr<FUN_00904ba0>(__addr_FUN_00904ba0);
+        _FUN_008a9820 = FhUtil.get_fptr<FUN_008a9820>(__addr_FUN_008a9820);
+        _FUN_008cfc00 = FhUtil.get_fptr<FUN_008cfc00>(__addr_FUN_008cfc00);
+        _FUN_008cfcf0 = FhUtil.get_fptr<FUN_008cfcf0>(__addr_FUN_008cfcf0);
+        _FUN_008c2bd0 = FhUtil.get_fptr<FUN_008c2bd0>(__addr_FUN_008c2bd0);
         _FUN_00798be0 = FhUtil.get_fptr<FUN_00798be0>(__addr_FUN_00798be0);
         _MsGetSavePlyJoined = FhUtil.get_fptr<MsGetSavePlyJoined>(__addr_MsGetSavePlyJoined);
         _Brnd = FhUtil.get_fptr<Brnd>(__addr_Brnd);
@@ -1049,6 +1109,7 @@ public unsafe class TemplateModule : FhModule {
         _FUN_008e67f0 = new FhMethodHandle<FUN_008e67f0>(this, game, __addr_FUN_008e67f0, h_FUN_008e67f0);
         _DrawCrossMenuIconWeaponName2 = new FhMethodHandle<DrawCrossMenuIconWeaponName2>(this, game, __addr_DrawCrossMenuIconWeaponName2, h_DrawCrossMenuIconWeaponName2);
         _FUN_0089f300 = new FhMethodHandle<FUN_0089f300>(this, game, __addr_FUN_0089f300, h_FUN_0089f300);
+        _FUN_008cf800 = new FhMethodHandle<FUN_008cf800>(this, game, __addr_FUN_008cf800, h_FUN_008cf800);
         _MsGetItemInternal_00798C20 = new FhMethodHandle<MsGetItemInternal_00798C20>(this, game, __addr_MsGetItemInternal_00798C20, h_MsGetItemInternal_00798C20);
         _MsChangeWeaponInvisible = new FhMethodHandle<MsChangeWeaponInvisible>(this, game, __addr_MsChangeWeaponInvisible, h_MsChangeWeaponInvisible);
         _FUN_008d85f0 = new FhMethodHandle<FUN_008d85f0>(this, game, __addr_FUN_008d85f0, h_FUN_008d85f0);
@@ -1085,6 +1146,7 @@ public unsafe class TemplateModule : FhModule {
                _FUN_008e67f0.hook() &&
                _DrawCrossMenuIconWeaponName2.hook() &&
                _FUN_0089f300.hook() &&
+               _FUN_008cf800.hook() &&
                _MsGetItemInternal_00798C20.hook() &&
                _MsChangeWeaponInvisible.hook() &&
                _FUN_008d85f0.hook() &&
@@ -2644,6 +2706,46 @@ public unsafe class TemplateModule : FhModule {
             } while ((int)local_10 < (int)local_20);
         }
         return 0;
+    }
+    // HP/MP Copying for Equip Menu
+    void h_FUN_008cf800(int param_1)
+    {
+        bool bVar1;
+        int uVar2;
+        uint uVar4;
+        int iVar3;
+    
+        *(int*)(param_1 + 0x1c) = 0;
+        *DAT_0186a5ec = 0;
+        *DAT_0186a5f0 = 0xff;
+        *TKMenuFaceRatio = 0;
+        *TkMenuFaceKeep = (int)_FUN_008a9820();
+        *TkMenuFaceNew = (int)_FUN_008a9820();
+        *TkMenuFaceOld = (int)_FUN_008a9820();
+        uVar4 = 0;
+        do
+        {
+            uVar2 = _FUN_008a97d0(uVar4);
+            (DAT_0186a634)[uVar4] = uVar2;
+            uVar2 = _FUN_008a9c20(uVar4);
+            (DAT_0186a614)[uVar4] = uVar2;
+            uVar2 = (int)_FUN_008a9870(uVar4);
+            (DAT_0186a654)[uVar4] = uVar2;
+            uVar2 = (int)_FUN_008a9920(uVar4);
+            (DAT_0186a674)[uVar4] = uVar2;
+            uVar4 = uVar4 + 1;
+        } while ((int)uVar4 < 8);
+        *DAT_0186a5e4 = 0;
+        bVar1 = _FUN_008cfc00();
+        iVar3 = bVar1 ? 1 : 0;
+        uVar2 = _TkMenuGetCurrentPlayer();
+        _FUN_008cfcf0(uVar2, iVar3);
+        *DAT_0186a5d8 = 0x155;
+        *DAT_0186a5d4 = 0;
+        _FUN_008c2bd0(scene0String);
+        _FUN_008c2bd0(scene11String);
+        _FUN_008c2bd0(scene20String);
+        return;
     }
     // Battle Results Equipment Drops
     int h_MsGetItemInternal_00798C20(int param_1, int param_2, int param_3)
