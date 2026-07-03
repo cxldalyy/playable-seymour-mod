@@ -3456,6 +3456,7 @@ public unsafe class TemplateModule : FhModule {
         seymour->limit_mode_ctr_daredevil = 150;
         seymour->limit_mode_ctr_loner = 30;
         seymour->obtained_limit_modes = (OverdriveModeFlags)(uint)OverdriveModeFlags.STOIC;
+        _MsSetSaveParam(7);
 
         Command* requiem = _MsGetRomPlyCommand(0x30E3, (int*)0x0);
         requiem->is_piercing = true;
@@ -3484,7 +3485,6 @@ public unsafe class TemplateModule : FhModule {
         short sVar1;
 
         sVar1 = (short)_getScenerioFlag();
-        //if (param_1 != 0x4067)
         if (param_1 != 0x4068)
         {
             if (sVar1 == 0x2e)
@@ -3623,6 +3623,8 @@ public unsafe class TemplateModule : FhModule {
         {
             *param_2 = 0;
             param_2[1] = 0;
+            // Removed Strength & Defense scalings - Anima was too overpowered with them
+            // when using Seymour's stats as a base.
         }
         else
         {
@@ -3648,6 +3650,6 @@ public unsafe class TemplateModule : FhModule {
             param_2[6] = param_2[6] + pMVar1->evasion;
             param_2[7] = param_2[7] + pMVar1->accuracy;
         }
-        return &pMVar1->hp;
+        return (int*)pMVar1;
     }
 }
