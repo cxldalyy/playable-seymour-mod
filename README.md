@@ -17,7 +17,11 @@ This mod features modded files to be used in conjunction with [Fahrenheit](https
 - Done! Now launch Fahrenheit.
 - Once installation is completed, you may remove/delete the `FFX_Data` and `ffx_ps2` folders from the `/original` folder to conserve disk space.
 
+### Additional Improvements:
+- Optional, but recommended additions that improve quality of life:
+- My [Requiem Fix](https://www.nexusmods.com/finalfantasyxx2hdremaster/mods/266) to fix Seymour's Overdrive's camera angling outside the Sinspawn Gui Battle.
+
 ### Made possible thanks to:
-* **xDelta3:** [Joshua MacDonald](https://github.com/jmacd/xdelta-gpl).
-* **Fahrenheit:** [Fahrenheit-Crew](https://github.com/fahrenheit-crew/fahrenheit).
-* **[VBF Browser](https://www.nexusmods.com/finalfantasy12/mods/3):** Topher, ffgriever and Vaan.
+* **[VBF Browser](https://www.nexusmods.com/finalfantasy12/mods/3):** Topher, ffgriever and Vaan
+* **[Fahrenheit](https://github.com/fahrenheit-crew/fahrenheit):** The Fahrenheit Crew
+* **[xDelta3](https://github.com/jmacd/xdelta-gpl):** Joshua MacDonald
