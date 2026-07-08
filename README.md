@@ -18,8 +18,15 @@ This mod features modded files to be used in conjunction with [Fahrenheit](https
 - Once installation is completed, you may remove/delete the `FFX_Data` and `ffx_ps2` folders from the `/original` folder to conserve disk space.
 
 ### Additional Improvements:
-- Optional, but recommended additions that improve quality of life:
+Optional, but recommended additions that improve quality of life:
 - My [Requiem Fix](https://www.nexusmods.com/finalfantasyxx2hdremaster/mods/266) to fix Seymour's Overdrive's camera angling outside the Sinspawn Gui Battle.
+
+### Final Notes:
+- It's critical that this mod is played on an entirely new save file. Many things will break if you just try to load a preexisting save with this mod.
+- Seymour comes with the ability to summon Anima once recruited immediately after the Sinspawn Gui battle (though Anima is not able to be summoned for this particular battle). To summon Anima, Seymour requires a full Overdrive. The choice is down to the player whether or not to Summon or use Requiem at a time.
+- Requiem and Anima have both been adjusted, with Requiem being far more powerful, and Anima slightly less overpowered, given her joining the party extremely early on.
+- Despite Seymour being able to summon Anima, Yuna cannot until the Baaj Temple sidequest is completed as is the case in vanilla. If the player doesn't complete it, Seymour remains the only character able to summon her. Once the sidequest is cleared, Yuna can also summon Anima as usual.
+- This mod is still a work in progress. There are things that need adjusting, and other things that need reworking. The mod in its current state is playable, start to finish, with no game-breaking issues that I know of.
 
 ### Made possible thanks to:
 * **[VBF Browser](https://www.nexusmods.com/finalfantasy12/mods/3):** Topher, ffgriever and Vaan
