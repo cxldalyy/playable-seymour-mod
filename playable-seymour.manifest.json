@@ -1,0 +1,11 @@
+{
+    "Id":"playable-seymour",
+    "Name":"Playable Seymour",
+    "Desc":"A FINAL FANTASY X HD Remaster mod to make Seymour his own, standalone character.",
+    "Authors": "cxldalyy",
+    "Version":"1.0.0-alpha",
+    "Link":"https://github.com/cxldalyy/playable-seymour-mod",
+    "Dependencies":[],
+    "LoadAfter":[],
+    "Flags":"SEPARATE_SAVES"
+}

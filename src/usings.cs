@@ -5,7 +5,11 @@
  * 'global using' are project-scoped. They do not leak outside of your mod's source.
  */
 
+global using System;
 global using System.IO;
+global using System.Text;
+global using System.Runtime.InteropServices;
+global using System.Runtime.CompilerServices;
 
 /* [fkelava 27/6/25 00:30]
  * This section is for Fahrenheit 'global using'.
@@ -15,4 +19,7 @@ global using System.IO;
  */
 
 global using Fahrenheit.FFX;
+global using Fahrenheit.Atel;
+global using Fahrenheit.FFX.Ids;
+global using Fahrenheit.FFX.Battle;
 //global using Fahrenheit.FFX2;
