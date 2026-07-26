@@ -99,8 +99,8 @@ public unsafe class SeymourModule : FhModule {
         new ( new FhMethodLocation("FFX.exe", 0x4A9B20) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void FUN_008e7d30(float param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7, float param_8, float param_9, float param_10, uint param_11, uint param_12);
-    private static FhMethodHandle<FUN_008e7d30> _FUN_008e7d30 =>
+    public delegate void DrawWaterWaveShapeC2(float param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7, float param_8, float param_9, float param_10, uint param_11, uint param_12);
+    private static FhMethodHandle<DrawWaterWaveShapeC2> _DrawWaterWaveShapeC2 =>
         new ( new FhMethodLocation("FFX.exe", 0x4E7D30) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -114,8 +114,8 @@ public unsafe class SeymourModule : FhModule {
         new ( new FhMethodLocation("FFX.exe", 0x4AC800) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void FUN_00905930(byte* name, float param_2, float param_3, byte color, float param_5, int param_6);
-    private static FhMethodHandle<FUN_00905930> _FUN_00905930 =>
+    public delegate void ToMakeBtlEasyEdgeFont(byte* name, float param_2, float param_3, byte color, float param_5, int param_6);
+    private static FhMethodHandle<ToMakeBtlEasyEdgeFont> _ToMakeBtlEasyEdgeFont =>
         new ( new FhMethodLocation("FFX.exe", 0x505930) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
@@ -124,28 +124,28 @@ public unsafe class SeymourModule : FhModule {
         new ( new FhMethodLocation("FFX.exe", 0x4AC2A0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate uint FUN_008a9940(uint param_1);
-    private static FhMethodHandle<FUN_008a9940> _FUN_008a9940 =>
+    public delegate uint TkMenuGetMaxHP(uint param_1);
+    private static FhMethodHandle<TkMenuGetMaxHP> _TkMenuGetMaxHP =>
         new ( new FhMethodLocation("FFX.exe", 0x4A9940) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate uint FUN_008a9870(uint param_1);
-    private static FhMethodHandle<FUN_008a9870> _FUN_008a9870 =>
+    public delegate uint TkMenuGetHP(uint param_1);
+    private static FhMethodHandle<TkMenuGetHP> _TkMenuGetHP =>
         new ( new FhMethodLocation("FFX.exe", 0x4A9870) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void FUN_00901660(byte* param_1, float param_2, float param_3, byte param_4, float param_5, float param_6);
-    private static FhMethodHandle<FUN_00901660> _FUN_00901660 =>
+    public delegate void TOMkpCrossEasyStrFontSClut(byte* param_1, float param_2, float param_3, byte param_4, float param_5, float param_6);
+    private static FhMethodHandle<TOMkpCrossEasyStrFontSClut> _TOMkpCrossEasyStrFontSClut =>
         new ( new FhMethodLocation("FFX.exe", 0x501660) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate uint FUN_008a9960(uint param_1);
-    private static FhMethodHandle<FUN_008a9960> _FUN_008a9960 =>
+    public delegate uint TkMenuGetMaxMP(uint param_1);
+    private static FhMethodHandle<TkMenuGetMaxMP> _TkMenuGetMaxMP =>
         new ( new FhMethodLocation("FFX.exe", 0x4A9960) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate uint FUN_008a9920(uint param_1);
-    private static FhMethodHandle<FUN_008a9920> _FUN_008a9920 =>
+    public delegate uint TkMenuGetMP(uint param_1);
+    private static FhMethodHandle<TkMenuGetMP> _TkMenuGetMP =>
         new ( new FhMethodLocation("FFX.exe", 0x4A9920) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -294,13 +294,13 @@ public unsafe class SeymourModule : FhModule {
         new ( new FhMethodLocation("FFX.exe", 0x4BD9D0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void FUN_009055c0(int param_1, float param_2, float param_3, int param_4, float param_5, float param_6);
-    private static FhMethodHandle<FUN_009055c0> _FUN_009055c0 =>
+    public delegate void ToMakeBtlEasyDigitRight(int param_1, float param_2, float param_3, int param_4, float param_5, float param_6);
+    private static FhMethodHandle<ToMakeBtlEasyDigitRight> _ToMakeBtlEasyDigitRight =>
         new ( new FhMethodLocation("FFX.exe", 0x5055C0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate void FUN_00905550(int param_1, float param_2, float param_3, byte param_4, float param_5);
-    private static FhMethodHandle<FUN_00905550> _FUN_00905550 =>
+    public delegate void ToMakeBtlEasyDigit2(int param_1, float param_2, float param_3, byte param_4, float param_5);
+    private static FhMethodHandle<ToMakeBtlEasyDigit2> _ToMakeBtlEasyDigit2 =>
         new ( new FhMethodLocation("FFX.exe", 0x505550) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -317,7 +317,6 @@ public unsafe class SeymourModule : FhModule {
     public delegate int FUN_00785370(byte param_1);
     private static FhMethodHandle<FUN_00785370> _FUN_00785370 =>
         new ( new FhMethodLocation("FFX.exe", 0x385370) );
-
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TODrawMenuPlateXYWHType(float x, float y, float w, float h, int type);
@@ -437,8 +436,8 @@ public unsafe class SeymourModule : FhModule {
     private static FhMethodHandle<FUN_00798aa0> _FUN_00798aa0 =>
         new ( new FhMethodLocation("FFX.exe", 0x398AA0) );
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
-    public delegate byte MsWeaponNameNum(Equipment* gear);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate ushort MsWeaponNameNum(Equipment* gear);
     private static FhMethodHandle<MsWeaponNameNum> _MsWeaponNameNum =>
         new ( new FhMethodLocation("FFX.exe", 0x3A0D10) );
 
@@ -562,6 +561,7 @@ public unsafe class SeymourModule : FhModule {
     private static FhMethodHandle<setCommandDisabled> _setCommandDisabled =>
         new ( new FhMethodLocation("FFX.exe", 0x39B480) );
 
+
     // Hooks
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int CT_RetInt_0171_restoreCharHp(AtelBasicWorker* work, int* storage, AtelStack* stack);
@@ -586,13 +586,13 @@ public unsafe class SeymourModule : FhModule {
         public byte b;
         public byte a;
     }
-    private byte* p_toMenuNamePltNextH => FhUtil.ptr_at<byte  >(0x021D1670);
-    private byte* p_DAT_025d1640       => FhUtil.ptr_at<byte  >(0x021D1640);
-    private short* p_DAT_01871638      => FhUtil.ptr_at<short >(0x01471638);
-    private ushort* p_DAT_00c56870     => FhUtil.ptr_at<ushort>(0x00856870);
-    private byte* p_DAT_0187150c       => FhUtil.ptr_at<byte  >(0x0147150C);
-    private int DAT_0187151c           => FhUtil.get_at<int   >(0x0147151C);
-    private int DAT_01871520           => FhUtil.get_at<int   >(0x01471520);
+    private byte*   p_toMenuNamePltNextH => FhUtil.ptr_at<byte  >(0x021D1670);
+    private byte*   p_DAT_025d1640       => FhUtil.ptr_at<byte  >(0x021D1640);
+    private short*  p_DAT_01871638       => FhUtil.ptr_at<short >(0x01471638);
+    private ushort* p_DAT_00c56870       => FhUtil.ptr_at<ushort>(0x00856870);
+    private byte*   p_DAT_0187150c       => FhUtil.ptr_at<byte  >(0x0147150C);
+    private int     DAT_0187151c         => FhUtil.get_at<int   >(0x0147151C);
+    private int     DAT_01871520         => FhUtil.get_at<int   >(0x01471520);
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008c0220(uint param_1, float param_2, float param_3, float param_4, float param_5);
@@ -631,8 +631,8 @@ public unsafe class SeymourModule : FhModule {
     private static FhMethodHandle<FUN_008bc300> _FUN_008bc300 =>
         new ( new FhMethodLocation("FFX.exe", 0x4BC300) );
 
-    private int* p_DAT_01869ee4  => FhUtil.ptr_at<int >(0x01469EE4);
-    private int* p_DAT_01869ee0  => FhUtil.ptr_at<int >(0x01469EE0);
+    private int*  p_DAT_01869ee4 => FhUtil.ptr_at<int >(0x01469EE4);
+    private int*  p_DAT_01869ee0 => FhUtil.ptr_at<int >(0x01469EE0);
     private byte* p_DAT_01869eea => FhUtil.ptr_at<byte>(0x01469EEA);
     private static byte* textString;
 
@@ -836,26 +836,26 @@ public unsafe class SeymourModule : FhModule {
     private static FhMethodHandle<FUN_008cf800> _FUN_008cf800 =>
         new ( new FhMethodLocation("FFX.exe", 0x4CF800) );
 
-    private int* DAT_0186a5ec    => FhUtil.ptr_at<int>(0x0146A5EC);
-    private int* DAT_0186a5f0    => FhUtil.ptr_at<int>(0x0146A5F0);
-    private int* TKMenuFaceRatio => FhUtil.ptr_at<int>(0x01FCC3C8);
-    private int* TkMenuFaceKeep  => FhUtil.ptr_at<int>(0x01FCC3C4);
-    private int* TkMenuFaceNew   => FhUtil.ptr_at<int>(0x01FCC3C0);
-    private int* TkMenuFaceOld   => FhUtil.ptr_at<int>(0x01FCC3BC);
-    private int* DAT_0186a634    => FhUtil.ptr_at<int>(0x0146A634);
-    private int* DAT_0186a614    => FhUtil.ptr_at<int>(0x0146A614);
-    private int* DAT_0186a654    => FhUtil.ptr_at<int>(0x0146A654);
-    private int* DAT_0186a674    => FhUtil.ptr_at<int>(0x0146A674);
-    private int* DAT_0186a5e4    => FhUtil.ptr_at<int>(0x0146A5E4);
-    private int* DAT_0186a5d8    => FhUtil.ptr_at<int>(0x0146A5D8);
-    private int* DAT_0186a5d4    => FhUtil.ptr_at<int>(0x0146A5D4);
+    private int* p_DAT_0186a5ec    => FhUtil.ptr_at<int>(0x0146A5EC);
+    private int* p_DAT_0186a5f0    => FhUtil.ptr_at<int>(0x0146A5F0);
+    private int* p_TKMenuFaceRatio => FhUtil.ptr_at<int>(0x01FCC3C8);
+    private int* p_TkMenuFaceKeep  => FhUtil.ptr_at<int>(0x01FCC3C4);
+    private int* p_TkMenuFaceNew   => FhUtil.ptr_at<int>(0x01FCC3C0);
+    private int* p_TkMenuFaceOld   => FhUtil.ptr_at<int>(0x01FCC3BC);
+    private int* p_DAT_0186a634    => FhUtil.ptr_at<int>(0x0146A634);
+    private int* p_DAT_0186a614    => FhUtil.ptr_at<int>(0x0146A614);
+    private int* p_DAT_0186a654    => FhUtil.ptr_at<int>(0x0146A654);
+    private int* p_DAT_0186a674    => FhUtil.ptr_at<int>(0x0146A674);
+    private int* p_DAT_0186a5e4    => FhUtil.ptr_at<int>(0x0146A5E4);
+    private int* p_DAT_0186a5d8    => FhUtil.ptr_at<int>(0x0146A5D8);
+    private int* p_DAT_0186a5d4    => FhUtil.ptr_at<int>(0x0146A5D4);
     private static byte* scene0String;
     private static byte* scene11String;
     private static byte* scene20String;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate int MsGetItemInternal_00798C20(int param_1, int param_2, int param_3);
-    private static FhMethodHandle<MsGetItemInternal_00798C20> _MsGetItemInternal_00798C20 =>
+    public delegate int MsGetItemInternal(int param_1, int param_2, int param_3);
+    private static FhMethodHandle<MsGetItemInternal> _MsGetItemInternal =>
         new ( new FhMethodLocation("FFX.exe", 0x398C20) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -868,10 +868,10 @@ public unsafe class SeymourModule : FhModule {
     private static FhMethodHandle<FUN_008d85f0> _FUN_008d85f0 =>
         new ( new FhMethodLocation("FFX.exe", 0x4D85F0) );
 
-    private uint DAT_0186ab60                              => FhUtil.get_at<uint         >(0x0146AB60);
-    private int* p_DAT_0186aadc_curShopIdx                 => FhUtil.ptr_at<int          >(0x0146AADC);
-    private int* p_DAT_0186ab68_arms_shop_bin_ptr          => FhUtil.ptr_at<int          >(0x0146AB68);
-    private OverdriveMenu* p_DAT_01597730_OvrModesMenuList => FhUtil.ptr_at<OverdriveMenu>(0x01197730);
+    private uint           DAT_0186ab60                     => FhUtil.get_at<uint         >(0x0146AB60);
+    private int*           p_DAT_0186aadc_curShopIdx        => FhUtil.ptr_at<int          >(0x0146AADC);
+    private int*           p_DAT_0186ab68_arms_shop_bin_ptr => FhUtil.ptr_at<int          >(0x0146AB68);
+    private OverdriveMenu* p_DAT_01597730_OvrModesMenuList  => FhUtil.ptr_at<OverdriveMenu>(0x01197730);
     [StructLayout(LayoutKind.Sequential)]
     public struct OverdriveMenu
     {
@@ -926,7 +926,7 @@ public unsafe class SeymourModule : FhModule {
     private static FhMethodHandle<TOBtlCtrlHelpWin> _TOBtlCtrlHelpWin =>
         new ( new FhMethodLocation("FFX.exe", 0x491250) );
 
-    private byte* toBwNum => FhUtil.ptr_at<byte>(0x01fcc092);
+    private byte* p_toBwNum => FhUtil.ptr_at<byte>(0x01fcc092);
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate ushort* TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength);
@@ -996,7 +996,7 @@ public unsafe class SeymourModule : FhModule {
             && _DrawCrossMenuIconWeaponName2.hook(this, h_DrawCrossMenuIconWeaponName2)
             && _TOBtlDrawCommandWindow      .hook(this, h_TOBtlDrawCommandWindow)
             && _FUN_008cf800                .hook(this, h_FUN_008cf800)
-            && _MsGetItemInternal_00798C20  .hook(this, h_MsGetItemInternal_00798C20)
+            && _MsGetItemInternal           .hook(this, h_MsGetItemInternal)
             && _MsChangeWeaponInvisible     .hook(this, h_MsChangeWeaponInvisible)
             && _FUN_008d85f0                .hook(this, h_FUN_008d85f0)
             && _MsLimitTypeDamageCheck      .hook(this, h_MsLimitTypeDamageCheck)
@@ -1174,7 +1174,7 @@ public unsafe class SeymourModule : FhModule {
                         local_2c = fVar8;
                         fVar11 = _graphicUiRemapY2.fnptr!(64.0f);
                         fVar12 = _graphicUiRemapX2.fnptr!(250.0f);
-                        _FUN_008e7d30.fnptr!(local_24, local_28, fVar12, fVar11, uVar14, fVar8, fVar9, fVar10, uVar16, uVar17, (uint)puVar21, uVar22);
+                        _DrawWaterWaveShapeC2.fnptr!(local_24, local_28, fVar12, fVar11, uVar14, fVar8, fVar9, fVar10, uVar16, uVar17, (uint)puVar21, uVar22);
                         puVar21 = (byte*)p_DAT_00c56870;
                         uVar22 = 0x1ac56870;
                         uVar17 = -20.0f; ;
@@ -1187,7 +1187,7 @@ public unsafe class SeymourModule : FhModule {
                         fVar9 = _graphicUiRemapX2.fnptr!(250.0f);
                         fVar8 = local_28;
                         fVar10 = _graphicUiRemapX2.fnptr!(250.0f);
-                        _FUN_008e7d30.fnptr!(fVar10 + (float)local_34, fVar8, fVar9, fVar12, uVar14, fVar11, fVar15, fVar20, uVar16, uVar17, uVar22, (uint)puVar21);
+                        _DrawWaterWaveShapeC2.fnptr!(fVar10 + (float)local_34, fVar8, fVar9, fVar12, uVar14, fVar11, fVar15, fVar20, uVar16, uVar17, uVar22, (uint)puVar21);
                         uVar22 = 0x33c56870;
                         puVar21 = (byte*)p_DAT_00c56870;
                         uVar17 = -10.0f;
@@ -1198,7 +1198,7 @@ public unsafe class SeymourModule : FhModule {
                         fVar8 = local_2c;
                         fVar11 = _graphicUiRemapY2.fnptr!(64.0f);
                         fVar12 = _graphicUiRemapX2.fnptr!(250.0f);
-                        _FUN_008e7d30.fnptr!(local_24, local_28, fVar12, fVar11, uVar14, fVar8, fVar9, fVar10, uVar16, uVar17, (uint)puVar21, uVar22);
+                        _DrawWaterWaveShapeC2.fnptr!(local_24, local_28, fVar12, fVar11, uVar14, fVar8, fVar9, fVar10, uVar16, uVar17, (uint)puVar21, uVar22);
                         puVar21 = (byte*)p_DAT_00c56870;
                         uVar22 = 0x33c56870;
                         uVar17 = -10.0f;
@@ -1211,7 +1211,7 @@ public unsafe class SeymourModule : FhModule {
                         fVar9 = _graphicUiRemapX2.fnptr!(250.0f);
                         fVar8 = local_28;
                         fVar10 = _graphicUiRemapX2.fnptr!(250.0f);
-                        _FUN_008e7d30.fnptr!(fVar10 + (float)local_34, fVar8, fVar9, fVar12, uVar14, fVar11, fVar15, fVar20, uVar16, uVar17, uVar22, (uint)puVar21);
+                        _DrawWaterWaveShapeC2.fnptr!(fVar10 + (float)local_34, fVar8, fVar9, fVar12, uVar14, fVar11, fVar15, fVar20, uVar16, uVar17, uVar22, (uint)puVar21);
                     }
                     uVar14 = 0x3f800000;
                     fVar12 = 0.82f;
@@ -1221,7 +1221,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar11 = _graphicUiRemapX2.fnptr!(160.0f);
                     fVar11 = fVar11 + (float)local_34;
                     pbVar5 = _TOGetSaveChrName.fnptr!(uVar4);
-                    _FUN_00905930.fnptr!(pbVar5, fVar11, fVar8, bVar1, fVar12, (int)uVar14);
+                    _ToMakeBtlEasyEdgeFont.fnptr!(pbVar5, fVar11, fVar8, bVar1, fVar12, (int)uVar14);
                     fVar8 = (local_40 + 41.0f) * 0.0009765625f;
                     fVar11 = (local_38 + 436.0f) * 0.0009765625f;
                     fVar18 = 0.0146484375f;
@@ -1232,8 +1232,8 @@ public unsafe class SeymourModule : FhModule {
                     fVar12 = fVar12 + local_28;
                     fVar15 = _graphicUiRemapX2.fnptr!(490.0f);
                     _TOMkpShapeXYWHUV.fnptr!(0x21, fVar15 + (float)local_34, fVar12, fVar10, fVar9, fVar20, fVar18, fVar11, fVar8);
-                    uVar14 = _FUN_008a9940.fnptr!(uVar4);
-                    uVar16 = _FUN_008a9870.fnptr!(uVar4);
+                    uVar14 = _TkMenuGetMaxHP.fnptr!(uVar4);
+                    uVar16 = _TkMenuGetHP.fnptr!(uVar4);
                     HP = Encoding.UTF8.GetBytes($"{uVar16,5}/{uVar14,5}");
                     fVar9 = 0.0f;
                     fVar12 = 0.72f;
@@ -1242,7 +1242,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar8 = fVar8 + local_28;
                     fVar11 = _graphicUiRemapX2.fnptr!(604.0f);
                     fVar11 = fVar11 + (float)local_34 + local_3c;
-                    fixed (byte* HPDisplay = HP) _FUN_00901660.fnptr!(HPDisplay, fVar11, fVar8, bVar1, fVar12, fVar9);
+                    fixed (byte* HPDisplay = HP) _TOMkpCrossEasyStrFontSClut.fnptr!(HPDisplay, fVar11, fVar8, bVar1, fVar12, fVar9);
                     fVar18 = 0.040039063f;
                     fVar8 = (local_38 + 570.0f) * 0.0009765625f;
                     fVar20 = 0.0146484375f;
@@ -1253,8 +1253,8 @@ public unsafe class SeymourModule : FhModule {
                     fVar11 = fVar11 + local_28;
                     fVar10 = _graphicUiRemapX2.fnptr!(540.0f);
                     _TOMkpShapeXYWHUV.fnptr!(0x22, fVar10 + (float)local_34, fVar11, fVar9, fVar12, fVar15, fVar20, fVar8, fVar18);
-                    uVar14 = _FUN_008a9960.fnptr!(uVar4);
-                    uVar16 = _FUN_008a9920.fnptr!(uVar4);
+                    uVar14 = _TkMenuGetMaxMP.fnptr!(uVar4);
+                    uVar16 = _TkMenuGetMP.fnptr!(uVar4);
                     MP = Encoding.UTF8.GetBytes($"{uVar16,4}/{uVar14,4}");
                     fVar9 = 0.0f;
                     fVar12 = 0.72f;
@@ -1263,7 +1263,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar8 = fVar8 + local_28;
                     fVar11 = _graphicUiRemapX2.fnptr!(625.0f);
                     fVar11 = fVar11 + (float)local_34 + local_3c;
-                    fixed (byte* MPDisplay = MP) _FUN_00901660.fnptr!(MPDisplay, fVar11, fVar8, bVar1, fVar12, fVar9);
+                    fixed (byte* MPDisplay = MP) _TOMkpCrossEasyStrFontSClut.fnptr!(MPDisplay, fVar11, fVar8, bVar1, fVar12, fVar9);
                     fVar18 = 636.0f;
                     fVar20 = 208.0f;
                     fVar15 = 603.0f;
@@ -1701,7 +1701,7 @@ public unsafe class SeymourModule : FhModule {
         fVar7 = fVar4;
         fVar5 = _graphicUiRemapY2.fnptr!(64.0f);
         fVar6 = _graphicUiRemapX2.fnptr!(250.0f);
-        _FUN_008e7d30.fnptr!(local_c, local_8, fVar6, fVar5, uVar8, fVar7, fVar11, fVar16, uVar12, uVar14, (uint)puVar17, uVar18);
+        _DrawWaterWaveShapeC2.fnptr!(local_c, local_8, fVar6, fVar5, uVar8, fVar7, fVar11, fVar16, uVar12, uVar14, (uint)puVar17, uVar18);
         puVar17 = (byte*)p_DAT_00c56870;
         uVar18 = 0x1ac56870;
         uVar14 = -20.0f;
@@ -1715,7 +1715,7 @@ public unsafe class SeymourModule : FhModule {
         fVar7 = local_8;
         fVar16 = _graphicUiRemapX2.fnptr!(250.0f);
         local_28 = (double)(fVar16 + local_c);
-        _FUN_008e7d30.fnptr!(fVar16 + local_c, fVar7, fVar11, fVar6, uVar8, fVar5, fVar9, fVar10, uVar12, uVar14, uVar18, (uint)puVar17);
+        _DrawWaterWaveShapeC2.fnptr!(fVar16 + local_c, fVar7, fVar11, fVar6, uVar8, fVar5, fVar9, fVar10, uVar12, uVar14, uVar18, (uint)puVar17);
         uVar18 = 0x33c56870;
         puVar17 = (byte*)p_DAT_00c56870;
         uVar14 = -10.0f;
@@ -1726,7 +1726,7 @@ public unsafe class SeymourModule : FhModule {
         fVar7 = fVar4;
         fVar5 = _graphicUiRemapY2.fnptr!(64.0f);
         fVar6 = _graphicUiRemapX2.fnptr!(250.0f);
-        _FUN_008e7d30.fnptr!(local_c, local_8, fVar6, fVar5, uVar8, fVar7, fVar11, fVar16, uVar12, uVar14, (uint)puVar17, uVar18);
+        _DrawWaterWaveShapeC2.fnptr!(local_c, local_8, fVar6, fVar5, uVar8, fVar7, fVar11, fVar16, uVar12, uVar14, (uint)puVar17, uVar18);
         puVar17 = (byte*)p_DAT_00c56870;
         uVar18 = 0x33c56870;
         uVar14 = -10.0f;
@@ -1738,7 +1738,7 @@ public unsafe class SeymourModule : FhModule {
         fVar6 = _graphicUiRemapX2.fnptr!(250.0f);
         fVar7 = local_8;
         fVar11 = _graphicUiRemapX2.fnptr!(250.0f);
-        _FUN_008e7d30.fnptr!(fVar11 + local_c, fVar7, fVar6, fVar5, uVar8, fVar4, fVar16, fVar9, uVar12, uVar14, uVar18, (uint)puVar17);
+        _DrawWaterWaveShapeC2.fnptr!(fVar11 + local_c, fVar7, fVar6, fVar5, uVar8, fVar4, fVar16, fVar9, uVar12, uVar14, uVar18, (uint)puVar17);
         fVar10 = 688.0f;
         fVar9 = 1104.0f;
         fVar16 = 618.0f;
@@ -1756,7 +1756,7 @@ public unsafe class SeymourModule : FhModule {
         fVar7 = _graphicUiRemapX2.fnptr!(160.0f);
         fVar7 = fVar7 + local_c;
         name = _TOGetSaveChrName.fnptr!((uint)(int)*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-        _FUN_00905930.fnptr!(name, fVar7, fVar4, bVar13, fVar5, uVar8);
+        _ToMakeBtlEasyEdgeFont.fnptr!(name, fVar7, fVar4, bVar13, fVar5, uVar8);
         fVar10 = 0.10253906f;
         fVar4 = (local_10 + 434.0f) * 0.0009765625f;
         fVar9 = 0.07519531f;
@@ -1775,7 +1775,7 @@ public unsafe class SeymourModule : FhModule {
         fVar7 = _graphicUiRemapX2.fnptr!(local_20 + 748.0f);
         fVar7 = fVar7 + local_c;
         fVar5 = _FUN_008bd9d0.fnptr!(*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-        _FUN_009055c0.fnptr!((int)fVar5, fVar7, fVar4, uVar8, fVar6, uVar12);
+        _ToMakeBtlEasyDigitRight.fnptr!((int)fVar5, fVar7, fVar4, uVar8, fVar6, uVar12);
         fVar10 = 0.15234375f;
         fVar9 = 0.7421875f;
         fVar16 = 0.12402344f;
@@ -1827,7 +1827,7 @@ public unsafe class SeymourModule : FhModule {
         fVar7 = _graphicUiRemapX2.fnptr!(1076.0f);
         fVar7 = (fVar7 + local_c - local_2c * 0.5f);
         iVar2 = _FUN_008a9b30.fnptr!((byte)*(ushort*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-        _FUN_00905550.fnptr!(iVar2, fVar7, fVar4, bVar13, fVar5);
+        _ToMakeBtlEasyDigit2.fnptr!(iVar2, fVar7, fVar4, bVar13, fVar5);
         fVar10 = 0.10253906f;
         fVar4 = (local_10 + 434.0f) * 0.0009765625f;
         fVar9 = 0.07519531f;
@@ -1850,7 +1850,7 @@ public unsafe class SeymourModule : FhModule {
             fVar6 = fVar6 + local_c;
             iVar2 = _MsGetNextAP.fnptr!(*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
             iVar3 = _FUN_00785370.fnptr!((byte)*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-            _FUN_009055c0.fnptr!(iVar2 - iVar3, fVar6, fVar5, uVar8, fVar4, fVar7);
+            _ToMakeBtlEasyDigitRight.fnptr!(iVar2 - iVar3, fVar6, fVar5, uVar8, fVar4, fVar7);
         }
         else
         {
@@ -1858,7 +1858,7 @@ public unsafe class SeymourModule : FhModule {
             bVar13 = (byte)uVar8;
             fVar5 = fVar5 + local_8;
             fVar6 = _graphicUiRemapX2.fnptr!(1210.0f);
-            _FUN_00901660.fnptr!(textString, fVar6 + local_c, fVar5, bVar13, fVar4, fVar7);
+            _TOMkpCrossEasyStrFontSClut.fnptr!(textString, fVar6 + local_c, fVar5, bVar13, fVar4, fVar7);
         }
         if (0 < p_DAT_01869eea[param_1 * 0xe])
         {
@@ -2263,7 +2263,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar17 = _graphicUiRemapY2.fnptr!(local_10);
                     fVar18 = _graphicUiRemapX2.fnptr!(154.0f);
-                    _FUN_008e7d30.fnptr!(fVar18, fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
+                    _DrawWaterWaveShapeC2.fnptr!(fVar18, fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = fVar13 + 210.0f;
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
@@ -2277,7 +2277,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar27 = _graphicUiRemapY2.fnptr!(local_10);
                     fVar17 = _graphicUiRemapX2.fnptr!(154.0f);
-                    _FUN_008e7d30.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar14, fVar21, fVar13, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
+                    _DrawWaterWaveShapeC2.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar14, fVar21, fVar13, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = local_20 * 50.0f;
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
@@ -2292,7 +2292,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar27 = _graphicUiRemapY2.fnptr!(local_8);
                     fVar17 = _graphicUiRemapX2.fnptr!(154.0f);
-                    _FUN_008e7d30.fnptr!(fVar17, fVar27, fVar14, fVar21, fVar19, fVar13, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
+                    _DrawWaterWaveShapeC2.fnptr!(fVar17, fVar27, fVar14, fVar21, fVar19, fVar13, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
                     uVar28 = 40.0f;
@@ -2305,7 +2305,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar13 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar27 = _graphicUiRemapY2.fnptr!(local_8);
                     fVar17 = _graphicUiRemapX2.fnptr!(154.0f);
-                    _FUN_008e7d30.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar13, fVar21, fVar14, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
+                    _DrawWaterWaveShapeC2.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar13, fVar21, fVar14, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = local_24 * 20.0f;
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
@@ -2320,7 +2320,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar17 = _graphicUiRemapY2.fnptr!(local_10);
                     fVar18 = _graphicUiRemapX2.fnptr!(154.0f);
-                    _FUN_008e7d30.fnptr!(fVar18 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
+                    _DrawWaterWaveShapeC2.fnptr!(fVar18 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = fVar13 + 210.0f;
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
@@ -2333,7 +2333,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar21 = _graphicUiRemapY2.fnptr!(local_10);
                     fVar27 = _graphicUiRemapX2.fnptr!(154.0f);
-                    _FUN_008e7d30.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar14, fVar19, fVar13, fVar16, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
+                    _DrawWaterWaveShapeC2.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar14, fVar19, fVar13, fVar16, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
                     uVar28 = 40.0f;
@@ -2346,7 +2346,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar21 = _graphicUiRemapY2.fnptr!(local_8);
                     fVar27 = _graphicUiRemapX2.fnptr!(154.0f);
-                    _FUN_008e7d30.fnptr!(fVar27 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
+                    _DrawWaterWaveShapeC2.fnptr!(fVar27 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
                     uVar28 = 40.0f;
@@ -2359,7 +2359,7 @@ public unsafe class SeymourModule : FhModule {
                     fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
                     fVar21 = _graphicUiRemapY2.fnptr!(local_8);
                     fVar27 = _graphicUiRemapX2.fnptr!(154.0f);
-                    _FUN_008e7d30.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
+                    _DrawWaterWaveShapeC2.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     local_1c = (float)((int)fVar15 + 0x34);
                     local_8 = fVar24;
                 } while ((int)local_1c < 0x9c);
@@ -2445,7 +2445,7 @@ public unsafe class SeymourModule : FhModule {
                                         fVar19 = 0.78f;
                                         fVar14 = (float)iVar11;
                                         fVar15 = _graphicUiRemapX2.fnptr!(28.0f);
-                                        _FUN_009055c0.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                        _ToMakeBtlEasyDigitRight.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
                                     }
                                     break;
                                 case 4:
@@ -2458,7 +2458,7 @@ public unsafe class SeymourModule : FhModule {
                                         fVar19 = 0.78f;
                                         fVar14 = (float)iVar11;
                                         fVar15 = _graphicUiRemapX2.fnptr!(28.0f);
-                                        _FUN_009055c0.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                        _ToMakeBtlEasyDigitRight.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
                                     }
                                     break;
                                 case 5:
@@ -2471,7 +2471,7 @@ public unsafe class SeymourModule : FhModule {
                                         fVar19 = 0.78f;
                                         fVar14 = (float)iVar11;
                                         fVar15 = _graphicUiRemapX2.fnptr!(28.0f);
-                                        _FUN_009055c0.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                        _ToMakeBtlEasyDigitRight.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
                                     }
                                     break;
                                 case 6:
@@ -2484,7 +2484,7 @@ public unsafe class SeymourModule : FhModule {
                                         fVar19 = 0.78f;
                                         fVar14 = (float)iVar11;
                                         fVar15 = _graphicUiRemapX2.fnptr!(28.0f);
-                                        _FUN_009055c0.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                        _ToMakeBtlEasyDigitRight.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
                                     }
                                     break;
                                 case 7:
@@ -2568,39 +2568,39 @@ public unsafe class SeymourModule : FhModule {
         int iVar3;
 
         *(int*)(param_1 + 0x1c) = 0;
-        *DAT_0186a5ec = 0;
-        *DAT_0186a5f0 = 0xff;
-        *TKMenuFaceRatio = 0;
-        *TkMenuFaceKeep = (int)_FUN_008a9820.fnptr!();
-        *TkMenuFaceNew = (int)_FUN_008a9820.fnptr!();
-        *TkMenuFaceOld = (int)_FUN_008a9820.fnptr!();
+        *p_DAT_0186a5ec = 0;
+        *p_DAT_0186a5f0 = 0xff;
+        *p_TKMenuFaceRatio = 0;
+        *p_TkMenuFaceKeep = (int)_FUN_008a9820.fnptr!();
+        *p_TkMenuFaceNew = (int)_FUN_008a9820.fnptr!();
+        *p_TkMenuFaceOld = (int)_FUN_008a9820.fnptr!();
         uVar4 = 0;
         do
         {
             uVar2 = _FUN_008a97d0.fnptr!(uVar4);
-            (DAT_0186a634)[uVar4] = uVar2;
+            (p_DAT_0186a634)[uVar4] = uVar2;
             uVar2 = _FUN_008a9c20.fnptr!(uVar4);
-            (DAT_0186a614)[uVar4] = uVar2;
-            uVar2 = (int)_FUN_008a9870.fnptr!(uVar4);
-            (DAT_0186a654)[uVar4] = uVar2;
-            uVar2 = (int)_FUN_008a9920.fnptr!(uVar4);
-            (DAT_0186a674)[uVar4] = uVar2;
+            (p_DAT_0186a614)[uVar4] = uVar2;
+            uVar2 = (int)_TkMenuGetHP.fnptr!(uVar4);
+            (p_DAT_0186a654)[uVar4] = uVar2;
+            uVar2 = (int)_TkMenuGetMP.fnptr!(uVar4);
+            (p_DAT_0186a674)[uVar4] = uVar2;
             uVar4 = uVar4 + 1;
         } while ((int)uVar4 < 8);
-        *DAT_0186a5e4 = 0;
+        *p_DAT_0186a5e4 = 0;
         bVar1 = _FUN_008cfc00.fnptr!();
         iVar3 = bVar1 ? 1 : 0;
         uVar2 = _TkMenuGetCurrentPlayer.fnptr!();
         _FUN_008cfcf0.fnptr!(uVar2, iVar3);
-        *DAT_0186a5d8 = 0x155;
-        *DAT_0186a5d4 = 0;
+        *p_DAT_0186a5d8 = 0x155;
+        *p_DAT_0186a5d4 = 0;
         _FUN_008c2bd0.fnptr!(scene0String);
         _FUN_008c2bd0.fnptr!(scene11String);
         _FUN_008c2bd0.fnptr!(scene20String);
         return;
     }
     // Battle Results: Equipment Drops
-    int h_MsGetItemInternal_00798C20(int param_1, int param_2, int param_3)
+    int h_MsGetItemInternal(int param_1, int param_2, int param_3)
     {
         byte bVar1;
         ushort uVar3;
@@ -3304,7 +3304,7 @@ public unsafe class SeymourModule : FhModule {
     // Extra24 Summon Help text
     void h_TOBtlCtrlHelpWin(int param_1)
     {
-        int window_id = *toBwNum;
+        int window_id = *p_toBwNum;
         BtlWindow* currentwindow = &Globals.Battle.windows[window_id];
 
         if (currentwindow->window_command_id == 0x3130)
