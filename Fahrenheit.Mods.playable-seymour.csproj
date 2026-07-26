@@ -1,4 +1,4 @@
-﻿<Project Sdk="Fahrenheit.Sdk/1.0.0-alpha10">
+﻿<Project Sdk="Fahrenheit.Sdk/1.0.0-alpha11">
     <!--
     Welcome to an example .csproj file for a Fahrenheit module!
 
@@ -18,6 +18,11 @@
         <AssemblyName>playable-seymour</AssemblyName>
         <AssemblyTitle>Playable Seymour</AssemblyTitle>
         <Product>Playable Seymour</Product>
+        <Description>A FINAL FANTASY X HD Remaster mod to make Seymour his own, standalone character.</Description>
+        <Authors>cxldalyy</Authors>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/cxldalyy/playable-seymour-mod</RepositoryUrl>
+        <FhManifestFlags>SEPARATE_SAVES</FhManifestFlags>
     </PropertyGroup>
 
     <!-- SHARED FILE LINKS -->
@@ -25,16 +30,6 @@
         <None Include="$(SolutionDir).editorconfig" Link=".editorconfig" />
     </ItemGroup>
 
-    <!-- PROJECT REFERENCES -->
-
-    <!-- ASSETS: MANIFEST -->
-	<!-- BUILD EVENTS -->
-	<Target Name="ReplaceProperties" BeforeTargets="Publish">
-		<PropertyGroup>
-			<File>playable-seymour.manifest.json</File>
-		</PropertyGroup>
-		<WriteLinesToFile File="$(PublishDir)/$(File)" Lines="$([System.IO.File]::ReadAllText($(PublishDir)/$(File)).Replace('{Version}','$(Version)'))" Overwrite="true" Encoding="UTF-8" />
-	</Target>
 
 	<Target Name="DownloadFahrenheitRelease" AfterTargets="Publish">
 		<PropertyGroup>

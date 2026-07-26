@@ -26,431 +26,432 @@ public unsafe class SeymourModule : FhModule {
         ReadOnlySpan<byte> scene0Utf8 = Encoding.UTF8.GetBytes(scene0);
         scene0String = (byte*)NativeMemory.AllocZeroed((nuint)scene0Utf8.Length + 1);
         scene0Utf8.CopyTo(new Span<byte>(scene0String, scene0Utf8.Length));
-        
+
         string scene11 = "scene11";
         ReadOnlySpan<byte> scene11Utf8 = Encoding.UTF8.GetBytes(scene11);
         scene11String = (byte*)NativeMemory.AllocZeroed((nuint)scene11Utf8.Length + 1);
         scene11Utf8.CopyTo(new Span<byte>(scene11String, scene11Utf8.Length));
-        
+
         string scene20 = "scene20";
         ReadOnlySpan<byte> scene20Utf8 = Encoding.UTF8.GetBytes(scene20);
         scene20String = (byte*)NativeMemory.AllocZeroed((nuint)scene20Utf8.Length + 1);
         scene20Utf8.CopyTo(new Span<byte>(scene20String, scene20Utf8.Length));
     }
 
-
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int AtelPopStackInteger(AtelBasicWorker* work, AtelStack* stack);
-    public const nint __addr_AtelPopStackInteger = 0x46DE90;
-    private AtelPopStackInteger _AtelPopStackInteger;
+    private static FhMethodHandle<AtelPopStackInteger> _AtelPopStackInteger =>
+        new ( new FhMethodLocation("FFX.exe", 0x46DE90) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate PlySave* MsGetSavePlayerPtr(uint chr_id);
-    public const nint __addr_MsGetSavePlayerPtr = 0x3853F0;
-    private MsGetSavePlayerPtr _MsGetSavePlayerPtr;
+    private static FhMethodHandle<MsGetSavePlayerPtr> _MsGetSavePlayerPtr =>
+        new ( new FhMethodLocation("FFX.exe", 0x3853F0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate uint TkMenuGetPlayerListMax2();
-    public const nint __addr_TkMenuGetPlayerListMax2 = 0x4A9B00;
-    private TkMenuGetPlayerListMax2 _TkMenuGetPlayerListMax2;
+    private static FhMethodHandle<TkMenuGetPlayerListMax2> _TkMenuGetPlayerListMax2 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9B00) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate void TkVU1SyncPath();
-    public const nint __addr_TkVU1SyncPath = 0x48EBD0;
-    private TkVU1SyncPath _TkVU1SyncPath;
+    private static FhMethodHandle<TkVU1SyncPath> _TkVU1SyncPath =>
+        new ( new FhMethodLocation("FFX.exe", 0x48EBD0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate void TOMenuOpenPktBuffTmp();
-    public const nint __addr_TOMenuOpenPktBuffTmp = 0x4BEF00;
-    private TOMenuOpenPktBuffTmp _TOMenuOpenPktBuffTmp;
+    private static FhMethodHandle<TOMenuOpenPktBuffTmp> _TOMenuOpenPktBuffTmp =>
+        new ( new FhMethodLocation("FFX.exe", 0x4BEF00) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate float graphicUiRemapX2(float x);
-    public const nint __addr_graphicUiRemapX2 = 0x244990;
-    private graphicUiRemapX2 _graphicUiRemapX2;
+    private static FhMethodHandle<graphicUiRemapX2> _graphicUiRemapX2 =>
+        new ( new FhMethodLocation("FFX.exe", 0x244990) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate void TODrawMenuBG();
-    public const nint __addr_TODrawMenuBG = 0x4F5C10;
-    private TODrawMenuBG _TODrawMenuBG;
+    private static FhMethodHandle<TODrawMenuBG> _TODrawMenuBG =>
+        new ( new FhMethodLocation("FFX.exe", 0x4F5C10) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int FUN_0088e6c0(int param_1);
-    public const nint __addr_FUN_0088e6c0 = 0x48E6C0;
-    private FUN_0088e6c0 _FUN_0088e6c0;
+    private static FhMethodHandle<FUN_0088e6c0> _FUN_0088e6c0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x48E6C0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte TkMenuGetPlayerFromIndex2(int param_1);
-    public const nint __addr_TkMenuGetPlayerFromIndex2 = 0x4A9AB0;
-    private TkMenuGetPlayerFromIndex2 _TkMenuGetPlayerFromIndex2;
+    private static FhMethodHandle<TkMenuGetPlayerFromIndex2> _TkMenuGetPlayerFromIndex2 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9AB0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate float graphicUiRemapY2(float y);
-    public const nint __addr_graphicUiRemapY2 = 0x2449D0;
-    private graphicUiRemapY2 _graphicUiRemapY2;
+    private static FhMethodHandle<graphicUiRemapY2> _graphicUiRemapY2 =>
+        new ( new FhMethodLocation("FFX.exe", 0x2449D0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TOMkpShapeXYWHUV(int param_1, float x, float y, float w, float h, float uv_x1, float uv_y1, float uv_x2, float uv_y2);
-    public const nint __addr_TOMkpShapeXYWHUV = 0x503BB0;
-    private TOMkpShapeXYWHUV _TOMkpShapeXYWHUV;
+    private static FhMethodHandle<TOMkpShapeXYWHUV> _TOMkpShapeXYWHUV =>
+        new ( new FhMethodLocation("FFX.exe", 0x503BB0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate uint FUN_008a9b20();
-    public const nint __addr_FUN_008a9b20 = 0x4A9B20;
-    private FUN_008a9b20 _FUN_008a9b20;
+    private static FhMethodHandle<FUN_008a9b20> _FUN_008a9b20 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9B20) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008e7d30(float param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7, float param_8, float param_9, float param_10, uint param_11, uint param_12);
-    public const nint __addr_FUN_008e7d30 = 0x4E7D30;
-    private FUN_008e7d30 _FUN_008e7d30;
+    private static FhMethodHandle<FUN_008e7d30> _FUN_008e7d30 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4E7D30) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte FUN_008a9a20(uint param_1);
-    public const nint __addr_FUN_008a9a20 = 0x4A9A20;
-    private FUN_008a9a20 _FUN_008a9a20;
+    private static FhMethodHandle<FUN_008a9a20> _FUN_008a9a20 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9A20) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte* TOGetSaveChrName(uint chr_id);
-    public const nint __addr_TOGetSaveChrName = 0x4AC800;
-    private TOGetSaveChrName _TOGetSaveChrName;
+    private static FhMethodHandle<TOGetSaveChrName> _TOGetSaveChrName =>
+        new ( new FhMethodLocation("FFX.exe", 0x4AC800) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_00905930(byte* name, float param_2, float param_3, byte color, float param_5, int param_6);
-    public const nint __addr_FUN_00905930 = 0x505930;
-    private FUN_00905930 _FUN_00905930;
+    private static FhMethodHandle<FUN_00905930> _FUN_00905930 =>
+        new ( new FhMethodLocation("FFX.exe", 0x505930) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate FhLangId TOGetFFXLang();
-    public const nint __addr_TOGetFFXLang = 0x4AC2A0;
-    private TOGetFFXLang _TOGetFFXLang;
+    private static FhMethodHandle<TOGetFFXLang> _TOGetFFXLang =>
+        new ( new FhMethodLocation("FFX.exe", 0x4AC2A0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint FUN_008a9940(uint param_1);
-    public const nint __addr_FUN_008a9940 = 0x4A9940;
-    private FUN_008a9940 _FUN_008a9940;
+    private static FhMethodHandle<FUN_008a9940> _FUN_008a9940 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9940) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint FUN_008a9870(uint param_1);
-    public const nint __addr_FUN_008a9870 = 0x4A9870;
-    private FUN_008a9870 _FUN_008a9870;
+    private static FhMethodHandle<FUN_008a9870> _FUN_008a9870 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9870) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_00901660(byte* param_1, float param_2, float param_3, byte param_4, float param_5, float param_6);
-    public const nint __addr_FUN_00901660 = 0x501660;
-    private FUN_00901660 _FUN_00901660;
+    private static FhMethodHandle<FUN_00901660> _FUN_00901660 =>
+        new ( new FhMethodLocation("FFX.exe", 0x501660) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint FUN_008a9960(uint param_1);
-    public const nint __addr_FUN_008a9960 = 0x4A9960;
-    private FUN_008a9960 _FUN_008a9960;
+    private static FhMethodHandle<FUN_008a9960> _FUN_008a9960 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9960) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint FUN_008a9920(uint param_1);
-    public const nint __addr_FUN_008a9920 = 0x4A9920;
-    private FUN_008a9920 _FUN_008a9920;
+    private static FhMethodHandle<FUN_008a9920> _FUN_008a9920 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9920) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte FUN_008a9b30(byte param_1);
-    public const nint __addr_FUN_008a9b30 = 0x4A9B30;
-    private FUN_008a9b30 _FUN_008a9b30;
+    private static FhMethodHandle<FUN_008a9b30> _FUN_008a9b30 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9B30) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_00905230(int param_1, float* param_2, float param_3, float param_4);
-    public const nint __addr_FUN_00905230 = 0x505230;
-    private FUN_00905230 _FUN_00905230;
+    private static FhMethodHandle<FUN_00905230> _FUN_00905230 =>
+        new ( new FhMethodLocation("FFX.exe", 0x505230) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_00905820(int param_1, float param_2, float param_3, byte param_4, float param_5, float param_6);
-    public const nint __addr_FUN_00905820 = 0x505820;
-    private FUN_00905820 _FUN_00905820;
+    private static FhMethodHandle<FUN_00905820> _FUN_00905820 =>
+        new ( new FhMethodLocation("FFX.exe", 0x505820) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TkMn2DrawCrossCursor(float x, float y, float param_3);
-    public const nint __addr_TkMn2DrawCrossCursor = 0x4C0640;
-    private TkMn2DrawCrossCursor _TkMn2DrawCrossCursor;
+    private static FhMethodHandle<TkMn2DrawCrossCursor> _TkMn2DrawCrossCursor =>
+        new ( new FhMethodLocation("FFX.exe", 0x4C0640) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate byte FUN_008a9c10();
-    public const nint __addr_FUN_008a9c10 = 0x4A9C10;
-    private FUN_008a9c10 _FUN_008a9c10;
+    private static FhMethodHandle<FUN_008a9c10> _FUN_008a9c10 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9C10) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008c13b0(float x, float y, int param_3);
-    public const nint __addr_FUN_008c13b0 = 0x4C13B0;
-    private FUN_008c13b0 _FUN_008c13b0;
+    private static FhMethodHandle<FUN_008c13b0> _FUN_008c13b0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4C13B0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TODrawCrossBoxXYWHC2(float x, float y, float w, float h, uint color_start, uint color_end);
-    public const nint __addr_TODrawCrossBoxXYWHC2 = 0x4F4B20;
-    private TODrawCrossBoxXYWHC2 _TODrawCrossBoxXYWHC2;
+    private static FhMethodHandle<TODrawCrossBoxXYWHC2> _TODrawCrossBoxXYWHC2 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4F4B20) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsGetGIL(AtelBasicWorker* work, int* storage, AtelStack* stack);
-    public const nint __addr_MsGetGIL = 0x384F40;
-    private MsGetGIL _MsGetGIL;
+    private static FhMethodHandle<MsGetGIL> _MsGetGIL =>
+        new ( new FhMethodLocation("FFX.exe", 0x384F40) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008c09f0(float param_1, float param_2, float param_3, float param_4, int param_5);
-    public const nint __addr_FUN_008c09f0 = 0x4C09F0;
-    private FUN_008c09f0 _FUN_008c09f0;
+    private static FhMethodHandle<FUN_008c09f0> _FUN_008c09f0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4C09F0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int FUN_008a9c00();
-    public const nint __addr_FUN_008a9c00 = 0x4A9C00;
-    private FUN_008a9c00 _FUN_008a9c00;
+    private static FhMethodHandle<FUN_008a9c00> _FUN_008a9c00 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9C00) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008e19f0(uint param_1, float param_2, float param_3, byte param_4, int param_5);
-    public const nint __addr_FUN_008e19f0 = 0x4E19F0;
-    private FUN_008e19f0 _FUN_008e19f0;
+    private static FhMethodHandle<FUN_008e19f0> _FUN_008e19f0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4E19F0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TOMkpShapeXYWHUVC2(uint param_1, float x, float y, float w, float h, float param_6, float param_7, float param_8, float param_9, RGBA8 color_1, RGBA8 color_2);
-    public const nint __addr_TOMkpShapeXYWHUVC2 = 0x503EE0;
-    private TOMkpShapeXYWHUVC2 _TOMkpShapeXYWHUVC2;
+    private static FhMethodHandle<TOMkpShapeXYWHUVC2> _TOMkpShapeXYWHUVC2 =>
+        new ( new FhMethodLocation("FFX.exe", 0x503EE0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int AtelGetSaveDic(AtelBasicWorker* work, int* storage, AtelStack* stack);
-    public const nint __addr_AtelGetSaveDic = 0x46C3A0;
-    private AtelGetSaveDic _AtelGetSaveDic;
+    private static FhMethodHandle<AtelGetSaveDic> _AtelGetSaveDic =>
+        new ( new FhMethodLocation("FFX.exe", 0x46C3A0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int MsGetSaveConfigEnglish();
-    public const nint __addr_MsGetSaveConfigEnglish = 0x385290;
-    private MsGetSaveConfigEnglish _MsGetSaveConfigEnglish;
+    private static FhMethodHandle<MsGetSaveConfigEnglish> _MsGetSaveConfigEnglish =>
+        new ( new FhMethodLocation("FFX.exe", 0x385290) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int AtelGetSaveDicName(uint param_1, int param_2);
-    public const nint __addr_AtelGetSaveDicName = 0x46C3C0;
-    private AtelGetSaveDicName _AtelGetSaveDicName;
+    private static FhMethodHandle<AtelGetSaveDicName> _AtelGetSaveDicName =>
+        new ( new FhMethodLocation("FFX.exe", 0x46C3C0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TkMenuDraw1612Width(byte* param_1);
-    public const nint __addr_TkMenuDraw1612Width = 0x4DC9C0;
-    private TkMenuDraw1612Width _TkMenuDraw1612Width;
+    private static FhMethodHandle<TkMenuDraw1612Width> _TkMenuDraw1612Width =>
+        new ( new FhMethodLocation("FFX.exe", 0x4DC9C0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TOMkpCrossExtMesFontLClut(int param_1, byte* text, float x, float y, byte color, float scale, float p7_unused);
-    public const nint __addr_TOMkpCrossExtMesFontLClut = 0x5016B0;
-    private TOMkpCrossExtMesFontLClut _TOMkpCrossExtMesFontLClut;
+    private static FhMethodHandle<TOMkpCrossExtMesFontLClut> _TOMkpCrossExtMesFontLClut =>
+        new ( new FhMethodLocation("FFX.exe", 0x5016B0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate void TOMenuDrawKickTmp();
-    public const nint __addr_TOMenuDrawKickTmp = 0x4BE9F0;
-    private TOMenuDrawKickTmp _TOMenuDrawKickTmp;
+    private static FhMethodHandle<TOMenuDrawKickTmp> _TOMenuDrawKickTmp =>
+        new ( new FhMethodLocation("FFX.exe", 0x4BE9F0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte* TOGetShapTextureName(int param_1);
-    public const nint __addr_TOGetShapTextureName = 0x4AC870;
-    private TOGetShapTextureName _TOGetShapTextureName;
+    private static FhMethodHandle<TOGetShapTextureName> _TOGetShapTextureName =>
+        new ( new FhMethodLocation("FFX.exe", 0x4AC870) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TOGetImageWH(int param_1, float* w, float* h);
-    public const nint __addr_TOGetImageWH = 0x4AC3B0;
-    private TOGetImageWH _TOGetImageWH;
+    private static FhMethodHandle<TOGetImageWH> _TOGetImageWH =>
+        new ( new FhMethodLocation("FFX.exe", 0x4AC3B0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void graphicDrawUIElement(graphicDrawUIAbmapElement_param1* param_1, byte* param_2, int param_3, int param_4, int param_5);
-    public const nint __addr_graphicDrawUIElement = 0x23F090;
-    private graphicDrawUIElement _graphicDrawUIElement;
+    private static FhMethodHandle<graphicDrawUIElement> _graphicDrawUIElement =>
+        new ( new FhMethodLocation("FFX.exe", 0x23F090) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate byte AtelGetAlbhedRikku();
-    public const nint __addr_AtelGetAlbhedRikku = 0x46A770;
-    private AtelGetAlbhedRikku _AtelGetAlbhedRikku;
+    private static FhMethodHandle<AtelGetAlbhedRikku> _AtelGetAlbhedRikku =>
+        new ( new FhMethodLocation("FFX.exe", 0x46A770) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate SaveData* MsGetSaveEventAddress();
-    public const nint __addr_AtelGetEventSaveRamAdrs = 0x385300;
-    private MsGetSaveEventAddress _AtelGetEventSaveRamAdrs;
+    private static FhMethodHandle<MsGetSaveEventAddress> _AtelGetEventSaveRamAdrs =>
+        new ( new FhMethodLocation("FFX.exe", 0x385300) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void MsGetSavePartyMember(uint* ref_frontline_0, uint* ref_frontline_1, uint* ref_frontline_2);
-    public const nint __addr_MsGetSavePartyMember = 0x3853B0;
-    private MsGetSavePartyMember _MsGetSavePartyMember;
+    private static FhMethodHandle<MsGetSavePartyMember> _MsGetSavePartyMember =>
+        new ( new FhMethodLocation("FFX.exe", 0x3853B0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate bool MsGetSavePlyJoin(uint chr_id);
-    public const nint __addr_MsGetSavePlyJoin = 0x385440;
-    private MsGetSavePlyJoin _MsGetSavePlyJoin;
+    private static FhMethodHandle<MsGetSavePlyJoin> _MsGetSavePlyJoin =>
+        new ( new FhMethodLocation("FFX.exe", 0x385440) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void MsSetSavePlyJoin(uint _chr_id, int enable);
-    public const nint __addr_MsSetSavePlyJoin = 0x386A70;
-    private MsSetSavePlyJoin _MsSetSavePlyJoin;
+    private static FhMethodHandle<MsSetSavePlyJoin> _MsSetSavePlyJoin =>
+        new ( new FhMethodLocation("FFX.exe", 0x386A70) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_00786a10(uint param_1, uint param_2, uint param_3);
-    public const nint __addr_FUN_00786a10 = 0x386A10;
-    private FUN_00786a10 _FUN_00786a10;
+    private static FhMethodHandle<FUN_00786a10> _FUN_00786a10 =>
+        new ( new FhMethodLocation("FFX.exe", 0x386A10) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int FUN_0088e6a0(int param_1);
-    public const nint __addr_FUN_0088e6a0 = 0x48E6A0;
-    private FUN_0088e6a0 _FUN_0088e6a0;
+    private static FhMethodHandle<FUN_0088e6a0> _FUN_0088e6a0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x48E6A0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint FUN_008bd9d0(int param_1);
-    public const nint __addr_FUN_008bd9d0 = 0x4BD9D0;
-    private FUN_008bd9d0 _FUN_008bd9d0;
+    private static FhMethodHandle<FUN_008bd9d0> _FUN_008bd9d0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4BD9D0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_009055c0(int param_1, float param_2, float param_3, int param_4, float param_5, float param_6);
-    public const nint __addr_FUN_009055c0 = 0x5055C0;
-    private FUN_009055c0 _FUN_009055c0;
+    private static FhMethodHandle<FUN_009055c0> _FUN_009055c0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x5055C0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_00905550(int param_1, float param_2, float param_3, byte param_4, float param_5);
-    public const nint __addr_FUN_00905550 = 0x505550;
-    private FUN_00905550 _FUN_00905550;
+    private static FhMethodHandle<FUN_00905550> _FUN_00905550 =>
+        new ( new FhMethodLocation("FFX.exe", 0x505550) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte FUN_008bda10(byte param_1);
-    public const nint __addr_FUN_008bda10 = 0x4BDA10;
-    private FUN_008bda10 _FUN_008bda10;
+    private static FhMethodHandle<FUN_008bda10> _FUN_008bda10 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4BDA10) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsGetNextAP(int chr_id);
-    public const nint __addr_MsGetNextAP = 0x384F50;
-    private MsGetNextAP _MsGetNextAP;
+    private static FhMethodHandle<MsGetNextAP> _MsGetNextAP =>
+        new ( new FhMethodLocation("FFX.exe", 0x384F50) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int FUN_00785370(byte param_1);
-    public const nint __addr_FUN_00785370 = 0x385370;
-    private FUN_00785370 _FUN_00785370;
+    private static FhMethodHandle<FUN_00785370> _FUN_00785370 =>
+        new ( new FhMethodLocation("FFX.exe", 0x385370) );
+
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TODrawMenuPlateXYWHType(float x, float y, float w, float h, int type);
-    public const nint __addr_TODrawMenuPlateXYWHType = 0x4F5F70;
-    private TODrawMenuPlateXYWHType _TODrawMenuPlateXYWHType;
+    private static FhMethodHandle<TODrawMenuPlateXYWHType> _TODrawMenuPlateXYWHType =>
+        new ( new FhMethodLocation("FFX.exe", 0x4F5F70) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte* MsGetSaveWeaponName(uint inv_idx);
-    public const nint __addr_MsGetSaveWeaponName = 0x3ABE10;
-    private MsGetSaveWeaponName _MsGetSaveWeaponName;
+    private static FhMethodHandle<MsGetSaveWeaponName> _MsGetSaveWeaponName =>
+        new ( new FhMethodLocation("FFX.exe", 0x3ABE10) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void DrawCrossMenuIconXYWHRGBA(float param_1, float param_2, float param_3, float param_4, byte param_5, byte param_6, byte param_7, byte param_8, byte param_9);
-    public const nint __addr_DrawCrossMenuIconXYWHRGBA = 0x4E6AF0;
-    private DrawCrossMenuIconXYWHRGBA _DrawCrossMenuIconXYWHRGBA;
+    private static FhMethodHandle<DrawCrossMenuIconXYWHRGBA> _DrawCrossMenuIconXYWHRGBA =>
+        new ( new FhMethodLocation("FFX.exe", 0x4E6AF0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate uint MsGetSaveConfigHiragana();
-    public const nint __addr_MsGetSaveConfigHiragana = 0x3852B0;
-    private MsGetSaveConfigHiragana _MsGetSaveConfigHiragana;
+    private static FhMethodHandle<MsGetSaveConfigHiragana> _MsGetSaveConfigHiragana =>
+        new ( new FhMethodLocation("FFX.exe", 0x3852B0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate double graphicGetTime();
-    public const nint __addr_graphicGetTime = 0x2415C0;
-    private graphicGetTime _graphicGetTime;
+    private static FhMethodHandle<graphicGetTime> _graphicGetTime =>
+        new ( new FhMethodLocation("FFX.exe", 0x2415C0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008e6cc0(float param_1, float param_2, float param_3, float param_4, int param_5, int param_6, int param_7);
-    public const nint __addr_FUN_008e6cc0 = 0x4E6CC0;
-    private FUN_008e6cc0 _FUN_008e6cc0;
+    private static FhMethodHandle<FUN_008e6cc0> _FUN_008e6cc0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4E6CC0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void TOMakePktScissor(int param_1, int param_2, int param_3, int param_4);
-    public const nint __addr_TOMakePktScissor = 0x4FDEE0;
-    private TOMakePktScissor _TOMakePktScissor;
+    private static FhMethodHandle<TOMakePktScissor> _TOMakePktScissor =>
+        new ( new FhMethodLocation("FFX.exe", 0x4FDEE0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint TOCheckBtlCommandUse(uint param_1, uint param_2);
-    public const nint __addr_TOCheckBtlCommandUse = 0x49AC10;
-    private TOCheckBtlCommandUse _TOCheckBtlCommandUse;
+    private static FhMethodHandle<TOCheckBtlCommandUse> _TOCheckBtlCommandUse =>
+        new ( new FhMethodLocation("FFX.exe", 0x49AC10) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate Command* MsGetComData(uint com_id, int* out_name);
-    public const nint __addr_MsGetComData = 0x39A4C0;
-    private MsGetComData _MsGetComData;
+    private static FhMethodHandle<MsGetComData> _MsGetComData =>
+        new ( new FhMethodLocation("FFX.exe", 0x39A4C0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint MsGetSaveItemNum(uint param_1);
-    public const nint __addr_MsGetSaveItemNum = 0x390500;
-    private MsGetSaveItemNum _MsGetSaveItemNum;
+    private static FhMethodHandle<MsGetSaveItemNum> _MsGetSaveItemNum =>
+        new ( new FhMethodLocation("FFX.exe", 0x390500) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsGetCommandMP(uint chr_id, uint command);
-    public const nint __addr_MsGetCommandMP = 0x38D030;
-    private MsGetCommandMP _MsGetCommandMP;
+    private static FhMethodHandle<MsGetCommandMP> _MsGetCommandMP =>
+        new ( new FhMethodLocation("FFX.exe", 0x38D030) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint MsGetRamChrHP(uint chr_id);
-    public const nint __addr_MsGetRamChrHP = 0x39ADE0;
-    private MsGetRamChrHP _MsGetRamChrHP;
+    private static FhMethodHandle<MsGetRamChrHP> _MsGetRamChrHP =>
+        new ( new FhMethodLocation("FFX.exe", 0x39ADE0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint MsGetRamChrMP(uint chr_id);
-    public const nint __addr_MsGetRamChrMP = 0x39AE60;
-    private MsGetRamChrMP _MsGetRamChrMP;
+    private static FhMethodHandle<MsGetRamChrMP> _MsGetRamChrMP =>
+        new ( new FhMethodLocation("FFX.exe", 0x39AE60) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_00904ba0(byte* param_1, float param_2, float param_3, float param_4, byte param_5, float param_6, uint param_7, int param_8, int param_9, int param_10);
-    public const nint __addr_FUN_00904ba0 = 0x504BA0;
-    private FUN_00904ba0 _FUN_00904ba0;
+    private static FhMethodHandle<FUN_00904ba0> _FUN_00904ba0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x504BA0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void updateMenu(IntPtr menu);
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate uint FUN_008a9820();
-    public const nint __addr_FUN_008a9820 = 0x4A9820;
-    private FUN_008a9820 _FUN_008a9820;
-    
+    private static FhMethodHandle<FUN_008a9820> _FUN_008a9820 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9820) );
+
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate bool FUN_008cfc00();
-    public const nint __addr_FUN_008cfc00 = 0x4CFC00;
-    private FUN_008cfc00 _FUN_008cfc00;
-    
+    private static FhMethodHandle<FUN_008cfc00> _FUN_008cfc00 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4CFC00) );
+
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008cfcf0(int param_1, int param_2);
-    public const nint __addr_FUN_008cfcf0 = 0x4CFCF0;
-    private FUN_008cfcf0 _FUN_008cfcf0;
-    
+    private static FhMethodHandle<FUN_008cfcf0> _FUN_008cfcf0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4CFCF0) );
+
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008c2bd0(byte* param_1);
-    public const nint __addr_FUN_008c2bd0 = 0x4C2BD0;
-    private FUN_008c2bd0 _FUN_008c2bd0;
+    private static FhMethodHandle<FUN_008c2bd0> _FUN_008c2bd0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4C2BD0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int FUN_00798be0(BtlRewardData* get_data);
-    public const nint __addr_FUN_00798be0 = 0x398BE0;
-    private FUN_00798be0 _FUN_00798be0;
+    private static FhMethodHandle<FUN_00798be0> _FUN_00798be0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x398BE0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte MsGetSavePlyJoined(byte idx);
-    public const nint __addr_MsGetSavePlyJoined = 0x385460;
-    private MsGetSavePlyJoined _MsGetSavePlyJoined;
+    private static FhMethodHandle<MsGetSavePlyJoined> _MsGetSavePlyJoined =>
+        new ( new FhMethodLocation("FFX.exe", 0x385460) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint Brnd(int param_1);
-    public const nint __addr_Brnd = 0x398900;
-    private Brnd _Brnd;
+    private static FhMethodHandle<Brnd> _Brnd =>
+        new ( new FhMethodLocation("FFX.exe", 0x398900) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int MsCheckRange(int n, int min, int max);
-    public const nint __addr_MsCheckRange = 0x39A0D0;
-    private MsCheckRange _MsCheckRange;
+    private static FhMethodHandle<MsCheckRange> _MsCheckRange =>
+        new ( new FhMethodLocation("FFX.exe", 0x39A0D0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint FUN_00798aa0(uint param_1);
-    public const nint __addr_FUN_00798aa0 = 0x398AA0;
-    private FUN_00798aa0 _FUN_00798aa0;
+    private static FhMethodHandle<FUN_00798aa0> _FUN_00798aa0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x398AA0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate byte MsWeaponNameNum(Equipment* gear);
-    public const nint __addr_MsWeaponNameNum = 0x3A0D10;
-    private MsWeaponNameNum _MsWeaponNameNum;
+    private static FhMethodHandle<MsWeaponNameNum> _MsWeaponNameNum =>
+        new ( new FhMethodLocation("FFX.exe", 0x3A0D10) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate Equipment* MsGetSaveWeapon(uint gear_inv_idx, byte** ref_name);
-    public const nint __addr_MsGetSaveWeapon = 0x3ABBF0;
-    private MsGetSaveWeapon _MsGetSaveWeapon;
+    private static FhMethodHandle<MsGetSaveWeapon> _MsGetSaveWeapon =>
+        new ( new FhMethodLocation("FFX.exe", 0x3ABBF0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void* TkMn2GetExcelData(int req_elem_idx, ExcelDataFile* excel_data_ptr);
-    public const nint __addr_TkMn2GetExcelData = 0x4C1AD0;
-    private TkMn2GetExcelData _TkMn2GetExcelData;
+    private static FhMethodHandle<TkMn2GetExcelData> _TkMn2GetExcelData =>
+        new ( new FhMethodLocation("FFX.exe", 0x4C1AD0) );
+
     [StructLayout(LayoutKind.Sequential)]
     public struct ExcelDataFile
     {
@@ -463,6 +464,7 @@ public unsafe class SeymourModule : FhModule {
         private byte __0x07;
         public ExcelHeader chunk_headers;
     }
+
     [StructLayout(LayoutKind.Sequential)]
     public struct ExcelHeader
     {
@@ -477,105 +479,105 @@ public unsafe class SeymourModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void* FUN_008d9140(uint param_1);
-    public const nint __addr_FUN_008d9140 = 0x4D9140;
-    private FUN_008d9140 _FUN_008d9140;
+    private static FhMethodHandle<FUN_008d9140> _FUN_008d9140 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4D9140) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte FUN_008a9c20(uint param_1);
-    public const nint __addr_FUN_008a9c20 = 0x4A9C20;
-    private FUN_008a9c20 _FUN_008a9c20;
+    private static FhMethodHandle<FUN_008a9c20> _FUN_008a9c20 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9C20) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte FUN_008a97d0(uint param_1);
-    public const nint __addr_FUN_008a97d0 = 0x4A97D0;
-    private FUN_008a97d0 _FUN_008a97d0;
+    private static FhMethodHandle<FUN_008a97d0> _FUN_008a97d0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A97D0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008f8bb0(int param_1, float param_2, float param_3, float param_4, float param_5);
-    public const nint __addr_FUN_008f8bb0 = 0x4F8BB0;
-    private FUN_008f8bb0 _FUN_008f8bb0;
+    private static FhMethodHandle<FUN_008f8bb0> _FUN_008f8bb0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4F8BB0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void* FUN_008bee40(uint param_1);
-    public const nint __addr_FUN_008bee40 = 0x4BEE40;
-    private FUN_008bee40 _FUN_008bee40;
+    private static FhMethodHandle<FUN_008bee40> _FUN_008bee40 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4BEE40) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void ToGetBtlEasyFontWidth(byte* text, float* ref_width, int param_3, float scale);
-    public const nint __addr_ToGetBtlEasyFontWidth = 0x505290;
-    private ToGetBtlEasyFontWidth _ToGetBtlEasyFontWidth;
+    private static FhMethodHandle<ToGetBtlEasyFontWidth> _ToGetBtlEasyFontWidth =>
+        new ( new FhMethodLocation("FFX.exe", 0x505290) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008d8a70(float param_1, float param_2, int param_3);
-    public const nint __addr_FUN_008d8a70 = 0x4D8A70;
-    private FUN_008d8a70 _FUN_008d8a70;
+    private static FhMethodHandle<FUN_008d8a70> _FUN_008d8a70 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4D8A70) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void ToMakeBtlEasyFont(byte* param_1, float param_2, float param_3, float param_4, float param_5);
-    public const nint __addr_ToMakeBtlEasyFont = 0x505AB0;
-    private ToMakeBtlEasyFont _ToMakeBtlEasyFont;
+    private static FhMethodHandle<ToMakeBtlEasyFont> _ToMakeBtlEasyFont =>
+        new ( new FhMethodLocation("FFX.exe", 0x505AB0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint MsGetRamChrMonster(uint mon_id);
-    public const nint __addr_MsGetRamChrMonster = 0x39AF00;
-    private MsGetRamChrMonster _MsGetRamChrMonster;
+    private static FhMethodHandle<MsGetRamChrMonster> _MsGetRamChrMonster =>
+        new ( new FhMethodLocation("FFX.exe", 0x39AF00) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate uint MsLimitUp(int param_1, Chr* character, uint init_limit_add);
-    public const nint __addr_MsLimitUp = 0x3B15A0;
-    private MsLimitUp _MsLimitUp;
+    private static FhMethodHandle<MsLimitUp> _MsLimitUp =>
+        new ( new FhMethodLocation("FFX.exe", 0x3B15A0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate Chr* MsGetChr(uint chr_id);
-    public const nint __addr_MsGetChr = 0x394030;
-    private MsGetChr _MsGetChr;
+    private static FhMethodHandle<MsGetChr> _MsGetChr =>
+        new ( new FhMethodLocation("FFX.exe", 0x394030) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsCalcWeakLevel(int current_hp, int max_hp);
-    public const nint __addr_MsCalcWeakLevel = 0x38BFC0;
-    private MsCalcWeakLevel _MsCalcWeakLevel;
+    private static FhMethodHandle<MsCalcWeakLevel> _MsCalcWeakLevel =>
+        new ( new FhMethodLocation("FFX.exe", 0x38BFC0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate Command* MsGetRomPlyCommand(uint com_id, int* param_2);
-    public const nint __addr_MsGetRomPlyCommand = 0x390AE0;
-    private MsGetRomPlyCommand _MsGetRomPlyCommand;
+    private static FhMethodHandle<MsGetRomPlyCommand> _MsGetRomPlyCommand =>
+        new ( new FhMethodLocation("FFX.exe", 0x390AE0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate byte TkMenuGetCurrentPlayer();
-    public const nint __addr_TkMenuGetCurrentPlayer = 0x4A9810;
-    private TkMenuGetCurrentPlayer _TkMenuGetCurrentPlayer;
+    private static FhMethodHandle<TkMenuGetCurrentPlayer> _TkMenuGetCurrentPlayer =>
+        new ( new FhMethodLocation("FFX.exe", 0x4A9810) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate ushort getScenerioFlag();
-    public const nint __addr_getScenerioFlag = 0x387420;
-    private getScenerioFlag _getScenerioFlag;
+    private static FhMethodHandle<getScenerioFlag> _getScenerioFlag =>
+        new ( new FhMethodLocation("FFX.exe", 0x387420) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate MsChrAbilityMap* MsGetChrAbilityMap(uint chr_id);
-    public const nint __addr_MsGetChrAbilityMap = 0x398800;
-    private MsGetChrAbilityMap _MsGetChrAbilityMap;
+    private static FhMethodHandle<MsGetChrAbilityMap> _MsGetChrAbilityMap =>
+        new ( new FhMethodLocation("FFX.exe", 0x398800) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void setCommandDisabled(int chr_id, int com_id, int is_disabled);
-    public const nint __addr_setCommandDisabled = 0x39B480;
-    private setCommandDisabled _setCommandDisabled;
-
+    private static FhMethodHandle<setCommandDisabled> _setCommandDisabled =>
+        new ( new FhMethodLocation("FFX.exe", 0x39B480) );
 
     // Hooks
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int CT_RetInt_0171_restoreCharHp(AtelBasicWorker* work, int* storage, AtelStack* stack);
-    public const nint __addr_CT_RetInt_0171_restoreCharHp = 0x45C4F0;
-    private FhMethodHandle<CT_RetInt_0171_restoreCharHp> _CT_RetInt_0171_restoreCharHp;
+    private static FhMethodHandle<CT_RetInt_0171_restoreCharHp> _CT_RetInt_0171_restoreCharHp =>
+        new ( new FhMethodLocation("FFX.exe", 0x45C4F0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int CT_RetInt_0172_restoreCharMp(AtelBasicWorker* work, int* storage, AtelStack* stack);
-    public const nint __addr_CT_RetInt_0172_restoreCharMp = 0x45C6B0;
-    private FhMethodHandle<CT_RetInt_0172_restoreCharMp> _CT_RetInt_0172_restoreCharMp;
+    private static FhMethodHandle<CT_RetInt_0172_restoreCharMp> _CT_RetInt_0172_restoreCharMp =>
+        new ( new FhMethodLocation("FFX.exe", 0x45C6B0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate void TkMenuDrawMain();
-    public const nint __addr_TkMenuDrawMain = 0x4E0BA0;
-    private FhMethodHandle<TkMenuDrawMain> _TkMenuDrawMain;
+    private static FhMethodHandle<TkMenuDrawMain> _TkMenuDrawMain =>
+        new ( new FhMethodLocation("FFX.exe", 0x4E0BA0) );
+
     [StructLayout(LayoutKind.Sequential)]
     public struct RGBA8
     {
@@ -594,8 +596,9 @@ public unsafe class SeymourModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008c0220(uint param_1, float param_2, float param_3, float param_4, float param_5);
-    public const nint __addr_FUN_008c0220 = 0x4C0220;
-    private FhMethodHandle<FUN_008c0220> _FUN_008c0220;
+    private static FhMethodHandle<FUN_008c0220> _FUN_008c0220 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4C0220) );
+
     [StructLayout(LayoutKind.Sequential)]
     public struct graphicDrawUIAbmapElement_param1
     {
@@ -615,18 +618,19 @@ public unsafe class SeymourModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int AtelPushMember(AtelBasicWorker* work, int* storage, AtelStack* stack);
-    public const nint __addr_AtelPushMember = 0x46E2A0;
-    private FhMethodHandle<AtelPushMember> _AtelPushMember;
+    private static FhMethodHandle<AtelPushMember> _AtelPushMember =>
+        new ( new FhMethodLocation("FFX.exe", 0x46E2A0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int AtelPopMember(AtelBasicWorker* work, int* storage, AtelStack* stack);
-    public const nint __addr_AtelPopMember = 0x46DD40;
-    private FhMethodHandle<AtelPopMember> _AtelPopMember;
+    private static FhMethodHandle<AtelPopMember> _AtelPopMember =>
+        new ( new FhMethodLocation("FFX.exe", 0x46DD40) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008bc300(int param_1);
-    public const nint __addr_FUN_008bc300 = 0x4BC300;
-    private FhMethodHandle<FUN_008bc300> _FUN_008bc300;
+    private static FhMethodHandle<FUN_008bc300> _FUN_008bc300 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4BC300) );
+
     private int* p_DAT_01869ee4  => FhUtil.ptr_at<int >(0x01469EE4);
     private int* p_DAT_01869ee0  => FhUtil.ptr_at<int >(0x01469EE0);
     private byte* p_DAT_01869eea => FhUtil.ptr_at<byte>(0x01469EEA);
@@ -634,8 +638,9 @@ public unsafe class SeymourModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate byte* MsWeaponName(int name_id, int owner, int hiragana, ushort* ref_model_id);
-    public const nint __addr_MsWeaponName = 0x3A0C70;
-    private FhMethodHandle<MsWeaponName> _MsWeaponName;
+    private static FhMethodHandle<MsWeaponName> _MsWeaponName =>
+        new ( new FhMethodLocation("FFX.exe", 0x3A0C70) );
+
     private static nint[] seymour_gear_names = new nint[171];
     private static string[] _seymour_gear_names = [
         "Dimittis",            // Celestial
@@ -813,23 +818,24 @@ public unsafe class SeymourModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008e67f0(uint param_1, float param_2, float param_3, float param_4);
-    public const nint __addr_FUN_008e67f0 = 0x4E67F0;
-    private FhMethodHandle<FUN_008e67f0> _FUN_008e67f0;
+    private static FhMethodHandle<FUN_008e67f0> _FUN_008e67f0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4E67F0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void DrawCrossMenuIconWeaponName2(ushort* param_1, float param_2, float param_3, float param_4);
-    public const nint __addr_DrawCrossMenuIconWeaponName2 = 0x4E6970;
-    private FhMethodHandle<DrawCrossMenuIconWeaponName2> _DrawCrossMenuIconWeaponName2;
+    private static FhMethodHandle<DrawCrossMenuIconWeaponName2> _DrawCrossMenuIconWeaponName2 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4E6970) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int TOBtlDrawCommandWindow(uint param_1);
-    public const nint __addr_TOBtlDrawCommandWindow = 0x49F300;
-    private FhMethodHandle<TOBtlDrawCommandWindow> _TOBtlDrawCommandWindow;
+    private static FhMethodHandle<TOBtlDrawCommandWindow> _TOBtlDrawCommandWindow =>
+        new ( new FhMethodLocation("FFX.exe", 0x49F300) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008cf800(int param_1);
-    public const nint __addr_FUN_008cf800 = 0x4CF800;
-    private FhMethodHandle<FUN_008cf800> _FUN_008cf800;
+    private static FhMethodHandle<FUN_008cf800> _FUN_008cf800 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4CF800) );
+
     private int* DAT_0186a5ec    => FhUtil.ptr_at<int>(0x0146A5EC);
     private int* DAT_0186a5f0    => FhUtil.ptr_at<int>(0x0146A5F0);
     private int* TKMenuFaceRatio => FhUtil.ptr_at<int>(0x01FCC3C8);
@@ -849,18 +855,19 @@ public unsafe class SeymourModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsGetItemInternal_00798C20(int param_1, int param_2, int param_3);
-    public const nint __addr_MsGetItemInternal_00798C20 = 0x398C20;
-    private FhMethodHandle<MsGetItemInternal_00798C20> _MsGetItemInternal_00798C20;
+    private static FhMethodHandle<MsGetItemInternal_00798C20> _MsGetItemInternal_00798C20 =>
+        new ( new FhMethodLocation("FFX.exe", 0x398C20) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void MsChangeWeaponInvisible(uint param_1, byte param_2);
-    public const nint __addr_MsChangeWeaponInvisible = 0x3AD5F0;
-    private FhMethodHandle<MsChangeWeaponInvisible> _MsChangeWeaponInvisible;
+    private static FhMethodHandle<MsChangeWeaponInvisible> _MsChangeWeaponInvisible =>
+        new ( new FhMethodLocation("FFX.exe", 0x3AD5F0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void FUN_008d85f0(int param_1, int param_2);
-    public const nint __addr_FUN_008d85f0 = 0x4D85F0;
-    private FhMethodHandle<FUN_008d85f0> _FUN_008d85f0;
+    private static FhMethodHandle<FUN_008d85f0> _FUN_008d85f0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x4D85F0) );
+
     private uint DAT_0186ab60                              => FhUtil.get_at<uint         >(0x0146AB60);
     private int* p_DAT_0186aadc_curShopIdx                 => FhUtil.ptr_at<int          >(0x0146AADC);
     private int* p_DAT_0186ab68_arms_shop_bin_ptr          => FhUtil.ptr_at<int          >(0x0146AB68);
@@ -875,71 +882,73 @@ public unsafe class SeymourModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsLimitTypeDamageCheck(uint param_1, int param_2, uint param_3, int param_4, int param_5, int param_6, int param_7);
-    public const nint __addr_MsLimitTypeDamageCheck = 0x3B0D60;
-    private FhMethodHandle<MsLimitTypeDamageCheck> _MsLimitTypeDamageCheck;
+    private static FhMethodHandle<MsLimitTypeDamageCheck> _MsLimitTypeDamageCheck =>
+        new ( new FhMethodLocation("FFX.exe", 0x3B0D60) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsLimitTypeDeathCheck(int param_1, int param_2, uint param_3, int param_4);
-    public const nint __addr_MsLimitTypeDeathCheck = 0x3B0F90;
-    private FhMethodHandle<MsLimitTypeDeathCheck> _MsLimitTypeDeathCheck;
+    private static FhMethodHandle<MsLimitTypeDeathCheck> _MsLimitTypeDeathCheck =>
+        new ( new FhMethodLocation("FFX.exe", 0x3B0F90) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int FUN_007b10d0(uint chr_id, uint limit_mode, int param_3);
-    public const nint __addr_FUN_007b10d0 = 0x3B10D0;
-    private FhMethodHandle<FUN_007b10d0> _FUN_007b10d0;
+    private static FhMethodHandle<FUN_007b10d0> _FUN_007b10d0 =>
+        new ( new FhMethodLocation("FFX.exe", 0x3B10D0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsLimitTypeTurnCheck(uint param_1, int param_2);
-    public const nint __addr_MsLimitTypeTurnCheck = 0x3B13D0;
-    private FhMethodHandle<MsLimitTypeTurnCheck> _MsLimitTypeTurnCheck;
+    private static FhMethodHandle<MsLimitTypeTurnCheck> _MsLimitTypeTurnCheck =>
+        new ( new FhMethodLocation("FFX.exe", 0x3B13D0) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int MsLimitTypeWinCheck();
-    public const nint __addr_MsLimitTypeWinCheck = 0x3B1550;
-    private FhMethodHandle<MsLimitTypeWinCheck> _MsLimitTypeWinCheck;
-    
+    private static FhMethodHandle<MsLimitTypeWinCheck> _MsLimitTypeWinCheck =>
+        new ( new FhMethodLocation("FFX.exe", 0x3B1550) );
+
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate void MsSetSaveStartGame();
-    public const nint __addr_MsSetSaveStartGame = 0x386BC0;
-    private FhMethodHandle<MsSetSaveStartGame> _MsSetSaveStartGame;
+    private static FhMethodHandle<MsSetSaveStartGame> _MsSetSaveStartGame =>
+        new ( new FhMethodLocation("FFX.exe", 0x386BC0) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int FUN_00635c20(uint param_1);
-    public const nint __addr_FUN_00635c20 = 0x235C20;
-    private FhMethodHandle<FUN_00635c20> _FUN_00635c20;
-    private int g_eventId => FhUtil.get_at<int>(0x00EFBBF8);
+    private static FhMethodHandle<FUN_00635c20> _FUN_00635c20 =>
+        new ( new FhMethodLocation("FFX.exe", 0x235C20) );
+        private int g_eventId => FhUtil.get_at<int>(0x00EFBBF8);
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int MsParseCommand(byte* param_1);
-    public const nint __addr_MsParseCommand = 0x3AE380;
-    private FhMethodHandle<MsParseCommand> _MsParseCommand;
+    private static FhMethodHandle<MsParseCommand> _MsParseCommand =>
+        new ( new FhMethodLocation("FFX.exe", 0x3AE380) );
 
     [UnmanagedFunctionPointer(CallingConvention.ThisCall)]
     public delegate void TOBtlCtrlHelpWin(int param_1);
-    public const nint __addr_TOBtlCtrlHelpWin = 0x491250;
-    private FhMethodHandle<TOBtlCtrlHelpWin> _TOBtlCtrlHelpWin;
+    private static FhMethodHandle<TOBtlCtrlHelpWin> _TOBtlCtrlHelpWin =>
+        new ( new FhMethodLocation("FFX.exe", 0x491250) );
+
     private byte* toBwNum => FhUtil.ptr_at<byte>(0x01fcc092);
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate ushort* TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength);
-    public const nint __addr_TOGetSaveWindow = 0x49B510;
-    private FhMethodHandle<TOGetSaveWindow> _TOGetSaveWindow;
+    private static FhMethodHandle<TOGetSaveWindow> _TOGetSaveWindow =>
+        new ( new FhMethodLocation("FFX.exe", 0x49B510) );
 
     [UnmanagedFunctionPointer(CallingConvention.StdCall)]
     public delegate int TkMenuSummonEnableMask();
-    public const nint __addr_TkMenuSummonEnableMask = 0x4AB190;
-    private FhMethodHandle<TkMenuSummonEnableMask> _TkMenuSummonEnableMask;
+    private static FhMethodHandle<TkMenuSummonEnableMask> _TkMenuSummonEnableMask =>
+        new ( new FhMethodLocation("FFX.exe", 0x4AB190) );
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void MsSetSaveParam(uint chr_id);
-    public const nint __addr_MsSetSaveParam = 0x3861B0;
-    private FhMethodHandle<MsSetSaveParam> _MsSetSaveParam;
-    private static uint aeon = 0;
+    private static FhMethodHandle<MsSetSaveParam> _MsSetSaveParam =>
+        new ( new FhMethodLocation("FFX.exe", 0x3861B0) );
+        private static uint aeon = 0;
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate int* FUN_00785c20(uint chr_id, uint* param_2);
-    public const nint __addr_FUN_00785c20 = 0x385C20;
-    private FhMethodHandle<FUN_00785c20> _FUN_00785c20;
+    private static FhMethodHandle<FUN_00785c20> _FUN_00785c20 =>
+        new ( new FhMethodLocation("FFX.exe", 0x385C20) );
+
     public struct MsChrAbilityMap
     {
         public int hp;
@@ -954,6 +963,7 @@ public unsafe class SeymourModule : FhModule {
         public byte accuracy;
         public AbilityInlineArray abilities;
     }
+
     [InlineArray(6)]
     public struct AbilityInlineArray
     {
@@ -962,181 +972,47 @@ public unsafe class SeymourModule : FhModule {
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void MsBtlReadManage();
-    public const nint __addr_MsBtlReadManage = 0x3830D0;
-    private FhMethodHandle<MsBtlReadManage> _MsBtlReadManage;
+    private static FhMethodHandle<MsBtlReadManage> _MsBtlReadManage =>
+        new ( new FhMethodLocation("FFX.exe", 0x3830D0) );
 
     private ushort* _NkSeymourLegend = FhUtil.ptr_at<ushort>(0x00886D80);
 
-    public void init_fptrs()
+    public override bool init(FhModContext mod_context, FileStream global_state_file)
     {
-        _AtelPopStackInteger = FhUtil.get_fptr<AtelPopStackInteger>(__addr_AtelPopStackInteger);
-        _MsGetSavePlayerPtr = FhUtil.get_fptr<MsGetSavePlayerPtr>(__addr_MsGetSavePlayerPtr);
-        _TkMenuGetPlayerListMax2 = FhUtil.get_fptr<TkMenuGetPlayerListMax2>(__addr_TkMenuGetPlayerListMax2);
-        _TkVU1SyncPath = FhUtil.get_fptr<TkVU1SyncPath>(__addr_TkVU1SyncPath);
-        _TOMenuOpenPktBuffTmp = FhUtil.get_fptr<TOMenuOpenPktBuffTmp>(__addr_TOMenuOpenPktBuffTmp);
-        _graphicUiRemapX2 = FhUtil.get_fptr<graphicUiRemapX2>(__addr_graphicUiRemapX2);
-        _TODrawMenuBG = FhUtil.get_fptr<TODrawMenuBG>(__addr_TODrawMenuBG);
-        _FUN_0088e6c0 = FhUtil.get_fptr<FUN_0088e6c0>(__addr_FUN_0088e6c0);
-        _TkMenuGetPlayerFromIndex2 = FhUtil.get_fptr<TkMenuGetPlayerFromIndex2>(__addr_TkMenuGetPlayerFromIndex2);
-        _graphicUiRemapY2 = FhUtil.get_fptr<graphicUiRemapY2>(__addr_graphicUiRemapY2);
-        _TOMkpShapeXYWHUV = FhUtil.get_fptr<TOMkpShapeXYWHUV>(__addr_TOMkpShapeXYWHUV);
-        _FUN_008a9b20 = FhUtil.get_fptr<FUN_008a9b20>(__addr_FUN_008a9b20);
-        _FUN_008e7d30 = FhUtil.get_fptr<FUN_008e7d30>(__addr_FUN_008e7d30);
-        _FUN_008a9a20 = FhUtil.get_fptr<FUN_008a9a20>(__addr_FUN_008a9a20);
-        _TOGetSaveChrName = FhUtil.get_fptr<TOGetSaveChrName>(__addr_TOGetSaveChrName);
-        _FUN_00905930 = FhUtil.get_fptr<FUN_00905930>(__addr_FUN_00905930);
-        _TOGetFFXLang = FhUtil.get_fptr<TOGetFFXLang>(__addr_TOGetFFXLang);
-        _FUN_008a9940 = FhUtil.get_fptr<FUN_008a9940>(__addr_FUN_008a9940);
-        _FUN_008a9870 = FhUtil.get_fptr<FUN_008a9870>(__addr_FUN_008a9870);
-        _FUN_00901660 = FhUtil.get_fptr<FUN_00901660>(__addr_FUN_00901660);
-        _FUN_008a9960 = FhUtil.get_fptr<FUN_008a9960>(__addr_FUN_008a9960);
-        _FUN_008a9920 = FhUtil.get_fptr<FUN_008a9920>(__addr_FUN_008a9920);
-        _FUN_008a9b30 = FhUtil.get_fptr<FUN_008a9b30>(__addr_FUN_008a9b30);
-        _FUN_00905230 = FhUtil.get_fptr<FUN_00905230>(__addr_FUN_00905230);
-        _FUN_00905820 = FhUtil.get_fptr<FUN_00905820>(__addr_FUN_00905820);
-        _TkMn2DrawCrossCursor = FhUtil.get_fptr<TkMn2DrawCrossCursor>(__addr_TkMn2DrawCrossCursor);
-        _FUN_008a9c10 = FhUtil.get_fptr<FUN_008a9c10>(__addr_FUN_008a9c10);
-        _FUN_008c13b0 = FhUtil.get_fptr<FUN_008c13b0>(__addr_FUN_008c13b0);
-        _TODrawCrossBoxXYWHC2 = FhUtil.get_fptr<TODrawCrossBoxXYWHC2>(__addr_TODrawCrossBoxXYWHC2);
-        _MsGetGIL = FhUtil.get_fptr<MsGetGIL>(__addr_MsGetGIL);
-        _FUN_008c09f0 = FhUtil.get_fptr<FUN_008c09f0>(__addr_FUN_008c09f0);
-        _FUN_008a9c00 = FhUtil.get_fptr<FUN_008a9c00>(__addr_FUN_008a9c00);
-        _FUN_008e19f0 = FhUtil.get_fptr<FUN_008e19f0>(__addr_FUN_008e19f0);
-        _TOMkpShapeXYWHUVC2 = FhUtil.get_fptr<TOMkpShapeXYWHUVC2>(__addr_TOMkpShapeXYWHUVC2);
-        _AtelGetSaveDic = FhUtil.get_fptr<AtelGetSaveDic>(__addr_AtelGetSaveDic);
-        _MsGetSaveConfigEnglish = FhUtil.get_fptr<MsGetSaveConfigEnglish>(__addr_MsGetSaveConfigEnglish);
-        _AtelGetSaveDicName = FhUtil.get_fptr<AtelGetSaveDicName>(__addr_AtelGetSaveDicName);
-        _TkMenuDraw1612Width = FhUtil.get_fptr<TkMenuDraw1612Width>(__addr_TkMenuDraw1612Width);
-        _TOMkpCrossExtMesFontLClut = FhUtil.get_fptr<TOMkpCrossExtMesFontLClut>(__addr_TOMkpCrossExtMesFontLClut);
-        _TOMenuDrawKickTmp = FhUtil.get_fptr<TOMenuDrawKickTmp>(__addr_TOMenuDrawKickTmp);
-        _TOGetShapTextureName = FhUtil.get_fptr<TOGetShapTextureName>(__addr_TOGetShapTextureName);
-        _TOGetImageWH = FhUtil.get_fptr<TOGetImageWH>(__addr_TOGetImageWH);
-        _graphicDrawUIElement = FhUtil.get_fptr<graphicDrawUIElement>(__addr_graphicDrawUIElement);
-        _AtelGetAlbhedRikku = FhUtil.get_fptr<AtelGetAlbhedRikku>(__addr_AtelGetAlbhedRikku);
-        _AtelGetEventSaveRamAdrs = FhUtil.get_fptr<MsGetSaveEventAddress>(__addr_AtelGetEventSaveRamAdrs);
-        _MsGetSavePartyMember = FhUtil.get_fptr<MsGetSavePartyMember>(__addr_MsGetSavePartyMember);
-        _MsGetSavePlyJoin = FhUtil.get_fptr<MsGetSavePlyJoin>(__addr_MsGetSavePlyJoin);
-        _MsSetSavePlyJoin = FhUtil.get_fptr<MsSetSavePlyJoin>(__addr_MsSetSavePlyJoin);
-        _FUN_00786a10 = FhUtil.get_fptr<FUN_00786a10>(__addr_FUN_00786a10);
-        _FUN_0088e6a0 = FhUtil.get_fptr<FUN_0088e6a0>(__addr_FUN_0088e6a0);
-        _FUN_008bd9d0 = FhUtil.get_fptr<FUN_008bd9d0>(__addr_FUN_008bd9d0);
-        _FUN_009055c0 = FhUtil.get_fptr<FUN_009055c0>(__addr_FUN_009055c0);
-        _FUN_00905550 = FhUtil.get_fptr<FUN_00905550>(__addr_FUN_00905550);
-        _FUN_008bda10 = FhUtil.get_fptr<FUN_008bda10>(__addr_FUN_008bda10);
-        _MsGetNextAP = FhUtil.get_fptr<MsGetNextAP>(__addr_MsGetNextAP);
-        _FUN_00785370 = FhUtil.get_fptr<FUN_00785370>(__addr_FUN_00785370);
-        _TODrawMenuPlateXYWHType = FhUtil.get_fptr<TODrawMenuPlateXYWHType>(__addr_TODrawMenuPlateXYWHType);
-        _MsGetSaveWeaponName = FhUtil.get_fptr<MsGetSaveWeaponName>(__addr_MsGetSaveWeaponName);
-        _DrawCrossMenuIconXYWHRGBA = FhUtil.get_fptr<DrawCrossMenuIconXYWHRGBA>(__addr_DrawCrossMenuIconXYWHRGBA);
-        _MsGetSaveConfigHiragana = FhUtil.get_fptr<MsGetSaveConfigHiragana>(__addr_MsGetSaveConfigHiragana);
-        _graphicGetTime = FhUtil.get_fptr<graphicGetTime>(__addr_graphicGetTime);
-        _FUN_008e6cc0 = FhUtil.get_fptr<FUN_008e6cc0>(__addr_FUN_008e6cc0);
-        _TOMakePktScissor = FhUtil.get_fptr<TOMakePktScissor>(__addr_TOMakePktScissor);
-        _TOCheckBtlCommandUse = FhUtil.get_fptr<TOCheckBtlCommandUse>(__addr_TOCheckBtlCommandUse);
-        _MsGetComData = FhUtil.get_fptr<MsGetComData>(__addr_MsGetComData);
-        _MsGetSaveItemNum = FhUtil.get_fptr<MsGetSaveItemNum>(__addr_MsGetSaveItemNum);
-        _MsGetCommandMP = FhUtil.get_fptr<MsGetCommandMP>(__addr_MsGetCommandMP);
-        _MsGetRamChrHP = FhUtil.get_fptr<MsGetRamChrHP>(__addr_MsGetRamChrHP);
-        _MsGetRamChrMP = FhUtil.get_fptr<MsGetRamChrMP>(__addr_MsGetRamChrMP);
-        _FUN_00904ba0 = FhUtil.get_fptr<FUN_00904ba0>(__addr_FUN_00904ba0);
-        _FUN_008a9820 = FhUtil.get_fptr<FUN_008a9820>(__addr_FUN_008a9820);
-        _FUN_008cfc00 = FhUtil.get_fptr<FUN_008cfc00>(__addr_FUN_008cfc00);
-        _FUN_008cfcf0 = FhUtil.get_fptr<FUN_008cfcf0>(__addr_FUN_008cfcf0);
-        _FUN_008c2bd0 = FhUtil.get_fptr<FUN_008c2bd0>(__addr_FUN_008c2bd0);
-        _FUN_00798be0 = FhUtil.get_fptr<FUN_00798be0>(__addr_FUN_00798be0);
-        _MsGetSavePlyJoined = FhUtil.get_fptr<MsGetSavePlyJoined>(__addr_MsGetSavePlyJoined);
-        _Brnd = FhUtil.get_fptr<Brnd>(__addr_Brnd);
-        _MsCheckRange = FhUtil.get_fptr<MsCheckRange>(__addr_MsCheckRange);
-        _FUN_00798aa0 = FhUtil.get_fptr<FUN_00798aa0>(__addr_FUN_00798aa0);
-        _MsWeaponNameNum = FhUtil.get_fptr<MsWeaponNameNum>(__addr_MsWeaponNameNum);
-        _MsGetSaveWeapon = FhUtil.get_fptr<MsGetSaveWeapon>(__addr_MsGetSaveWeapon);
-        _TkMn2GetExcelData = FhUtil.get_fptr<TkMn2GetExcelData>(__addr_TkMn2GetExcelData);
-        _FUN_008d9140 = FhUtil.get_fptr<FUN_008d9140>(__addr_FUN_008d9140);
-        _FUN_008a9c20 = FhUtil.get_fptr<FUN_008a9c20>(__addr_FUN_008a9c20);
-        _FUN_008a97d0 = FhUtil.get_fptr<FUN_008a97d0>(__addr_FUN_008a97d0);
-        _FUN_008f8bb0 = FhUtil.get_fptr<FUN_008f8bb0>(__addr_FUN_008f8bb0);
-        _FUN_008bee40 = FhUtil.get_fptr<FUN_008bee40>(__addr_FUN_008bee40);
-        _ToGetBtlEasyFontWidth = FhUtil.get_fptr<ToGetBtlEasyFontWidth>(__addr_ToGetBtlEasyFontWidth);
-        _FUN_008d8a70 = FhUtil.get_fptr<FUN_008d8a70>(__addr_FUN_008d8a70);
-        _ToMakeBtlEasyFont = FhUtil.get_fptr<ToMakeBtlEasyFont>(__addr_ToMakeBtlEasyFont);
-        _MsGetRamChrMonster = FhUtil.get_fptr<MsGetRamChrMonster>(__addr_MsGetRamChrMonster);
-        _MsLimitUp = FhUtil.get_fptr<MsLimitUp>(__addr_MsLimitUp);
-        _MsGetChr = FhUtil.get_fptr<MsGetChr>(__addr_MsGetChr);
-        _MsCalcWeakLevel = FhUtil.get_fptr<MsCalcWeakLevel>(__addr_MsCalcWeakLevel);
-        _MsGetRomPlyCommand = FhUtil.get_fptr<MsGetRomPlyCommand>(__addr_MsGetRomPlyCommand);
-        _TkMenuGetCurrentPlayer = FhUtil.get_fptr<TkMenuGetCurrentPlayer>(__addr_TkMenuGetCurrentPlayer);
-        _getScenerioFlag = FhUtil.get_fptr<getScenerioFlag>(__addr_getScenerioFlag);
-        _MsGetChrAbilityMap = FhUtil.get_fptr<MsGetChrAbilityMap>(__addr_MsGetChrAbilityMap);
-        _setCommandDisabled = FhUtil.get_fptr<setCommandDisabled>(__addr_setCommandDisabled);
-    }
-    public override bool init(FhModContext mod_context, FileStream global_state_file) 
-    {
-        _CT_RetInt_0171_restoreCharHp = new FhMethodHandle<CT_RetInt_0171_restoreCharHp>(this, game, __addr_CT_RetInt_0171_restoreCharHp, h_CT_RetInt_0171_restoreCharHp);
-        _CT_RetInt_0172_restoreCharMp = new FhMethodHandle<CT_RetInt_0172_restoreCharMp>(this, game, __addr_CT_RetInt_0172_restoreCharMp, h_CT_RetInt_0172_restoreCharMp);
-        _TkMenuDrawMain = new FhMethodHandle<TkMenuDrawMain>(this, game, __addr_TkMenuDrawMain, h_TkMenuDrawMain);
-        _FUN_008c0220 = new FhMethodHandle<FUN_008c0220>(this, game, __addr_FUN_008c0220, h_FUN_008c0220);
-        _AtelPushMember = new FhMethodHandle<AtelPushMember>(this, game, __addr_AtelPushMember, h_AtelPushMember);
-        _AtelPopMember = new FhMethodHandle<AtelPopMember>(this, game, __addr_AtelPopMember, h_AtelPopMember);
-        _FUN_008bc300 = new FhMethodHandle<FUN_008bc300>(this, game, __addr_FUN_008bc300, h_FUN_008bc300);
-        _MsWeaponName = new FhMethodHandle<MsWeaponName>(this, game, __addr_MsWeaponName, h_MsWeaponName);
-        _FUN_008e67f0 = new FhMethodHandle<FUN_008e67f0>(this, game, __addr_FUN_008e67f0, h_FUN_008e67f0);
-        _DrawCrossMenuIconWeaponName2 = new FhMethodHandle<DrawCrossMenuIconWeaponName2>(this, game, __addr_DrawCrossMenuIconWeaponName2, h_DrawCrossMenuIconWeaponName2);
-        _TOBtlDrawCommandWindow = new FhMethodHandle<TOBtlDrawCommandWindow>(this, game, __addr_TOBtlDrawCommandWindow, h_TOBtlDrawCommandWindow);
-        _FUN_008cf800 = new FhMethodHandle<FUN_008cf800>(this, game, __addr_FUN_008cf800, h_FUN_008cf800);
-        _MsGetItemInternal_00798C20 = new FhMethodHandle<MsGetItemInternal_00798C20>(this, game, __addr_MsGetItemInternal_00798C20, h_MsGetItemInternal_00798C20);
-        _MsChangeWeaponInvisible = new FhMethodHandle<MsChangeWeaponInvisible>(this, game, __addr_MsChangeWeaponInvisible, h_MsChangeWeaponInvisible);
-        _FUN_008d85f0 = new FhMethodHandle<FUN_008d85f0>(this, game, __addr_FUN_008d85f0, h_FUN_008d85f0);
-        _MsLimitTypeDamageCheck = new FhMethodHandle<MsLimitTypeDamageCheck>(this, game, __addr_MsLimitTypeDamageCheck, h_MsLimitTypeDamageCheck);
-        _MsLimitTypeDeathCheck = new FhMethodHandle<MsLimitTypeDeathCheck>(this, game, __addr_MsLimitTypeDeathCheck, h_MsLimitTypeDeathCheck);
-        _FUN_007b10d0 = new FhMethodHandle<FUN_007b10d0>(this, game, __addr_FUN_007b10d0, h_FUN_007b10d0);
-        _MsLimitTypeTurnCheck = new FhMethodHandle<MsLimitTypeTurnCheck>(this, game, __addr_MsLimitTypeTurnCheck, h_MsLimitTypeTurnCheck);
-        _MsLimitTypeWinCheck = new FhMethodHandle<MsLimitTypeWinCheck>(this, game, __addr_MsLimitTypeWinCheck, h_MsLimitTypeWinCheck);
-        _MsSetSaveStartGame = new FhMethodHandle<MsSetSaveStartGame>(this, game, __addr_MsSetSaveStartGame, h_MsSetSaveStartGame);
-        _FUN_00635c20 = new FhMethodHandle<FUN_00635c20>(this, game, __addr_FUN_00635c20, h_FUN_00635c20);
-        _MsParseCommand = new FhMethodHandle<MsParseCommand>(this, game, __addr_MsParseCommand, h_MsParseCommand);
-        _TOBtlCtrlHelpWin = new FhMethodHandle<TOBtlCtrlHelpWin>(this, game, __addr_TOBtlCtrlHelpWin, h_TOBtlCtrlHelpWin);
-        _TOGetSaveWindow = new FhMethodHandle<TOGetSaveWindow>(this, game, __addr_TOGetSaveWindow, h_TOGetSaveWindow);
-        _TkMenuSummonEnableMask = new FhMethodHandle<TkMenuSummonEnableMask>(this, game, __addr_TkMenuSummonEnableMask, h_TkMenuSummonEnableMask);
-        _MsSetSaveParam = new FhMethodHandle<MsSetSaveParam>(this, game, __addr_MsSetSaveParam, h_MsSetSaveParam);
-        _FUN_00785c20 = new FhMethodHandle<FUN_00785c20>(this, game, __addr_FUN_00785c20, h_FUN_00785c20);
-        _MsBtlReadManage = new FhMethodHandle<MsBtlReadManage>(this, game, __addr_MsBtlReadManage, h_MsBtlReadManage);
-
-        init_fptrs();
-
         _NkSeymourLegend[0] = 0x8019; // Break Damage Limit
         _NkSeymourLegend[1] = 0x800F; // Triple Overdrive
         _NkSeymourLegend[2] = 0x8006; // Magic Booster
         _NkSeymourLegend[3] = 0x800D; // One MP Cost
 
-        return _CT_RetInt_0171_restoreCharHp.hook() &&
-               _CT_RetInt_0172_restoreCharMp.hook() &&
-               _TkMenuDrawMain.hook() &&
-               _FUN_008c0220.hook() &&
-               _AtelPushMember.hook() &&
-               _AtelPopMember.hook() &&
-               _FUN_008bc300.hook() &&
-               _MsWeaponName.hook() &&
-               _FUN_008e67f0.hook() &&
-               _DrawCrossMenuIconWeaponName2.hook() &&
-               _TOBtlDrawCommandWindow.hook() &&
-               _FUN_008cf800.hook() &&
-               _MsGetItemInternal_00798C20.hook() &&
-               _MsChangeWeaponInvisible.hook() &&
-               _FUN_008d85f0.hook() &&
-               _MsLimitTypeDamageCheck.hook() &&
-               _MsLimitTypeDeathCheck.hook() &&
-               _FUN_007b10d0.hook() &&
-               _MsLimitTypeTurnCheck.hook() &&
-               _MsLimitTypeWinCheck.hook() &&
-               _MsSetSaveStartGame.hook() &&
-               _FUN_00635c20.hook() &&
-               _MsParseCommand.hook() &&
-               _TOBtlCtrlHelpWin.hook() &&
-               _TOGetSaveWindow.hook() &&
-               _TkMenuSummonEnableMask.hook() &&
-               _MsSetSaveParam.hook() &&
-               _FUN_00785c20.hook() &&
-               _MsBtlReadManage.hook();
+        return _CT_RetInt_0171_restoreCharHp.hook(this, h_CT_RetInt_0171_restoreCharHp)
+            && _CT_RetInt_0172_restoreCharMp.hook(this, h_CT_RetInt_0172_restoreCharMp)
+            && _TkMenuDrawMain              .hook(this, h_TkMenuDrawMain)
+            && _FUN_008c0220                .hook(this, h_FUN_008c0220)
+            && _AtelPushMember              .hook(this, h_AtelPushMember)
+            && _AtelPopMember               .hook(this, h_AtelPopMember)
+            && _FUN_008bc300                .hook(this, h_FUN_008bc300)
+            && _MsWeaponName                .hook(this, h_MsWeaponName)
+            && _FUN_008e67f0                .hook(this, h_FUN_008e67f0)
+            && _DrawCrossMenuIconWeaponName2.hook(this, h_DrawCrossMenuIconWeaponName2)
+            && _TOBtlDrawCommandWindow      .hook(this, h_TOBtlDrawCommandWindow)
+            && _FUN_008cf800                .hook(this, h_FUN_008cf800)
+            && _MsGetItemInternal_00798C20  .hook(this, h_MsGetItemInternal_00798C20)
+            && _MsChangeWeaponInvisible     .hook(this, h_MsChangeWeaponInvisible)
+            && _FUN_008d85f0                .hook(this, h_FUN_008d85f0)
+            && _MsLimitTypeDamageCheck      .hook(this, h_MsLimitTypeDamageCheck)
+            && _MsLimitTypeDeathCheck       .hook(this, h_MsLimitTypeDeathCheck)
+            && _FUN_007b10d0                .hook(this, h_FUN_007b10d0)
+            && _MsLimitTypeTurnCheck        .hook(this, h_MsLimitTypeTurnCheck)
+            && _MsLimitTypeWinCheck         .hook(this, h_MsLimitTypeWinCheck)
+            && _MsSetSaveStartGame          .hook(this, h_MsSetSaveStartGame)
+            && _FUN_00635c20                .hook(this, h_FUN_00635c20)
+            && _MsParseCommand              .hook(this, h_MsParseCommand)
+            && _TOBtlCtrlHelpWin            .hook(this, h_TOBtlCtrlHelpWin)
+            && _TOGetSaveWindow             .hook(this, h_TOGetSaveWindow)
+            && _TkMenuSummonEnableMask      .hook(this, h_TkMenuSummonEnableMask)
+            && _MsSetSaveParam              .hook(this, h_MsSetSaveParam)
+            && _FUN_00785c20                .hook(this, h_FUN_00785c20)
+            && _MsBtlReadManage             .hook(this, h_MsBtlReadManage);
     }
     public override void load_local_state(FileStream? local_state_file, FhLocalStateInfo local_state_info) { }
     public override void save_local_state(FileStream  local_state_file)                                    { }
@@ -1148,13 +1024,13 @@ public unsafe class SeymourModule : FhModule {
         PlySave* ply_save;
         PlySave* seymour;
 
-        chr_id = (uint)_AtelPopStackInteger(work, stack);
-        ply_save = _MsGetSavePlayerPtr(chr_id);
-        ply_save->__0x3D = 0;
+        chr_id = (uint)_AtelPopStackInteger.fnptr!(work, stack);
+        ply_save = _MsGetSavePlayerPtr.fnptr!(chr_id);
+        ply_save->battles_until_recovery = 0;
         if (chr_id == 3)
         {
-            seymour = _MsGetSavePlayerPtr(7);
-            seymour->__0x3D = 0;
+            seymour = _MsGetSavePlayerPtr.fnptr!(7);
+            seymour->battles_until_recovery = 0;
             seymour->hp = seymour->max_hp;
         }
         if (ply_save->max_hp < ply_save->hp)
@@ -1164,17 +1040,18 @@ public unsafe class SeymourModule : FhModule {
         ply_save->hp = ply_save->max_hp;
         return (int)ply_save->max_hp;
     }
+
     int h_CT_RetInt_0172_restoreCharMp(AtelBasicWorker* work, int* storage, AtelStack* stack)
     {
         uint chr_id;
         PlySave* ply_save;
         PlySave* seymour;
 
-        chr_id = (uint)_AtelPopStackInteger(work, stack);
-        ply_save = _MsGetSavePlayerPtr(chr_id);
+        chr_id = (uint)_AtelPopStackInteger.fnptr!(work, stack);
+        ply_save = _MsGetSavePlayerPtr.fnptr!(chr_id);
         if (chr_id == 3)
         {
-            seymour = _MsGetSavePlayerPtr(7);
+            seymour = _MsGetSavePlayerPtr.fnptr!(7);
             seymour->mp = seymour->max_mp;
         }
         if (ply_save->max_mp < ply_save->mp)
@@ -1237,11 +1114,11 @@ public unsafe class SeymourModule : FhModule {
         local_48 = 0.0f;
         local_4c = 0.0f;
         local_50 = 0.0f;
-        iVar2 = (int)_TkMenuGetPlayerListMax2();
-        _TkVU1SyncPath();
-        _TOMenuOpenPktBuffTmp();
-        pAVar7 = (AtelStack*)(nint)_graphicUiRemapX2(145.0f);
-        _TODrawMenuBG();
+        iVar2 = (int)_TkMenuGetPlayerListMax2.fnptr!();
+        _TkVU1SyncPath.fnptr!();
+        _TOMenuOpenPktBuffTmp.fnptr!();
+        pAVar7 = (AtelStack*)(nint)_graphicUiRemapX2.fnptr!(145.0f);
+        _TODrawMenuBG.fnptr!();
         *p_toMenuNamePltNextH = 0x2c;
         *p_DAT_025d1640 = 0x20;
         local_24 = 0.0f;
@@ -1254,13 +1131,13 @@ public unsafe class SeymourModule : FhModule {
                 if (local_2c != 0.0)
                 {
                     iVar3 = (int)(local_2c);
-                    uVar4 = (uint)_FUN_0088e6c0(iVar3);
+                    uVar4 = (uint)_FUN_0088e6c0.fnptr!(iVar3);
                     local_2c = (((float)(uVar4 & 0xffff) * -512.0f * 2.0f) / 12288.0f);
-                    uVar4 = _TkMenuGetPlayerFromIndex2((int)fVar13);
+                    uVar4 = _TkMenuGetPlayerFromIndex2.fnptr!((int)fVar13);
                     local_24 = (float)(int)local_24;
-                    fVar8 = _graphicUiRemapY2(80.0f); // Spacing between each character (originally 90.0f)
+                    fVar8 = _graphicUiRemapY2.fnptr!(80.0f); // Spacing between each character (originally 90.0f)
                     local_34 = (double)(fVar8 * local_24);
-                    local_28 = _graphicUiRemapY2(200.0f);
+                    local_28 = _graphicUiRemapY2.fnptr!(200.0f);
                     local_28 = local_28 + (float)local_34;
                     local_34 = (double)(local_2c + (float)(nint)pAVar7);
                     if (local_24 >= 7) // Characters >= 7 use one of the 3 extra background plates in menu_new
@@ -1276,13 +1153,13 @@ public unsafe class SeymourModule : FhModule {
                     fVar20 = 1109.0f;
                     fVar15 = 0.0f;
                     local_24 = fVar8;
-                    fVar9 = _graphicUiRemapY2(72.0f);
-                    fVar10 = _graphicUiRemapX2(1109.0f);
+                    fVar9 = _graphicUiRemapY2.fnptr!(72.0f);
+                    fVar10 = _graphicUiRemapX2.fnptr!(1109.0f);
                     fVar12 = local_28;
-                    local_24 = _graphicUiRemapX2(0.0f);
+                    local_24 = _graphicUiRemapX2.fnptr!(0.0f);
                     local_24 = local_24 + (float)local_34;
-                    _TOMkpShapeXYWHUV(-3, local_24, fVar12, fVar10, fVar9, fVar15, fVar8, fVar20, fVar11);
-                    iVar3 = (int)_FUN_008a9b20();
+                    _TOMkpShapeXYWHUV.fnptr!(-3, local_24, fVar12, fVar10, fVar9, fVar15, fVar8, fVar20, fVar11);
+                    iVar3 = (int)_FUN_008a9b20.fnptr!();
                     if ((int)fVar13 < iVar3) // Draw animated texture for frontline members
                     {
                         uVar22 = 0x1ac56870;
@@ -1295,9 +1172,9 @@ public unsafe class SeymourModule : FhModule {
                         fVar9 = 250.0f;
                         uVar14 = 0;
                         local_2c = fVar8;
-                        fVar11 = _graphicUiRemapY2(64.0f);
-                        fVar12 = _graphicUiRemapX2(250.0f);
-                        _FUN_008e7d30(local_24, local_28, fVar12, fVar11, uVar14, fVar8, fVar9, fVar10, uVar16, uVar17, (uint)puVar21, uVar22);
+                        fVar11 = _graphicUiRemapY2.fnptr!(64.0f);
+                        fVar12 = _graphicUiRemapX2.fnptr!(250.0f);
+                        _FUN_008e7d30.fnptr!(local_24, local_28, fVar12, fVar11, uVar14, fVar8, fVar9, fVar10, uVar16, uVar17, (uint)puVar21, uVar22);
                         puVar21 = (byte*)p_DAT_00c56870;
                         uVar22 = 0x1ac56870;
                         uVar17 = -20.0f; ;
@@ -1306,11 +1183,11 @@ public unsafe class SeymourModule : FhModule {
                         fVar15 = 250.0f;
                         uVar14 = (int)250.0f;
                         fVar11 = local_2c;
-                        fVar12 = _graphicUiRemapY2(64.0f);
-                        fVar9 = _graphicUiRemapX2(250.0f);
+                        fVar12 = _graphicUiRemapY2.fnptr!(64.0f);
+                        fVar9 = _graphicUiRemapX2.fnptr!(250.0f);
                         fVar8 = local_28;
-                        fVar10 = _graphicUiRemapX2(250.0f);
-                        _FUN_008e7d30(fVar10 + (float)local_34, fVar8, fVar9, fVar12, uVar14, fVar11, fVar15, fVar20, uVar16, uVar17, uVar22, (uint)puVar21);
+                        fVar10 = _graphicUiRemapX2.fnptr!(250.0f);
+                        _FUN_008e7d30.fnptr!(fVar10 + (float)local_34, fVar8, fVar9, fVar12, uVar14, fVar11, fVar15, fVar20, uVar16, uVar17, uVar22, (uint)puVar21);
                         uVar22 = 0x33c56870;
                         puVar21 = (byte*)p_DAT_00c56870;
                         uVar17 = -10.0f;
@@ -1319,9 +1196,9 @@ public unsafe class SeymourModule : FhModule {
                         fVar9 = 250.0f;
                         uVar14 = (int)300.0f;
                         fVar8 = local_2c;
-                        fVar11 = _graphicUiRemapY2(64.0f);
-                        fVar12 = _graphicUiRemapX2(250.0f);
-                        _FUN_008e7d30(local_24, local_28, fVar12, fVar11, uVar14, fVar8, fVar9, fVar10, uVar16, uVar17, (uint)puVar21, uVar22);
+                        fVar11 = _graphicUiRemapY2.fnptr!(64.0f);
+                        fVar12 = _graphicUiRemapX2.fnptr!(250.0f);
+                        _FUN_008e7d30.fnptr!(local_24, local_28, fVar12, fVar11, uVar14, fVar8, fVar9, fVar10, uVar16, uVar17, (uint)puVar21, uVar22);
                         puVar21 = (byte*)p_DAT_00c56870;
                         uVar22 = 0x33c56870;
                         uVar17 = -10.0f;
@@ -1330,144 +1207,144 @@ public unsafe class SeymourModule : FhModule {
                         fVar15 = 250.0f;
                         uVar14 = (int)550.0f;
                         fVar11 = local_2c;
-                        fVar12 = _graphicUiRemapY2(64.0f);
-                        fVar9 = _graphicUiRemapX2(250.0f);
+                        fVar12 = _graphicUiRemapY2.fnptr!(64.0f);
+                        fVar9 = _graphicUiRemapX2.fnptr!(250.0f);
                         fVar8 = local_28;
-                        fVar10 = _graphicUiRemapX2(250.0f);
-                        _FUN_008e7d30(fVar10 + (float)local_34, fVar8, fVar9, fVar12, uVar14, fVar11, fVar15, fVar20, uVar16, uVar17, uVar22, (uint)puVar21);
+                        fVar10 = _graphicUiRemapX2.fnptr!(250.0f);
+                        _FUN_008e7d30.fnptr!(fVar10 + (float)local_34, fVar8, fVar9, fVar12, uVar14, fVar11, fVar15, fVar20, uVar16, uVar17, uVar22, (uint)puVar21);
                     }
                     uVar14 = 0x3f800000;
                     fVar12 = 0.82f;
-                    bVar1 = _FUN_008a9a20(uVar4);
-                    fVar8 = _graphicUiRemapY2(9.0f);
+                    bVar1 = _FUN_008a9a20.fnptr!(uVar4);
+                    fVar8 = _graphicUiRemapY2.fnptr!(9.0f);
                     fVar8 = fVar8 + local_28;
-                    fVar11 = _graphicUiRemapX2(160.0f);
+                    fVar11 = _graphicUiRemapX2.fnptr!(160.0f);
                     fVar11 = fVar11 + (float)local_34;
-                    pbVar5 = _TOGetSaveChrName(uVar4);
-                    _FUN_00905930(pbVar5, fVar11, fVar8, bVar1, fVar12, (int)uVar14);
+                    pbVar5 = _TOGetSaveChrName.fnptr!(uVar4);
+                    _FUN_00905930.fnptr!(pbVar5, fVar11, fVar8, bVar1, fVar12, (int)uVar14);
                     fVar8 = (local_40 + 41.0f) * 0.0009765625f;
                     fVar11 = (local_38 + 436.0f) * 0.0009765625f;
                     fVar18 = 0.0146484375f;
                     fVar20 = 0.34765625f;
-                    fVar9 = _graphicUiRemapY2(local_40 + 23.0f);
-                    fVar10 = _graphicUiRemapX2(local_38 + 61.5f);
-                    fVar12 = _graphicUiRemapY2(5.0f);
+                    fVar9 = _graphicUiRemapY2.fnptr!(local_40 + 23.0f);
+                    fVar10 = _graphicUiRemapX2.fnptr!(local_38 + 61.5f);
+                    fVar12 = _graphicUiRemapY2.fnptr!(5.0f);
                     fVar12 = fVar12 + local_28;
-                    fVar15 = _graphicUiRemapX2(490.0f);
-                    _TOMkpShapeXYWHUV(0x21, fVar15 + (float)local_34, fVar12, fVar10, fVar9, fVar20, fVar18, fVar11, fVar8);
-                    uVar14 = _FUN_008a9940(uVar4);
-                    uVar16 = _FUN_008a9870(uVar4);
+                    fVar15 = _graphicUiRemapX2.fnptr!(490.0f);
+                    _TOMkpShapeXYWHUV.fnptr!(0x21, fVar15 + (float)local_34, fVar12, fVar10, fVar9, fVar20, fVar18, fVar11, fVar8);
+                    uVar14 = _FUN_008a9940.fnptr!(uVar4);
+                    uVar16 = _FUN_008a9870.fnptr!(uVar4);
                     HP = Encoding.UTF8.GetBytes($"{uVar16,5}/{uVar14,5}");
                     fVar9 = 0.0f;
                     fVar12 = 0.72f;
                     bVar1 = 0x25;
-                    fVar8 = _graphicUiRemapY2(6.0f);
+                    fVar8 = _graphicUiRemapY2.fnptr!(6.0f);
                     fVar8 = fVar8 + local_28;
-                    fVar11 = _graphicUiRemapX2(604.0f);
+                    fVar11 = _graphicUiRemapX2.fnptr!(604.0f);
                     fVar11 = fVar11 + (float)local_34 + local_3c;
-                    fixed (byte* HPDisplay = HP) _FUN_00901660(HPDisplay, fVar11, fVar8, bVar1, fVar12, fVar9);
+                    fixed (byte* HPDisplay = HP) _FUN_00901660.fnptr!(HPDisplay, fVar11, fVar8, bVar1, fVar12, fVar9);
                     fVar18 = 0.040039063f;
                     fVar8 = (local_38 + 570.0f) * 0.0009765625f;
                     fVar20 = 0.0146484375f;
                     fVar15 = 0.49804688f;
-                    fVar12 = _graphicUiRemapY2(23.0f);
-                    fVar9 = _graphicUiRemapX2(local_38 + 49.0f);
-                    fVar11 = _graphicUiRemapY2(32.0f);
+                    fVar12 = _graphicUiRemapY2.fnptr!(23.0f);
+                    fVar9 = _graphicUiRemapX2.fnptr!(local_38 + 49.0f);
+                    fVar11 = _graphicUiRemapY2.fnptr!(32.0f);
                     fVar11 = fVar11 + local_28;
-                    fVar10 = _graphicUiRemapX2(540.0f);
-                    _TOMkpShapeXYWHUV(0x22, fVar10 + (float)local_34, fVar11, fVar9, fVar12, fVar15, fVar20, fVar8, fVar18);
-                    uVar14 = _FUN_008a9960(uVar4);
-                    uVar16 = _FUN_008a9920(uVar4);
+                    fVar10 = _graphicUiRemapX2.fnptr!(540.0f);
+                    _TOMkpShapeXYWHUV.fnptr!(0x22, fVar10 + (float)local_34, fVar11, fVar9, fVar12, fVar15, fVar20, fVar8, fVar18);
+                    uVar14 = _FUN_008a9960.fnptr!(uVar4);
+                    uVar16 = _FUN_008a9920.fnptr!(uVar4);
                     MP = Encoding.UTF8.GetBytes($"{uVar16,4}/{uVar14,4}");
                     fVar9 = 0.0f;
                     fVar12 = 0.72f;
                     bVar1 = 0x25;
-                    fVar8 = _graphicUiRemapY2(34.0f);
+                    fVar8 = _graphicUiRemapY2.fnptr!(34.0f);
                     fVar8 = fVar8 + local_28;
-                    fVar11 = _graphicUiRemapX2(625.0f);
+                    fVar11 = _graphicUiRemapX2.fnptr!(625.0f);
                     fVar11 = fVar11 + (float)local_34 + local_3c;
-                    fixed (byte* MPDisplay = MP) _FUN_00901660(MPDisplay, fVar11, fVar8, bVar1, fVar12, fVar9);
+                    fixed (byte* MPDisplay = MP) _FUN_00901660.fnptr!(MPDisplay, fVar11, fVar8, bVar1, fVar12, fVar9);
                     fVar18 = 636.0f;
                     fVar20 = 208.0f;
                     fVar15 = 603.0f;
                     fVar10 = 0.0f;
-                    fVar11 = _graphicUiRemapY2(33.0f);
-                    fVar12 = _graphicUiRemapX2(208.0f);
-                    fVar8 = _graphicUiRemapY2(28.0f);
+                    fVar11 = _graphicUiRemapY2.fnptr!(33.0f);
+                    fVar12 = _graphicUiRemapX2.fnptr!(208.0f);
+                    fVar8 = _graphicUiRemapY2.fnptr!(28.0f);
                     fVar8 = fVar8 + local_28;
-                    fVar9 = _graphicUiRemapX2(844.0f);
-                    _TOMkpShapeXYWHUV(-1, fVar9 + (float)local_34, fVar8, fVar12, fVar11, fVar10, fVar15, fVar20, fVar18);
+                    fVar9 = _graphicUiRemapX2.fnptr!(844.0f);
+                    _TOMkpShapeXYWHUV.fnptr!(-1, fVar9 + (float)local_34, fVar8, fVar12, fVar11, fVar10, fVar15, fVar20, fVar18);
                     fVar18 = 0.6621094f;
                     fVar20 = 0.5595703f;
                     fVar15 = 0.5888672f;
                     fVar10 = 0.48632813f;
-                    fVar11 = _graphicUiRemapY2(75.0f);
-                    fVar12 = _graphicUiRemapX2(75.0f);
+                    fVar11 = _graphicUiRemapY2.fnptr!(75.0f);
+                    fVar12 = _graphicUiRemapX2.fnptr!(75.0f);
                     local_20 = (double)local_28;
-                    fVar8 = _graphicUiRemapY2(3.0f);
+                    fVar8 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar8 = (float)local_20 - fVar8;
-                    fVar9 = _graphicUiRemapX2(1038.0f);
-                    _TOMkpShapeXYWHUV(0x3d, fVar9 + (float)local_34, fVar8, fVar12, fVar11, fVar10, fVar15, fVar20, fVar18);
+                    fVar9 = _graphicUiRemapX2.fnptr!(1038.0f);
+                    _TOMkpShapeXYWHUV.fnptr!(0x3d, fVar9 + (float)local_34, fVar8, fVar12, fVar11, fVar10, fVar15, fVar20, fVar18);
                     fVar18 = 0.11328125f;
                     fVar8 = (local_48 + 978.0f) * 0.0009765625f;
                     fVar20 = 0.08203125f;
                     fVar11 = (local_44 + 834.0f) * 0.0009765625f;
-                    fVar9 = _graphicUiRemapY2(26.0f);
-                    fVar10 = _graphicUiRemapX2(local_50 + 117.0f);
-                    fVar12 = _graphicUiRemapY2(35.0f);
+                    fVar9 = _graphicUiRemapY2.fnptr!(26.0f);
+                    fVar10 = _graphicUiRemapX2.fnptr!(local_50 + 117.0f);
+                    fVar12 = _graphicUiRemapY2.fnptr!(35.0f);
                     fVar12 = fVar12 + local_28;
-                    fVar15 = _graphicUiRemapX2(local_4c + 952.0f);
-                    _TOMkpShapeXYWHUV(0x3d, fVar15 + (float)local_34, fVar12, fVar10, fVar9, fVar11, fVar20, fVar8, fVar18);
+                    fVar15 = _graphicUiRemapX2.fnptr!(local_4c + 952.0f);
+                    _TOMkpShapeXYWHUV.fnptr!(0x3d, fVar15 + (float)local_34, fVar12, fVar10, fVar9, fVar11, fVar20, fVar8, fVar18);
                     pfVar19 = &local_54;
-                    iVar3 = _FUN_008a9b30((byte)uVar4);
-                    _FUN_00905230(iVar3, pfVar19, 0.7f, 0.0f);
+                    iVar3 = _FUN_008a9b30.fnptr!((byte)uVar4);
+                    _FUN_00905230.fnptr!(iVar3, pfVar19, 0.7f, 0.0f);
                     uVar14 = 0x3f800000;
                     fVar12 = 0.68f;
                     bVar1 = 0;
-                    fVar8 = _graphicUiRemapY2(16.0f);
+                    fVar8 = _graphicUiRemapY2.fnptr!(16.0f);
                     fVar8 = fVar8 + local_28;
-                    fVar11 = _graphicUiRemapX2(1076.0f);
+                    fVar11 = _graphicUiRemapX2.fnptr!(1076.0f);
                     fVar11 = (fVar11 + (float)local_34) - local_54 * 0.5f;
-                    iVar3 = _FUN_008a9b30((byte)uVar4);
-                    _FUN_00905820(iVar3, fVar11, fVar8, bVar1, fVar12, uVar14);
+                    iVar3 = _FUN_008a9b30.fnptr!((byte)uVar4);
+                    _FUN_00905820.fnptr!(iVar3, fVar11, fVar8, bVar1, fVar12, uVar14);
                     if (*p_DAT_0187150c == uVar4)
                     {
                         fVar12 = 0.0f;
-                        fVar8 = _graphicUiRemapY2(14.0f);
+                        fVar8 = _graphicUiRemapY2.fnptr!(14.0f);
                         fVar8 = fVar8 + local_28;
-                        fVar11 = _graphicUiRemapX2(150.0f);
-                        _TkMn2DrawCrossCursor(fVar11 + (float)local_34, fVar8, fVar12);
+                        fVar11 = _graphicUiRemapX2.fnptr!(150.0f);
+                        _TkMn2DrawCrossCursor.fnptr!(fVar11 + (float)local_34, fVar8, fVar12);
                     }
-                    if ((-1 < DAT_0187151c) && (_TkMenuGetPlayerFromIndex2(DAT_0187151c) == uVar4))
+                    if ((-1 < DAT_0187151c) && (_TkMenuGetPlayerFromIndex2.fnptr!(DAT_0187151c) == uVar4))
                     {
                         if (DAT_01871520 < 0)
                         {
                             fVar12 = 0.0f;
-                            fVar8 = _graphicUiRemapY2(14.0f);
+                            fVar8 = _graphicUiRemapY2.fnptr!(14.0f);
                             fVar8 = fVar8 + local_28;
-                            fVar11 = _graphicUiRemapX2(150.0f);
-                            _TkMn2DrawCrossCursor(fVar11 + (float)local_34, fVar8, fVar12);
+                            fVar11 = _graphicUiRemapX2.fnptr!(150.0f);
+                            _TkMn2DrawCrossCursor.fnptr!(fVar11 + (float)local_34, fVar8, fVar12);
                         }
                         else
                         {
-                            iVar3 = _FUN_008a9c10();
+                            iVar3 = _FUN_008a9c10.fnptr!();
                             if ((iVar3 / 2 & 1U) != 0)
                             {
                                 iVar3 = 0;
-                                fVar8 = _graphicUiRemapY2(9.0f);
+                                fVar8 = _graphicUiRemapY2.fnptr!(9.0f);
                                 fVar8 = fVar8 + local_28;
-                                fVar11 = _graphicUiRemapX2(140.0f);
-                                _FUN_008c13b0(fVar11 + (float)local_34, fVar8, iVar3);
+                                fVar11 = _graphicUiRemapX2.fnptr!(140.0f);
+                                _FUN_008c13b0.fnptr!(fVar11 + (float)local_34, fVar8, iVar3);
                             }
                         }
                     }
-                    if ((-1 < DAT_01871520) && (_TkMenuGetPlayerFromIndex2(DAT_01871520) == uVar4))
+                    if ((-1 < DAT_01871520) && (_TkMenuGetPlayerFromIndex2.fnptr!(DAT_01871520) == uVar4))
                     {
                         fVar12 = 0.0f;
-                        fVar8 = _graphicUiRemapY2(14.0f);
+                        fVar8 = _graphicUiRemapY2.fnptr!(14.0f);
                         fVar8 = fVar8 + local_28;
-                        fVar11 = _graphicUiRemapX2(150.0f);
-                        _TkMn2DrawCrossCursor(fVar11 + (float)local_34, fVar8, fVar12);
+                        fVar11 = _graphicUiRemapX2.fnptr!(150.0f);
+                        _TkMn2DrawCrossCursor.fnptr!(fVar11 + (float)local_34, fVar8, fVar12);
                     }
                 }
                 local_24 = (float)((int)fVar13 + 1);
@@ -1475,30 +1352,30 @@ public unsafe class SeymourModule : FhModule {
         }
         uVar22 = 0x40ffffff;
         uVar4 = 0xffffff;
-        fVar13 = _graphicUiRemapY2(32.0f);
-        fVar8 = _graphicUiRemapX2(600.0f);
-        fVar11 = _graphicUiRemapY2(870.0f);
-        fVar12 = _graphicUiRemapX2(639.0f);
-        _TODrawCrossBoxXYWHC2(fVar12, fVar11, fVar8, fVar13, uVar4, uVar22);
-        iVar2 = _MsGetGIL((AtelBasicWorker*)200, (int*)(nint)_graphicUiRemapX2(145.0f), pAVar7);
-        fVar13 = _graphicUiRemapY2(32.0f);
-        fVar8 = _graphicUiRemapX2(1108.0f);
-        fVar11 = _graphicUiRemapY2(870.0f);
-        fVar12 = _graphicUiRemapX2(145.0f);
-        _FUN_008c09f0(fVar12, fVar11, fVar8, fVar13, iVar2);
-        uVar4 = (uint)_FUN_008a9c00();
+        fVar13 = _graphicUiRemapY2.fnptr!(32.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(600.0f);
+        fVar11 = _graphicUiRemapY2.fnptr!(870.0f);
+        fVar12 = _graphicUiRemapX2.fnptr!(639.0f);
+        _TODrawCrossBoxXYWHC2.fnptr!(fVar12, fVar11, fVar8, fVar13, uVar4, uVar22);
+        iVar2 = _MsGetGIL.fnptr!((AtelBasicWorker*)200, (int*)(nint)_graphicUiRemapX2.fnptr!(145.0f), pAVar7);
+        fVar13 = _graphicUiRemapY2.fnptr!(32.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(1108.0f);
+        fVar11 = _graphicUiRemapY2.fnptr!(870.0f);
+        fVar12 = _graphicUiRemapX2.fnptr!(145.0f);
+        _FUN_008c09f0.fnptr!(fVar12, fVar11, fVar8, fVar13, iVar2);
+        uVar4 = (uint)_FUN_008a9c00.fnptr!();
         color_end = 0xffffff;
         uVar22 = 0x40ffffff;
         iVar2 = ((uVar4 & 1) != 0) ? 37 : 1;
-        fVar13 = _graphicUiRemapY2(32.0f);
-        fVar8 = _graphicUiRemapX2(325.0f);
-        fVar11 = _graphicUiRemapY2(870.0f);
-        fVar12 = _graphicUiRemapX2(145.0f);
-        _TODrawCrossBoxXYWHC2(fVar12, fVar11, fVar8, fVar13, uVar22, color_end);
+        fVar13 = _graphicUiRemapY2.fnptr!(32.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(325.0f);
+        fVar11 = _graphicUiRemapY2.fnptr!(870.0f);
+        fVar12 = _graphicUiRemapX2.fnptr!(145.0f);
+        _TODrawCrossBoxXYWHC2.fnptr!(fVar12, fVar11, fVar8, fVar13, uVar22, color_end);
         bVar1 = 0x25;
-        fVar13 = _graphicUiRemapY2(878.0f);
-        fVar8 = _graphicUiRemapX2(270.0f);
-        _FUN_008e19f0(uVar4, fVar8, fVar13, bVar1, iVar2);
+        fVar13 = _graphicUiRemapY2.fnptr!(878.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(270.0f);
+        _FUN_008e19f0.fnptr!(uVar4, fVar8, fVar13, bVar1, iVar2);
         color_2.r = 0x80;
         color_2.g = 0x80;
         color_2.b = 0x80;
@@ -1511,33 +1388,33 @@ public unsafe class SeymourModule : FhModule {
         fVar15 = 1600.0f;
         fVar10 = 544.0f;
         fVar9 = 0.0f;
-        fVar13 = _graphicUiRemapY2(55.0f);
-        fVar8 = _graphicUiRemapX2(1130.0f);
-        fVar11 = _graphicUiRemapY2(951.0f);
-        fVar12 = _graphicUiRemapX2(145.0f);
-        _TOMkpShapeXYWHUVC2(0xffffffff, fVar12, fVar11, fVar8, fVar13, fVar9, fVar10, fVar15, fVar20, color_1, color_2);
+        fVar13 = _graphicUiRemapY2.fnptr!(55.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(1130.0f);
+        fVar11 = _graphicUiRemapY2.fnptr!(951.0f);
+        fVar12 = _graphicUiRemapX2.fnptr!(145.0f);
+        _TOMkpShapeXYWHUVC2.fnptr!(0xffffffff, fVar12, fVar11, fVar8, fVar13, fVar9, fVar10, fVar15, fVar20, color_1, color_2);
         fVar10 = 0.49316406f;
         fVar9 = 0.8808594f;
         fVar12 = 0.4658203f;
         fVar11 = 0.5292969f;
-        fVar13 = _graphicUiRemapY2(28.0f);
-        fVar8 = _graphicUiRemapX2(360.0f);
-        pAVar7 = (AtelStack*)(nint)_graphicUiRemapY2(933.0f);
-        storage = (int*)(nint)_graphicUiRemapX2(145.0f);
-        _TOMkpShapeXYWHUV(200, (float)(nint)storage, (float)(nint)pAVar7, fVar8, fVar13, fVar11, fVar12, fVar9, fVar10);
-        uVar4 = (uint)_AtelGetSaveDic((AtelBasicWorker*)200, storage, pAVar7);
-        iVar2 = _MsGetSaveConfigEnglish();
-        pbVar5 = (byte*)_AtelGetSaveDicName(uVar4, iVar2);
-        _TkMenuDraw1612Width(pbVar5);
+        fVar13 = _graphicUiRemapY2.fnptr!(28.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(360.0f);
+        pAVar7 = (AtelStack*)(nint)_graphicUiRemapY2.fnptr!(933.0f);
+        storage = (int*)(nint)_graphicUiRemapX2.fnptr!(145.0f);
+        _TOMkpShapeXYWHUV.fnptr!(200, (float)(nint)storage, (float)(nint)pAVar7, fVar8, fVar13, fVar11, fVar12, fVar9, fVar10);
+        uVar4 = (uint)_AtelGetSaveDic.fnptr!((AtelBasicWorker*)200, storage, pAVar7);
+        iVar2 = _MsGetSaveConfigEnglish.fnptr!();
+        pbVar5 = (byte*)_AtelGetSaveDicName.fnptr!(uVar4, iVar2);
+        _TkMenuDraw1612Width.fnptr!(pbVar5);
         fVar12 = 1.0f;
         fVar11 = 0.78f;
         bVar1 = 0;
-        fVar13 = _graphicUiRemapY2(956.0f);
-        fVar8 = _graphicUiRemapX2(235.0f);
-        _TOMkpCrossExtMesFontLClut(0, pbVar5, fVar8, fVar13, bVar1, fVar11, fVar12);
+        fVar13 = _graphicUiRemapY2.fnptr!(956.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(235.0f);
+        _TOMkpCrossExtMesFontLClut.fnptr!(0, pbVar5, fVar8, fVar13, bVar1, fVar11, fVar12);
         // Could move Playtime/Gil/Location down on the y coord to make space for extra characters?
-        _TOMenuDrawKickTmp();
-        _TkVU1SyncPath();
+        _TOMenuDrawKickTmp.fnptr!();
+        _TkVU1SyncPath.fnptr!();
         return;
     }
     // Portrait in Menus
@@ -1564,8 +1441,8 @@ public unsafe class SeymourModule : FhModule {
         fVar1 = TkFont_r;
         if (param_1 < 8)
         {
-            local_a4 = _TOGetShapTextureName(0x2ed0);
-            _TOGetImageWH(0x2ed0, &local_ac, &local_b0);
+            local_a4 = _TOGetShapTextureName.fnptr!(0x2ed0);
+            _TOGetImageWH.fnptr!(0x2ed0, &local_ac, &local_b0);
             if (param_1 == 7) // Seymour
             {
                 param_1 = 8;
@@ -1583,14 +1460,14 @@ public unsafe class SeymourModule : FhModule {
                 local_a0.floats1[3] = (float)((int)pcVar6 + 100) / local_b0;
                 local_a0.ints1[0] = (int)fVar4; local_a0.ints1[1] = (int)fVar3;
                 local_a0.ints1[2] = (int)fVar2; local_a0.ints1[3] = (int)fVar1;
-                _graphicDrawUIElement(&local_a0, local_a4, 1, 0, 0);
+                _graphicDrawUIElement.fnptr!(&local_a0, local_a4, 1, 0, 0);
                 return;
             }
             else
             {
                 if (param_1 == 6)
                 {
-                    iVar5 = _AtelGetAlbhedRikku();
+                    iVar5 = _AtelGetAlbhedRikku.fnptr!();
                     if (iVar5 == 1) param_1 = 7;
                 }
                 uVar7 = param_1 & 0x80000003;
@@ -1617,11 +1494,11 @@ public unsafe class SeymourModule : FhModule {
             local_a0.ints1[1] = (int)fVar3;
             local_a0.ints1[2] = (int)fVar2;
             local_a0.ints1[3] = (int)fVar1;
-            _graphicDrawUIElement(&local_a0, local_a4, 1, 0, 0);
+            _graphicDrawUIElement.fnptr!(&local_a0, local_a4, 1, 0, 0);
             return;
         }
-        pcVar6 = _TOGetShapTextureName(0x2ed4);
-        _TOGetImageWH(0x2ed4, &local_ac, &local_b0);
+        pcVar6 = _TOGetShapTextureName.fnptr!(0x2ed4);
+        _TOGetImageWH.fnptr!(0x2ed4, &local_ac, &local_b0);
         local_a0.floats0[0] = param_2;
         local_a0.floats0[1] = param_3;
         tex_path = (byte*)(((int)(param_1 - 8) / 5) * 100);
@@ -1641,7 +1518,7 @@ public unsafe class SeymourModule : FhModule {
         local_a0.ints1[1] = (int)fVar3;
         local_a0.ints1[2] = (int)fVar2;
         local_a0.ints1[3] = (int)fVar1;
-        _graphicDrawUIElement(&local_a0, pcVar6, 1, 0, 0);
+        _graphicDrawUIElement.fnptr!(&local_a0, pcVar6, 1, 0, 0);
         return;
     }
 
@@ -1658,9 +1535,9 @@ public unsafe class SeymourModule : FhModule {
         uint chr_id;
         uint* local_14 = stackalloc uint[4];
 
-        pSVar2 = _AtelGetEventSaveRamAdrs();
+        pSVar2 = _AtelGetEventSaveRamAdrs.fnptr!();
         bVar1 = pSVar2->atel_is_push_member;
-        _MsGetSavePartyMember(local_14, local_14 + 1, local_14 + 2);
+        _MsGetSavePartyMember.fnptr!(local_14, local_14 + 1, local_14 + 2);
         puVar4 = &pSVar2->atel_push_frontline[0];
         puVar5 = local_14;
         iVar6 = 3;
@@ -1683,7 +1560,7 @@ public unsafe class SeymourModule : FhModule {
         uVar7 = 1;
         do
         {
-            BVar3 = _MsGetSavePlyJoin(chr_id);
+            BVar3 = _MsGetSavePlyJoin.fnptr!(chr_id);
             if (BVar3)
             {
                 *(uint*)&pSVar2->atel_push_party = *(uint*)&pSVar2->atel_push_party | uVar7;
@@ -1703,7 +1580,7 @@ public unsafe class SeymourModule : FhModule {
         uint uVar4;
         uint uVar5;
 
-        pSVar2 = _AtelGetEventSaveRamAdrs();
+        pSVar2 = _AtelGetEventSaveRamAdrs.fnptr!();
         bVar1 = pSVar2->atel_is_push_member;
         if (bVar1 != 0)
         {
@@ -1711,7 +1588,7 @@ public unsafe class SeymourModule : FhModule {
             uVar5 = 1;
             do
             {
-                _MsSetSavePlyJoin(uVar4, (int)(((*(uint*)&pSVar2->atel_push_party & uVar5) != 0) ? 1u : 0u));
+                _MsSetSavePlyJoin.fnptr!(uVar4, (int)(((*(uint*)&pSVar2->atel_push_party & uVar5) != 0) ? 1u : 0u));
                 uVar5 = uVar5 << 1 | (((int)uVar5 < 0) ? 1u : 0u);
                 uVar4 = uVar4 + 1;
             } while ((int)uVar4 < 8);
@@ -1730,7 +1607,7 @@ public unsafe class SeymourModule : FhModule {
             {
                 uVar3 = 0xff;
             }
-            _FUN_00786a10(uVar4, uVar5, uVar3);
+            _FUN_00786a10.fnptr!(uVar4, uVar5, uVar3);
         }
         pSVar2->atel_is_push_member = 0;
         return bVar1;
@@ -1779,7 +1656,7 @@ public unsafe class SeymourModule : FhModule {
             case 5:
                 goto switchD_008bc339_caseD_0;
             case 1:
-                uVar18 = (uint)_FUN_0088e6c0(*(short*)((int)p_DAT_01869ee0 + param_1 * 0xe + 2));
+                uVar18 = (uint)_FUN_0088e6c0.fnptr!(*(short*)((int)p_DAT_01869ee0 + param_1 * 0xe + 2));
                 iVar2 = (int)((uVar18 & 0xffff) * -0x200);
                 goto LAB_008bc382;
             case 2:
@@ -1787,17 +1664,17 @@ public unsafe class SeymourModule : FhModule {
                 local_c = 0.0f;
                 break;
             case 4:
-                uVar18 = (uint)_FUN_0088e6a0(0x1000 - *(short*)((int)p_DAT_01869ee0 + param_1 * 0xe + 2));
+                uVar18 = (uint)_FUN_0088e6a0.fnptr!(0x1000 - *(short*)((int)p_DAT_01869ee0 + param_1 * 0xe + 2));
                 iVar2 = (int)(((uVar18 & 0xffff) - 0x1000) * 0x200);
             LAB_008bc382:
                 local_c = (int)(iVar2 + (iVar2 >> 0x1f & 0xfffU)) >> 0xc;
                 break;
         }
-        _TOMenuOpenPktBuffTmp();
-        fVar4 = _graphicUiRemapX2(210.0f);
+        _TOMenuOpenPktBuffTmp.fnptr!();
+        fVar4 = _graphicUiRemapX2.fnptr!(210.0f);
         local_c = fVar4 + local_c;
         local_8 = param_1 * 0x50 + 0x10c; // Spacing between each character (originally param_1 * 0x5a + 0x116)
-        local_8 = _graphicUiRemapY2(local_8);
+        local_8 = _graphicUiRemapY2.fnptr!(local_8);
         if (param_1 >= 7) // Characters >= 7 use one of the 3 extra background plates in menu_new
         {
             fVar4 = param_1 * 86.0f + 170.0f;
@@ -1810,9 +1687,9 @@ public unsafe class SeymourModule : FhModule {
         }
         fVar16 = 1110.0f;
         fVar11 = 0.0f;
-        fVar5 = _graphicUiRemapY2(72.0f);
-        fVar6 = _graphicUiRemapX2(1110.0f);
-        _TOMkpShapeXYWHUV(-3, local_c, local_8, fVar6, fVar5, fVar11, fVar7, fVar16, fVar4);
+        fVar5 = _graphicUiRemapY2.fnptr!(72.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(1110.0f);
+        _TOMkpShapeXYWHUV.fnptr!(-3, local_c, local_8, fVar6, fVar5, fVar11, fVar7, fVar16, fVar4);
         uVar18 = 0x1ac56870;
         puVar17 = (byte*)p_DAT_00c56870;
         fVar4 = (param_1 + 1) * 64.0f;
@@ -1822,9 +1699,9 @@ public unsafe class SeymourModule : FhModule {
         fVar11 = 250.0f;
         uVar8 = 0;
         fVar7 = fVar4;
-        fVar5 = _graphicUiRemapY2(64.0f);
-        fVar6 = _graphicUiRemapX2(250.0f);
-        _FUN_008e7d30(local_c, local_8, fVar6, fVar5, uVar8, fVar7, fVar11, fVar16, uVar12, uVar14, (uint)puVar17, uVar18);
+        fVar5 = _graphicUiRemapY2.fnptr!(64.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(250.0f);
+        _FUN_008e7d30.fnptr!(local_c, local_8, fVar6, fVar5, uVar8, fVar7, fVar11, fVar16, uVar12, uVar14, (uint)puVar17, uVar18);
         puVar17 = (byte*)p_DAT_00c56870;
         uVar18 = 0x1ac56870;
         uVar14 = -20.0f;
@@ -1833,12 +1710,12 @@ public unsafe class SeymourModule : FhModule {
         fVar9 = 250.0f;
         uVar8 = (int)250.0f;
         fVar5 = fVar4;
-        fVar6 = _graphicUiRemapY2(64.0f);
-        fVar11 = _graphicUiRemapX2(250.0f);
+        fVar6 = _graphicUiRemapY2.fnptr!(64.0f);
+        fVar11 = _graphicUiRemapX2.fnptr!(250.0f);
         fVar7 = local_8;
-        fVar16 = _graphicUiRemapX2(250.0f);
+        fVar16 = _graphicUiRemapX2.fnptr!(250.0f);
         local_28 = (double)(fVar16 + local_c);
-        _FUN_008e7d30(fVar16 + local_c, fVar7, fVar11, fVar6, uVar8, fVar5, fVar9, fVar10, uVar12, uVar14, uVar18, (uint)puVar17);
+        _FUN_008e7d30.fnptr!(fVar16 + local_c, fVar7, fVar11, fVar6, uVar8, fVar5, fVar9, fVar10, uVar12, uVar14, uVar18, (uint)puVar17);
         uVar18 = 0x33c56870;
         puVar17 = (byte*)p_DAT_00c56870;
         uVar14 = -10.0f;
@@ -1847,9 +1724,9 @@ public unsafe class SeymourModule : FhModule {
         fVar11 = 250.0f;
         uVar8 = (int)300.0f;
         fVar7 = fVar4;
-        fVar5 = _graphicUiRemapY2(64.0f);
-        fVar6 = _graphicUiRemapX2(250.0f);
-        _FUN_008e7d30(local_c, local_8, fVar6, fVar5, uVar8, fVar7, fVar11, fVar16, uVar12, uVar14, (uint)puVar17, uVar18);
+        fVar5 = _graphicUiRemapY2.fnptr!(64.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(250.0f);
+        _FUN_008e7d30.fnptr!(local_c, local_8, fVar6, fVar5, uVar8, fVar7, fVar11, fVar16, uVar12, uVar14, (uint)puVar17, uVar18);
         puVar17 = (byte*)p_DAT_00c56870;
         uVar18 = 0x33c56870;
         uVar14 = -10.0f;
@@ -1857,131 +1734,131 @@ public unsafe class SeymourModule : FhModule {
         fVar9 = 64.0f;
         fVar16 = 250.0f;
         uVar8 = (int)550.0f;
-        fVar5 = _graphicUiRemapY2(64.0f);
-        fVar6 = _graphicUiRemapX2(250.0f);
+        fVar5 = _graphicUiRemapY2.fnptr!(64.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(250.0f);
         fVar7 = local_8;
-        fVar11 = _graphicUiRemapX2(250.0f);
-        _FUN_008e7d30(fVar11 + local_c, fVar7, fVar6, fVar5, uVar8, fVar4, fVar16, fVar9, uVar12, uVar14, uVar18, (uint)puVar17);
+        fVar11 = _graphicUiRemapX2.fnptr!(250.0f);
+        _FUN_008e7d30.fnptr!(fVar11 + local_c, fVar7, fVar6, fVar5, uVar8, fVar4, fVar16, fVar9, uVar12, uVar14, uVar18, (uint)puVar17);
         fVar10 = 688.0f;
         fVar9 = 1104.0f;
         fVar16 = 618.0f;
         fVar11 = 689.0f;
-        fVar7 = _graphicUiRemapY2(70.0f);
-        fVar5 = _graphicUiRemapX2(415.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(70.0f);
+        fVar5 = _graphicUiRemapX2.fnptr!(415.0f);
         fVar4 = local_8;
-        fVar6 = _graphicUiRemapX2(1090.0f);
-        _TOMkpShapeXYWHUV(-3, fVar6 + local_c, fVar4, fVar5, fVar7, fVar11, fVar16, fVar9, fVar10);
+        fVar6 = _graphicUiRemapX2.fnptr!(1090.0f);
+        _TOMkpShapeXYWHUV.fnptr!(-3, fVar6 + local_c, fVar4, fVar5, fVar7, fVar11, fVar16, fVar9, fVar10);
         uVar8 = 0x3f800000;
         fVar5 = 0.82f;
         bVar13 = 0;
-        fVar4 = _graphicUiRemapY2(9.0f);
+        fVar4 = _graphicUiRemapY2.fnptr!(9.0f);
         fVar4 = fVar4 + local_8;
-        fVar7 = _graphicUiRemapX2(160.0f);
+        fVar7 = _graphicUiRemapX2.fnptr!(160.0f);
         fVar7 = fVar7 + local_c;
-        name = _TOGetSaveChrName((uint)(int)*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-        _FUN_00905930(name, fVar7, fVar4, bVar13, fVar5, uVar8);
+        name = _TOGetSaveChrName.fnptr!((uint)(int)*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
+        _FUN_00905930.fnptr!(name, fVar7, fVar4, bVar13, fVar5, uVar8);
         fVar10 = 0.10253906f;
         fVar4 = (local_10 + 434.0f) * 0.0009765625f;
         fVar9 = 0.07519531f;
         fVar16 = 0.37304688f;
-        fVar5 = _graphicUiRemapY2(28.0f);
-        fVar6 = _graphicUiRemapX2(local_10 + 55.0f);
-        fVar7 = _graphicUiRemapY2(33.0f);
+        fVar5 = _graphicUiRemapY2.fnptr!(28.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(local_10 + 55.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(33.0f);
         fVar7 = fVar7 + local_8;
-        fVar11 = _graphicUiRemapX2(local_20 + 758.0f);
-        _TOMkpShapeXYWHUV(200, fVar11 + local_c, fVar7, fVar6, fVar5, fVar16, fVar9, fVar4, fVar10);
+        fVar11 = _graphicUiRemapX2.fnptr!(local_20 + 758.0f);
+        _TOMkpShapeXYWHUV.fnptr!(200, fVar11 + local_c, fVar7, fVar6, fVar5, fVar16, fVar9, fVar4, fVar10);
         uVar12 = 0;
         fVar6 = 0.7f;
         uVar8 = 0x25;
-        fVar4 = _graphicUiRemapY2(27.0f);
+        fVar4 = _graphicUiRemapY2.fnptr!(27.0f);
         fVar4 = fVar4 + local_8;
-        fVar7 = _graphicUiRemapX2(local_20 + 748.0f);
+        fVar7 = _graphicUiRemapX2.fnptr!(local_20 + 748.0f);
         fVar7 = fVar7 + local_c;
-        fVar5 = _FUN_008bd9d0(*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-        _FUN_009055c0((int)fVar5, fVar7, fVar4, uVar8, fVar6, uVar12);
+        fVar5 = _FUN_008bd9d0.fnptr!(*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
+        _FUN_009055c0.fnptr!((int)fVar5, fVar7, fVar4, uVar8, fVar6, uVar12);
         fVar10 = 0.15234375f;
         fVar9 = 0.7421875f;
         fVar16 = 0.12402344f;
         fVar11 = 0.3671875f;
-        fVar7 = _graphicUiRemapY2(28.0f);
-        fVar5 = _graphicUiRemapX2(384.0f);
-        fVar4 = _graphicUiRemapY2(2.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(28.0f);
+        fVar5 = _graphicUiRemapX2.fnptr!(384.0f);
+        fVar4 = _graphicUiRemapY2.fnptr!(2.0f);
         fVar4 = fVar4 + local_8;
-        fVar6 = _graphicUiRemapX2(1096.0f);
-        _TOMkpShapeXYWHUV(200, fVar6 + local_c, fVar4, fVar5, fVar7, fVar11, fVar16, fVar9, fVar10);
+        fVar6 = _graphicUiRemapX2.fnptr!(1096.0f);
+        _TOMkpShapeXYWHUV.fnptr!(200, fVar6 + local_c, fVar4, fVar5, fVar7, fVar11, fVar16, fVar9, fVar10);
         fVar10 = 636.0f;
         fVar9 = 208.0f;
         fVar16 = 603.0f;
         fVar11 = 0.0f;
-        fVar7 = _graphicUiRemapY2(33.0f);
-        fVar5 = _graphicUiRemapX2(208.0f);
-        fVar4 = _graphicUiRemapY2(29.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(33.0f);
+        fVar5 = _graphicUiRemapX2.fnptr!(208.0f);
+        fVar4 = _graphicUiRemapY2.fnptr!(29.0f);
         fVar4 = fVar4 + local_8;
-        fVar6 = _graphicUiRemapX2(844.0f);
-        _TOMkpShapeXYWHUV(-1, fVar6 + local_c, fVar4, fVar5, fVar7, fVar11, fVar16, fVar9, fVar10);
+        fVar6 = _graphicUiRemapX2.fnptr!(844.0f);
+        _TOMkpShapeXYWHUV.fnptr!(-1, fVar6 + local_c, fVar4, fVar5, fVar7, fVar11, fVar16, fVar9, fVar10);
         fVar10 = 0.6621094f;
         fVar9 = 0.5595703f;
         fVar16 = 0.5888672f;
         fVar11 = 0.48632813f;
-        fVar7 = _graphicUiRemapY2(75.0f);
-        fVar5 = _graphicUiRemapX2(75.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(75.0f);
+        fVar5 = _graphicUiRemapX2.fnptr!(75.0f);
         local_28 = local_8;
-        fVar4 = _graphicUiRemapY2(3.0f);
+        fVar4 = _graphicUiRemapY2.fnptr!(3.0f);
         fVar4 = (float)local_28 - fVar4;
-        fVar6 = _graphicUiRemapX2(1038.0f);
-        _TOMkpShapeXYWHUV(0x3d, fVar6 + local_c, fVar4, fVar5, fVar7, fVar11, fVar16, fVar9, fVar10);
+        fVar6 = _graphicUiRemapX2.fnptr!(1038.0f);
+        _TOMkpShapeXYWHUV.fnptr!(0x3d, fVar6 + local_c, fVar4, fVar5, fVar7, fVar11, fVar16, fVar9, fVar10);
         fVar10 = 0.11328125f;
         fVar4 = (local_10 + 978.0f) * 0.0009765625f;
         fVar9 = 0.08203125f;
         fVar7 = (local_14 + 834.0f) * 0.0009765625f;
-        fVar6 = _graphicUiRemapY2(32.0f);
-        fVar11 = _graphicUiRemapX2(local_18 + 144.0f);
-        fVar5 = _graphicUiRemapY2(32.0f);
+        fVar6 = _graphicUiRemapY2.fnptr!(32.0f);
+        fVar11 = _graphicUiRemapX2.fnptr!(local_18 + 144.0f);
+        fVar5 = _graphicUiRemapY2.fnptr!(32.0f);
         fVar5 = fVar5 + local_8;
-        fVar16 = _graphicUiRemapX2(local_1c + 935.0f);
-        _TOMkpShapeXYWHUV(0x3d, fVar16 + local_c, fVar5, fVar11, fVar6, fVar7, fVar9, fVar4, fVar10);
+        fVar16 = _graphicUiRemapX2.fnptr!(local_1c + 935.0f);
+        _TOMkpShapeXYWHUV.fnptr!(0x3d, fVar16 + local_c, fVar5, fVar11, fVar6, fVar7, fVar9, fVar4, fVar10);
         pfVar15 = &local_2c;
-        iVar2 = _FUN_008a9b30((byte)*(ushort*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-        _FUN_00905230(iVar2, pfVar15, 0.7f, 0.0f);
+        iVar2 = _FUN_008a9b30.fnptr!((byte)*(ushort*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
+        _FUN_00905230.fnptr!(iVar2, pfVar15, 0.7f, 0.0f);
         fVar5 = 0.7f;
         bVar13 = 0;
-        fVar4 = _graphicUiRemapY2(16.0f);
+        fVar4 = _graphicUiRemapY2.fnptr!(16.0f);
         fVar4 = fVar4 + local_8;
-        fVar7 = _graphicUiRemapX2(1076.0f);
+        fVar7 = _graphicUiRemapX2.fnptr!(1076.0f);
         fVar7 = (fVar7 + local_c - local_2c * 0.5f);
-        iVar2 = _FUN_008a9b30((byte)*(ushort*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-        _FUN_00905550(iVar2, fVar7, fVar4, bVar13, fVar5);
+        iVar2 = _FUN_008a9b30.fnptr!((byte)*(ushort*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
+        _FUN_00905550.fnptr!(iVar2, fVar7, fVar4, bVar13, fVar5);
         fVar10 = 0.10253906f;
         fVar4 = (local_10 + 434.0f) * 0.0009765625f;
         fVar9 = 0.07519531f;
         fVar16 = 0.37304688f;
-        fVar5 = _graphicUiRemapY2(28.0f);
-        fVar6 = _graphicUiRemapX2(local_10 + 55.0f);
-        fVar7 = _graphicUiRemapY2(34.0f);
+        fVar5 = _graphicUiRemapY2.fnptr!(28.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(local_10 + 55.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(34.0f);
         fVar7 = fVar7 + local_8;
-        fVar11 = _graphicUiRemapX2(1348.0f);
-        _TOMkpShapeXYWHUV(200, fVar11 + local_c, fVar7, fVar6, fVar5, fVar16, fVar9, fVar4, fVar10);
-        iVar2 = _FUN_008bda10((byte)*(ushort*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
+        fVar11 = _graphicUiRemapX2.fnptr!(1348.0f);
+        _TOMkpShapeXYWHUV.fnptr!(200, fVar11 + local_c, fVar7, fVar6, fVar5, fVar16, fVar9, fVar4, fVar10);
+        iVar2 = _FUN_008bda10.fnptr!((byte)*(ushort*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
         fVar7 = 0.0f;
         fVar4 = 0.7f;
         uVar8 = 0x25;
         if (iVar2 < 99)
         {
-            fVar5 = _graphicUiRemapY2(28.0f);
+            fVar5 = _graphicUiRemapY2.fnptr!(28.0f);
             fVar5 = fVar5 + local_8;
-            fVar6 = _graphicUiRemapX2(1333.0f);
+            fVar6 = _graphicUiRemapX2.fnptr!(1333.0f);
             fVar6 = fVar6 + local_c;
-            iVar2 = _MsGetNextAP(*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-            iVar3 = _FUN_00785370((byte)*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
-            _FUN_009055c0(iVar2 - iVar3, fVar6, fVar5, uVar8, fVar4, fVar7);
+            iVar2 = _MsGetNextAP.fnptr!(*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
+            iVar3 = _FUN_00785370.fnptr!((byte)*(short*)((int)p_DAT_01869ee4 + param_1 * 0xe + 2));
+            _FUN_009055c0.fnptr!(iVar2 - iVar3, fVar6, fVar5, uVar8, fVar4, fVar7);
         }
         else
         {
-            fVar5 = _graphicUiRemapY2(38.0f);
+            fVar5 = _graphicUiRemapY2.fnptr!(38.0f);
             bVar13 = (byte)uVar8;
             fVar5 = fVar5 + local_8;
-            fVar6 = _graphicUiRemapX2(1210.0f);
-            _FUN_00901660(textString, fVar6 + local_c, fVar5, bVar13, fVar4, fVar7);
+            fVar6 = _graphicUiRemapX2.fnptr!(1210.0f);
+            _FUN_00901660.fnptr!(textString, fVar6 + local_c, fVar5, bVar13, fVar4, fVar7);
         }
         if (0 < p_DAT_01869eea[param_1 * 0xe])
         {
@@ -1995,49 +1872,49 @@ public unsafe class SeymourModule : FhModule {
                 uVar18 = 2;
             }
             iVar2 = 10;
-            fVar5 = _graphicUiRemapY2(54.0f);
-            fVar4 = _graphicUiRemapX2(100.0f);
+            fVar5 = _graphicUiRemapY2.fnptr!(54.0f);
+            fVar4 = _graphicUiRemapX2.fnptr!(100.0f);
             fVar4 = fVar4 * (int)(uVar18 + 1);
-            fVar7 = _graphicUiRemapY2(32.0f);
+            fVar7 = _graphicUiRemapY2.fnptr!(32.0f);
             fVar7 = fVar7 + local_8;
-            fVar6 = _graphicUiRemapX2(1110.0f);
-            _TODrawMenuPlateXYWHType(fVar6 + local_c, fVar7, fVar4, fVar5, iVar2);
+            fVar6 = _graphicUiRemapX2.fnptr!(1110.0f);
+            _TODrawMenuPlateXYWHType.fnptr!(fVar6 + local_c, fVar7, fVar4, fVar5, iVar2);
             if (uVar18 == 2)
             {
                 fVar10 = 0.11328125f;
                 fVar4 = (local_10 + 978.0f) * 0.0009765625f;
                 fVar9 = 0.08203125f;
                 fVar7 = (local_14 + 834.0f) * 0.0009765625f;
-                fVar6 = _graphicUiRemapY2(32.0f);
-                fVar11 = _graphicUiRemapX2(local_18 + 144.0f);
-                fVar5 = _graphicUiRemapY2(43.0f);
+                fVar6 = _graphicUiRemapY2.fnptr!(32.0f);
+                fVar11 = _graphicUiRemapX2.fnptr!(local_18 + 144.0f);
+                fVar5 = _graphicUiRemapY2.fnptr!(43.0f);
                 fVar5 = fVar5 + local_8;
-                fVar16 = _graphicUiRemapX2(local_1c + 1152.0f);
-                _TOMkpShapeXYWHUV(0x3d, fVar16 + local_c, fVar5, fVar11, fVar6, fVar7, fVar9, fVar4, fVar10);
+                fVar16 = _graphicUiRemapX2.fnptr!(local_1c + 1152.0f);
+                _TOMkpShapeXYWHUV.fnptr!(0x3d, fVar16 + local_c, fVar5, fVar11, fVar6, fVar7, fVar9, fVar4, fVar10);
                 fVar10 = 0.6386719f;
                 fVar4 = (local_10 + 680.0f) * 0.0009765625f;
                 fVar9 = 0.6064453f;
                 fVar7 = (local_14 + 614.0f) * 0.0009765625f;
-                fVar6 = _graphicUiRemapY2(33.0f);
-                fVar11 = _graphicUiRemapX2(local_18 + 66.0f);
-                fVar5 = _graphicUiRemapY2(43.0f);
+                fVar6 = _graphicUiRemapY2.fnptr!(33.0f);
+                fVar11 = _graphicUiRemapX2.fnptr!(local_18 + 66.0f);
+                fVar5 = _graphicUiRemapY2.fnptr!(43.0f);
                 fVar5 = fVar5 + local_8;
-                fVar16 = _graphicUiRemapX2(local_1c + 1265.0f);
-                _TOMkpShapeXYWHUV(0x3d, fVar16 + local_c, fVar5, fVar11, fVar6, fVar7, fVar9, fVar4, fVar10);
+                fVar16 = _graphicUiRemapX2.fnptr!(local_1c + 1265.0f);
+                _TOMkpShapeXYWHUV.fnptr!(0x3d, fVar16 + local_c, fVar5, fVar11, fVar6, fVar7, fVar9, fVar4, fVar10);
             }
             p_DAT_01869eea[param_1 * 0xe] = (byte)(p_DAT_01869eea[param_1 * 0xe] + -1);
         }
-        _TOMenuDrawKickTmp();
+        _TOMenuDrawKickTmp.fnptr!();
     switchD_008bc339_caseD_0:
         return;
     }
-    
+
     // Seymour Gear Names
     byte* h_MsWeaponName(int name_id, int owner, int simplified, ushort* ref_model_id)
     {
         if (owner != 7)
         {
-            return _MsWeaponName.orig_fptr(name_id, owner, simplified, ref_model_id);
+            return _MsWeaponName.chain_from(h_MsWeaponName).fnptr!(name_id, owner, simplified, ref_model_id);
         }
         int gearid = name_id & 0xFFF;
         if (ref_model_id is not null)
@@ -2053,7 +1930,7 @@ public unsafe class SeymourModule : FhModule {
         }
         if (gearid > seymour_gear_names.Length - 1)
         {
-            return _MsWeaponName.orig_fptr(name_id, owner, simplified, ref_model_id);
+            return _MsWeaponName.chain_from(h_MsWeaponName).fnptr!(name_id, owner, simplified, ref_model_id);
         }
         return (byte*)seymour_gear_names[gearid];
     }
@@ -2074,8 +1951,8 @@ public unsafe class SeymourModule : FhModule {
         byte* local_c;
         float local_8;
 
-        pSVar1 = _MsGetSaveWeapon(param_1, &local_c);
-        pbVar2 = _MsGetSaveWeaponName(param_1);
+        pSVar1 = _MsGetSaveWeapon.fnptr!(param_1, &local_c);
+        pbVar2 = _MsGetSaveWeaponName.fnptr!(param_1);
         bVar11 = 0x80;
         if (pSVar1->owner == 7)
         {
@@ -2088,21 +1965,21 @@ public unsafe class SeymourModule : FhModule {
         bVar10 = 0x80;
         bVar9 = 0x80;
         bVar8 = 0x80;
-        fVar4 = _graphicUiRemapY2(46.0f);
-        fVar5 = _graphicUiRemapX2(38.0f);
-        fVar6 = _graphicUiRemapY2(7.0f);
+        fVar4 = _graphicUiRemapY2.fnptr!(46.0f);
+        fVar5 = _graphicUiRemapX2.fnptr!(38.0f);
+        fVar6 = _graphicUiRemapY2.fnptr!(7.0f);
         fVar6 = fVar6 + param_3;
         local_8 = fVar6;
-        local_8 = _graphicUiRemapX2(180.0f);
+        local_8 = _graphicUiRemapX2.fnptr!(180.0f);
         local_8 = local_8 + param_2;
-        _DrawCrossMenuIconXYWHRGBA(local_8, fVar6, fVar5, fVar4, bVar3, bVar8, bVar9, bVar10, bVar11);
+        _DrawCrossMenuIconXYWHRGBA.fnptr!(local_8, fVar6, fVar5, fVar4, bVar3, bVar8, bVar9, bVar10, bVar11);
         fVar4 = 0.78f;
-        fVar6 = _graphicUiRemapY2(8.0f);
+        fVar6 = _graphicUiRemapY2.fnptr!(8.0f);
         fVar6 = fVar6 + param_3;
         local_8 = fVar6;
-        local_8 = _graphicUiRemapX2(240.0f);
+        local_8 = _graphicUiRemapX2.fnptr!(240.0f);
         local_8 = local_8 + param_2;
-        _ToMakeBtlEasyFont(pbVar2, local_8, fVar6, param_4, fVar4);
+        _ToMakeBtlEasyFont.fnptr!(pbVar2, local_8, fVar6, param_4, fVar4);
         if (pSVar1->owner == pSVar1->equipped_by)
         {
             bVar11 = 0x80;
@@ -2110,12 +1987,12 @@ public unsafe class SeymourModule : FhModule {
             bVar9 = 0x80;
             bVar8 = 0x80;
             bVar3 = 0x31;
-            fVar4 = _graphicUiRemapY2(46.0f);
-            fVar5 = _graphicUiRemapX2(38.0f);
-            fVar6 = _graphicUiRemapY2(7.0f);
+            fVar4 = _graphicUiRemapY2.fnptr!(46.0f);
+            fVar5 = _graphicUiRemapX2.fnptr!(38.0f);
+            fVar6 = _graphicUiRemapY2.fnptr!(7.0f);
             fVar6 = fVar6 + param_3;
-            fVar7 = _graphicUiRemapX2(180.0f);
-            _DrawCrossMenuIconXYWHRGBA(fVar7 + param_2, fVar6, fVar5, fVar4, bVar3, bVar8, bVar9, bVar10, bVar11);
+            fVar7 = _graphicUiRemapX2.fnptr!(180.0f);
+            _DrawCrossMenuIconXYWHRGBA.fnptr!(fVar7 + param_2, fVar6, fVar5, fVar4, bVar3, bVar8, bVar9, bVar10, bVar11);
         }
         return;
     }
@@ -2137,15 +2014,15 @@ public unsafe class SeymourModule : FhModule {
         uint chr_id;
 
         ref_model_id = (ushort*)0x0;
-        hiragana = _MsGetSaveConfigHiragana();
-        pbVar1 = _MsWeaponName.hook_fptr((int)(uint)*param_1, (int)(uint)(byte)param_1[2], (int)hiragana, ref_model_id);
+        hiragana = _MsGetSaveConfigHiragana.fnptr!();
+        pbVar1 = _MsWeaponName.fnptr!((int)(uint)*param_1, (int)(uint)(byte)param_1[2], (int)hiragana, ref_model_id);
         a = 0x80;
         chr_id = (uint)(byte)param_1[2];
         if (chr_id == 7)
         {
             chr_id = 37;
             bVar2 = (byte)((byte)chr_id * 2 + 2 + *(byte*)((int)param_1 + 5));
-        }    
+        }
         else
         {
             bVar2 = (byte)((byte)param_1[2] * 2 + 1 + *(byte*)((int)param_1 + 5));
@@ -2153,17 +2030,17 @@ public unsafe class SeymourModule : FhModule {
         b = 0x80;
         g = 0x80;
         r = 0x80;
-        fVar3 = _graphicUiRemapY2(46.0f);
-        fVar4 = _graphicUiRemapX2(38.0f);
-        fVar5 = _graphicUiRemapY2(7.0f);
+        fVar3 = _graphicUiRemapY2.fnptr!(46.0f);
+        fVar4 = _graphicUiRemapX2.fnptr!(38.0f);
+        fVar5 = _graphicUiRemapY2.fnptr!(7.0f);
         fVar5 = fVar5 + param_3;
-        fVar6 = _graphicUiRemapX2(180.0f);
-        _DrawCrossMenuIconXYWHRGBA(fVar6 + param_2, fVar5, fVar4, fVar3, bVar2, r, g, b, a);
+        fVar6 = _graphicUiRemapX2.fnptr!(180.0f);
+        _DrawCrossMenuIconXYWHRGBA.fnptr!(fVar6 + param_2, fVar5, fVar4, fVar3, bVar2, r, g, b, a);
         fVar4 = 0.78f;
-        fVar5 = _graphicUiRemapY2(8.0f);
+        fVar5 = _graphicUiRemapY2.fnptr!(8.0f);
         fVar5 = fVar5 + param_3;
-        fVar3 = _graphicUiRemapX2(240.0f);
-        _ToMakeBtlEasyFont(pbVar1, fVar3 + param_2, fVar5, param_4, fVar4);
+        fVar3 = _graphicUiRemapX2.fnptr!(240.0f);
+        _ToMakeBtlEasyFont.fnptr!(pbVar1, fVar3 + param_2, fVar5, param_4, fVar4);
         if ((byte)param_1[2] == (byte)param_1[3])
         {
             a = 0x80;
@@ -2171,12 +2048,12 @@ public unsafe class SeymourModule : FhModule {
             g = 0x80;
             r = 0x80;
             bVar2 = 0x31;
-            fVar3 = _graphicUiRemapY2(46.0f);
-            fVar4 = _graphicUiRemapX2(38.0f);
-            fVar5 = _graphicUiRemapY2(7.0f);
+            fVar3 = _graphicUiRemapY2.fnptr!(46.0f);
+            fVar4 = _graphicUiRemapX2.fnptr!(38.0f);
+            fVar5 = _graphicUiRemapY2.fnptr!(7.0f);
             fVar5 = fVar5 + param_3;
-            fVar6 = _graphicUiRemapX2(180.0f);
-            _DrawCrossMenuIconXYWHRGBA(fVar6 + param_2, fVar5, fVar4, fVar3, bVar2, r, g, b, a);
+            fVar6 = _graphicUiRemapX2.fnptr!(180.0f);
+            _DrawCrossMenuIconXYWHRGBA.fnptr!(fVar6 + param_2, fVar5, fVar4, fVar3, bVar2, r, g, b, a);
         }
         return;
     }
@@ -2239,7 +2116,7 @@ public unsafe class SeymourModule : FhModule {
         fVar12 = (double)0;
         if (fVar12 < (double) * (float*)((int)param_1 + 0xdc))
         {
-            fVar12 = (double)_graphicGetTime();
+            fVar12 = (double)_graphicGetTime.fnptr!();
             fVar12 = fVar12 - (double) * (float*)((int)param_1 + 0xdc);
         }
         *(float*)((int)param_1 + 0xe0) = (float)fVar12;
@@ -2251,8 +2128,8 @@ public unsafe class SeymourModule : FhModule {
             iVar10 = (int)*(short*)((int)param_1 + 0x42) - (int)*(short*)((int)param_1 + 0x40);
             if ((-1 < iVar10) && (iVar10 < iVar11 * 3))
             {
-                _graphicGetTime();
-                fVar12 = MathF.Cos((float)_graphicGetTime());
+                _graphicGetTime.fnptr!();
+                fVar12 = MathF.Cos((float)_graphicGetTime.fnptr!());
                 local_48 = (int)MathF.Round((float)(fVar12 * 32.0f + 96.0f));
                 colorValue = (uint)((int)local_48 * 0x1000000 + 0x808080);
                 RVar4 = new RGBA8
@@ -2267,13 +2144,13 @@ public unsafe class SeymourModule : FhModule {
                 fVar21 = 105.0f;
                 fVar19 = 1619.0f;
                 RVar30 = RVar4;
-                fVar13 = _graphicUiRemapY2(50.0f);
+                fVar13 = _graphicUiRemapY2.fnptr!(50.0f);
                 fVar16 = (float)(int)*(short*)((int)param_1 + 0x62);
-                fVar14 = _graphicUiRemapY2((float)((((int)*(short*)((int)param_1 + 0x42) - (int)*(short*)((int)param_1 + 0x40)) /
+                fVar14 = _graphicUiRemapY2.fnptr!((float)((((int)*(short*)((int)param_1 + 0x42) - (int)*(short*)((int)param_1 + 0x40)) /
                 (int)*(short*)((int)param_1 + 0x38)) * 0x34) + 835.0f);
-                fVar15 = _graphicUiRemapX2(154.0f);
-                _TOMkpShapeXYWHUVC2(0xffffffff, fVar15 + (float)((((int)*(short*)((int)param_1 + 0x42) - (int)*(short*)((int)param_1 + 0x40)) %
-                (int)*(short*)((int)param_1 + 0x38)) * (int)*(short*)((int)param_1 + 0x62)), fVar14, fVar16, fVar13, fVar19, fVar21, fVar24, 
+                fVar15 = _graphicUiRemapX2.fnptr!(154.0f);
+                _TOMkpShapeXYWHUVC2.fnptr!(0xffffffff, fVar15 + (float)((((int)*(short*)((int)param_1 + 0x42) - (int)*(short*)((int)param_1 + 0x40)) %
+                (int)*(short*)((int)param_1 + 0x38)) * (int)*(short*)((int)param_1 + 0x62)), fVar14, fVar16, fVar13, fVar19, fVar21, fVar24,
                 fVar27, RVar4, RVar30);
             }
             local_8 = 0.0f;
@@ -2281,16 +2158,16 @@ public unsafe class SeymourModule : FhModule {
             do
             {
                 sVar1 = *(short*)((int)fVar2 + 0x62);
-                fVar13 = _graphicUiRemapX2(154.0f);
+                fVar13 = _graphicUiRemapX2.fnptr!(154.0f);
                 fVar16 = (float)(int)sVar1;
                 fVar16 = (local_10 * (fVar13 + fVar16)) / 0.1f - fVar16;
                 param_1 = (uint)(float)-(int)sVar1;
                 local_14 = param_1;
-                fVar13 = _graphicUiRemapX2(154.0f);
+                fVar13 = _graphicUiRemapX2.fnptr!(154.0f);
                 param_1 = (uint)fVar16;
                 if ((param_1 <= fVar16) && fVar13 < fVar16)
                 {
-                    param_1 = (uint)_graphicUiRemapX2(154.0f);
+                    param_1 = (uint)_graphicUiRemapX2.fnptr!(154.0f);
                 }
                 local_20 = (float)(int)local_c;
                 color_2.r = 0x80;
@@ -2306,10 +2183,10 @@ public unsafe class SeymourModule : FhModule {
                 fVar21 = 438.0f;
                 fVar19 = 0.0f;
                 fVar15 = 0.0f;
-                fVar13 = _graphicUiRemapY2(50.0f);
+                fVar13 = _graphicUiRemapY2.fnptr!(50.0f);
                 fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62);
-                fVar14 = _graphicUiRemapY2(local_1c);
-                _TOMkpShapeXYWHUVC2(0xffffffff, param_1, fVar14, fVar16, fVar13, fVar15, fVar19, fVar21, fVar24, RVar30, color_2);
+                fVar14 = _graphicUiRemapY2.fnptr!(local_1c);
+                _TOMkpShapeXYWHUVC2.fnptr!(0xffffffff, param_1, fVar14, fVar16, fVar13, fVar15, fVar19, fVar21, fVar24, RVar30, color_2);
                 color_2_00.r = 0x80;
                 color_2_00.g = 0x80;
                 color_2_00.b = 0x80;
@@ -2322,20 +2199,20 @@ public unsafe class SeymourModule : FhModule {
                 fVar24 = 1788.0f;
                 fVar16 = (float)(int)local_8 * 53.0f + 270.0f;
                 fVar21 = 1553.0f;
-                fVar14 = _graphicUiRemapY2(44.0f);
-                fVar15 = _graphicUiRemapX2(234.0f);
-                fVar19 = _graphicUiRemapY2(local_20 + 838.0f);
-                _TOMkpShapeXYWHUVC2(0xffffffff, param_1, fVar19, fVar15, fVar14, fVar21, fVar16, fVar24, fVar13, RVar4, color_2_00);
+                fVar14 = _graphicUiRemapY2.fnptr!(44.0f);
+                fVar15 = _graphicUiRemapX2.fnptr!(234.0f);
+                fVar19 = _graphicUiRemapY2.fnptr!(local_20 + 838.0f);
+                _TOMkpShapeXYWHUVC2.fnptr!(0xffffffff, param_1, fVar19, fVar15, fVar14, fVar21, fVar16, fVar24, fVar13, RVar4, color_2_00);
                 sVar1 = *(short*)((int)fVar2 + 0x62);
-                fVar16 = _graphicUiRemapX2(154.0f);
+                fVar16 = _graphicUiRemapX2.fnptr!(154.0f);
                 fVar16 = ((fVar16 + (float)(sVar1 * 2)) * local_10) / 0.1f - (float)(int)sVar1;
                 fVar13 = (float)-(int)sVar1;
                 local_14 = fVar13;
-                fVar14 = _graphicUiRemapX2(154.0f);
+                fVar14 = _graphicUiRemapX2.fnptr!(154.0f);
                 fVar13 = fVar16;
                 if ((fVar13 <= fVar16) && fVar14 + (float)(int)*(short*)((int)fVar2 + 0x62) < fVar16)
                 {
-                    fVar16 = _graphicUiRemapX2(154.0f);
+                    fVar16 = _graphicUiRemapX2.fnptr!(154.0f);
                     fVar13 = fVar16 + (float)(int)*(short*)((int)fVar2 + 0x62);
                 }
                 color_2_01.r = 0x80;
@@ -2350,10 +2227,10 @@ public unsafe class SeymourModule : FhModule {
                 fVar24 = 438.0f;
                 fVar21 = 0.0f;
                 fVar19 = 0.0f;
-                fVar14 = _graphicUiRemapY2(50.0f);
+                fVar14 = _graphicUiRemapY2.fnptr!(50.0f);
                 fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62);
-                fVar15 = _graphicUiRemapY2(local_1c);
-                _TOMkpShapeXYWHUVC2(0xffffffff, fVar13, fVar15, fVar16, fVar14, fVar19, fVar21, fVar24, fVar27, color_1, color_2_01);
+                fVar15 = _graphicUiRemapY2.fnptr!(local_1c);
+                _TOMkpShapeXYWHUVC2.fnptr!(0xffffffff, fVar13, fVar15, fVar16, fVar14, fVar19, fVar21, fVar24, fVar27, color_1, color_2_01);
                 local_10 = local_10 - 0.1f;
                 local_8 = (float)((int)local_8 + 1);
                 local_c = (float)((int)local_c + 0x34);
@@ -2382,11 +2259,11 @@ public unsafe class SeymourModule : FhModule {
                     fVar19 = fVar13;
                     fVar21 = fVar16;
                     local_18 = fVar13;
-                    fVar27 = _graphicUiRemapY2(3.0f);
+                    fVar27 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
-                    fVar17 = _graphicUiRemapY2(local_10);
-                    fVar18 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30(fVar18, fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
+                    fVar17 = _graphicUiRemapY2.fnptr!(local_10);
+                    fVar18 = _graphicUiRemapX2.fnptr!(154.0f);
+                    _FUN_008e7d30.fnptr!(fVar18, fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = fVar13 + 210.0f;
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
@@ -2396,11 +2273,11 @@ public unsafe class SeymourModule : FhModule {
                     fVar18 = 210.0f;
                     fVar19 = fVar16;
                     local_14 = fVar13;
-                    fVar21 = _graphicUiRemapY2(3.0f);
+                    fVar21 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
-                    fVar27 = _graphicUiRemapY2(local_10);
-                    fVar17 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar14, fVar21, fVar13, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
+                    fVar27 = _graphicUiRemapY2.fnptr!(local_10);
+                    fVar17 = _graphicUiRemapX2.fnptr!(154.0f);
+                    _FUN_008e7d30.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar14, fVar21, fVar13, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = local_20 * 50.0f;
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
@@ -2411,11 +2288,11 @@ public unsafe class SeymourModule : FhModule {
                     fVar18 = 210.0f;
                     fVar19 = local_18;
                     local_c = fVar13;
-                    fVar21 = _graphicUiRemapY2(3.0f);
+                    fVar21 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
-                    fVar27 = _graphicUiRemapY2(local_8);
-                    fVar17 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30(fVar17, fVar27, fVar14, fVar21, fVar19, fVar13, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
+                    fVar27 = _graphicUiRemapY2.fnptr!(local_8);
+                    fVar17 = _graphicUiRemapX2.fnptr!(154.0f);
+                    _FUN_008e7d30.fnptr!(fVar17, fVar27, fVar14, fVar21, fVar19, fVar13, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
                     uVar28 = 40.0f;
@@ -2424,11 +2301,11 @@ public unsafe class SeymourModule : FhModule {
                     fVar18 = 210.0f;
                     fVar14 = local_14;
                     fVar19 = local_c;
-                    fVar21 = _graphicUiRemapY2(3.0f);
+                    fVar21 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar13 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
-                    fVar27 = _graphicUiRemapY2(local_8);
-                    fVar17 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar13, fVar21, fVar14, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
+                    fVar27 = _graphicUiRemapY2.fnptr!(local_8);
+                    fVar17 = _graphicUiRemapX2.fnptr!(154.0f);
+                    _FUN_008e7d30.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f + fVar17, fVar27, fVar13, fVar21, fVar14, fVar19, fVar18, fVar20, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = local_24 * 20.0f;
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
@@ -2439,11 +2316,11 @@ public unsafe class SeymourModule : FhModule {
                     fVar19 = fVar13;
                     fVar21 = fVar16;
                     local_24 = fVar13;
-                    fVar27 = _graphicUiRemapY2(3.0f);
+                    fVar27 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
-                    fVar17 = _graphicUiRemapY2(local_10);
-                    fVar18 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30(fVar18 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
+                    fVar17 = _graphicUiRemapY2.fnptr!(local_10);
+                    fVar18 = _graphicUiRemapX2.fnptr!(154.0f);
+                    _FUN_008e7d30.fnptr!(fVar18 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar17, fVar14, fVar27, fVar19, fVar21, fVar20, fVar22, uVar25, uVar28, (uint)uVar31, uVar33);
                     fVar13 = fVar13 + 210.0f;
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
@@ -2452,11 +2329,11 @@ public unsafe class SeymourModule : FhModule {
                     fVar18 = 3.0f;
                     fVar17 = 210.0f;
                     local_20 = fVar13;
-                    fVar19 = _graphicUiRemapY2(3.0f);
+                    fVar19 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar14 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
-                    fVar21 = _graphicUiRemapY2(local_10);
-                    fVar27 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar14, fVar19, fVar13, fVar16, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
+                    fVar21 = _graphicUiRemapY2.fnptr!(local_10);
+                    fVar27 = _graphicUiRemapX2.fnptr!(154.0f);
+                    _FUN_008e7d30.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar14, fVar19, fVar13, fVar16, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x40808080;
                     uVar31 = 0x808080;
                     uVar28 = 40.0f;
@@ -2465,11 +2342,11 @@ public unsafe class SeymourModule : FhModule {
                     fVar17 = 210.0f;
                     fVar13 = local_24;
                     fVar14 = local_c;
-                    fVar19 = _graphicUiRemapY2(3.0f);
+                    fVar19 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
-                    fVar21 = _graphicUiRemapY2(local_8);
-                    fVar27 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30(fVar27 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
+                    fVar21 = _graphicUiRemapY2.fnptr!(local_8);
+                    fVar27 = _graphicUiRemapX2.fnptr!(154.0f);
+                    _FUN_008e7d30.fnptr!(fVar27 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     uVar33 = 0x808080;
                     uVar31 = 0x40808080;
                     uVar28 = 40.0f;
@@ -2478,11 +2355,11 @@ public unsafe class SeymourModule : FhModule {
                     fVar17 = 210.0f;
                     fVar13 = local_20;
                     fVar14 = local_c;
-                    fVar19 = _graphicUiRemapY2(3.0f);
+                    fVar19 = _graphicUiRemapY2.fnptr!(3.0f);
                     fVar16 = (float)(int)*(short*)((int)fVar2 + 0x62) * 0.5f;
-                    fVar21 = _graphicUiRemapY2(local_8);
-                    fVar27 = _graphicUiRemapX2(154.0f);
-                    _FUN_008e7d30((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
+                    fVar21 = _graphicUiRemapY2.fnptr!(local_8);
+                    fVar27 = _graphicUiRemapX2.fnptr!(154.0f);
+                    _FUN_008e7d30.fnptr!((float)(int)*(short*)((int)fVar2 + 0x62) * 1.5f + fVar27, fVar21, fVar16, fVar19, fVar13, fVar14, fVar17, fVar18, uVar25, uVar28, (uint)uVar31, uVar33);
                     local_1c = (float)((int)fVar15 + 0x34);
                     local_8 = fVar24;
                 } while ((int)local_1c < 0x9c);
@@ -2491,16 +2368,16 @@ public unsafe class SeymourModule : FhModule {
         iVar11 = (int)(short)local_28;
         iVar10 = (int)*(short*)((int)fVar2 + 0x3a);
         iVar5 = (int)*(short*)((int)fVar2 + 0x40) / (int)*(short*)((int)fVar2 + 0x38);
-        fVar16 = _graphicUiRemapY2(154.0f);
-        fVar13 = _graphicUiRemapX2(8.0f);
-        fVar14 = _graphicUiRemapY2(835.0f);
-        fVar15 = _graphicUiRemapX2(150.0f);
-        _FUN_008e6cc0(fVar15 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar14, fVar13, fVar16, iVar5, iVar10, iVar11);
+        fVar16 = _graphicUiRemapY2.fnptr!(154.0f);
+        fVar13 = _graphicUiRemapX2.fnptr!(8.0f);
+        fVar14 = _graphicUiRemapY2.fnptr!(835.0f);
+        fVar15 = _graphicUiRemapX2.fnptr!(150.0f);
+        _FUN_008e6cc0.fnptr!(fVar15 + (float)(int)*(short*)((int)fVar2 + 0x62), fVar14, fVar13, fVar16, iVar5, iVar10, iVar11);
         iVar11 = (int)(*(float*)((int)fVar2 + 0x74));
         iVar10 = (int)(*(float*)((int)fVar2 + 0x70));
         iVar5 = (int)(*(float*)((int)fVar2 + 0x6c));
         iVar6 = (int)(*(float*)((int)fVar2 + 0x68));
-        _TOMakePktScissor(iVar6, iVar5, iVar10, iVar11);
+        _TOMakePktScissor.fnptr!(iVar6, iVar5, iVar10, iVar11);
         //(**(code**)((int)fVar2 + 0x88))(fVar2);
         functionAddress = Marshal.ReadIntPtr((IntPtr)fVar2, 0x88);
         var updateMenu = Marshal.GetDelegateForFunctionPointer<updateMenu>(functionAddress);
@@ -2522,11 +2399,11 @@ public unsafe class SeymourModule : FhModule {
             do
             {
                 sVar1 = *(short*)(*(int*)((int)fVar2 + 0x20) + (int)local_10 * 2);
-                uVar31 = (int)_TOCheckBtlCommandUse((uint)(int)*(short*)((int)fVar2 + 8), (uint)(int)sVar1);
+                uVar31 = (int)_TOCheckBtlCommandUse.fnptr!((uint)(int)*(short*)((int)fVar2 + 8), (uint)(int)sVar1);
                 fVar16 = local_10;
                 if ((sVar1 != 0xff) && (uVar31 != -4))
                 {
-                    local_28 = _MsGetComData((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)local_10 * 2), (int*)&local_2c);
+                    local_28 = _MsGetComData.fnptr!((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)local_10 * 2), (int*)&local_2c);
                     sVar1 = *(short*)((int)fVar2 + 0x38);
                     pbVar7 = local_2c + local_28->name_offset;
                     uVar33 = (uint)(fVar16 == (float)(int)*(short*)((int)fVar2 + 0x42) ? 1 : 0);
@@ -2534,7 +2411,7 @@ public unsafe class SeymourModule : FhModule {
                     iVar11 = (int)(*(float*)((int)fVar2 + 0x68));
                     local_14 = (float)((int)local_8 + iVar11);
                     local_8 = local_14;
-                    fVar13 = _graphicUiRemapY2((float)((((int)fVar16 - (int)*(short*)((int)fVar2 + 0x40)) / (int)sVar1) * 0x34));
+                    fVar13 = _graphicUiRemapY2.fnptr!((float)((((int)fVar16 - (int)*(short*)((int)fVar2 + 0x40)) / (int)sVar1) * 0x34));
                     iVar11 = (int)(fVar13 + *(float*)((int)fVar2 + 0x7c));
                     local_18 = 0.0f;
                     if (0 < *(short*)((int)fVar2 + 0x28))
@@ -2551,15 +2428,15 @@ public unsafe class SeymourModule : FhModule {
                                     bVar29 = 0x80;
                                     bVar26 = 0x80;
                                     bVar23 = 0x80;
-                                    fVar15 = _graphicUiRemapY2(36.0f);
-                                    fVar19 = _graphicUiRemapX2(29.0f);
-                                    fVar14 = _graphicUiRemapY2(3.0f);
+                                    fVar15 = _graphicUiRemapY2.fnptr!(36.0f);
+                                    fVar19 = _graphicUiRemapX2.fnptr!(29.0f);
+                                    fVar14 = _graphicUiRemapY2.fnptr!(3.0f);
                                     fVar14 = fVar14 + (float)iVar11;
-                                    fVar21 = _graphicUiRemapX2(37.0f);
-                                    _DrawCrossMenuIconXYWHRGBA(fVar21 + (float)(int)local_14, fVar14, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
+                                    fVar21 = _graphicUiRemapX2.fnptr!(37.0f);
+                                    _DrawCrossMenuIconXYWHRGBA.fnptr!(fVar21 + (float)(int)local_14, fVar14, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
                                     break;
                                 case 2:
-                                    local_24 = (float)_MsGetSaveItemNum((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
+                                    local_24 = (float)_MsGetSaveItemNum.fnptr!((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
                                     if ((0 < (int)local_24) || (*(short*)((int)fVar2 + 0x2a) == 1))
                                     {
                                         iVar10 = (int)*(short*)((int)fVar2 + 0x62) + (int)local_8;
@@ -2567,12 +2444,12 @@ public unsafe class SeymourModule : FhModule {
                                         uVar25 = 1.0f;
                                         fVar19 = 0.78f;
                                         fVar14 = (float)iVar11;
-                                        fVar15 = _graphicUiRemapX2(28.0f);
-                                        _FUN_009055c0((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                        fVar15 = _graphicUiRemapX2.fnptr!(28.0f);
+                                        _FUN_009055c0.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
                                     }
                                     break;
                                 case 4:
-                                    local_24 = (float)_MsGetCommandMP((uint)(int)*(short*)((int)fVar2 + 8), (uint)local_28);
+                                    local_24 = (float)_MsGetCommandMP.fnptr!((uint)(int)*(short*)((int)fVar2 + 8), (uint)local_28);
                                     if ((0 < (int)local_24) || (*(short*)((int)fVar2 + 0x2a) == 1))
                                     {
                                         iVar10 = (int)*(short*)((int)fVar2 + 0x62) + (int)local_8;
@@ -2580,12 +2457,12 @@ public unsafe class SeymourModule : FhModule {
                                         uVar25 = 1.0f;
                                         fVar19 = 0.78f;
                                         fVar14 = (float)iVar11;
-                                        fVar15 = _graphicUiRemapX2(28.0f);
-                                        _FUN_009055c0((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                        fVar15 = _graphicUiRemapX2.fnptr!(28.0f);
+                                        _FUN_009055c0.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
                                     }
                                     break;
                                 case 5:
-                                    local_24 = (float)_MsGetRamChrHP((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
+                                    local_24 = (float)_MsGetRamChrHP.fnptr!((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
                                     if ((0 < (int)local_24) || (*(short*)((int)fVar2 + 0x2a) == 1))
                                     {
                                         iVar10 = (int)*(short*)((int)fVar2 + 0x62) + (int)local_8;
@@ -2593,12 +2470,12 @@ public unsafe class SeymourModule : FhModule {
                                         uVar25 = 1.0f;
                                         fVar19 = 0.78f;
                                         fVar14 = (float)iVar11;
-                                        fVar15 = _graphicUiRemapX2(28.0f);
-                                        _FUN_009055c0((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                        fVar15 = _graphicUiRemapX2.fnptr!(28.0f);
+                                        _FUN_009055c0.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
                                     }
                                     break;
                                 case 6:
-                                    local_24 = (float)_MsGetRamChrMP((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
+                                    local_24 = (float)_MsGetRamChrMP.fnptr!((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2));
                                     if ((0 < (int)local_24) || (*(short*)((int)fVar2 + 0x2a) == 1))
                                     {
                                         iVar10 = (int)*(short*)((int)fVar2 + 0x62) + (int)local_8;
@@ -2606,12 +2483,12 @@ public unsafe class SeymourModule : FhModule {
                                         uVar25 = 1.0f;
                                         fVar19 = 0.78f;
                                         fVar14 = (float)iVar11;
-                                        fVar15 = _graphicUiRemapX2(28.0f);
-                                        _FUN_009055c0((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
+                                        fVar15 = _graphicUiRemapX2.fnptr!(28.0f);
+                                        _FUN_009055c0.fnptr!((int)local_24, (float)iVar10 - fVar15, fVar14, (int)uVar8, fVar19, uVar25);
                                     }
                                     break;
                                 case 7:
-                                    pSVar9 = _MsGetSaveWeapon((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2), &local_2c);
+                                    pSVar9 = _MsGetSaveWeapon.fnptr!((uint)(int)*(short*)(*(int*)((int)fVar2 + 0x20) + (int)fVar16 * 2), &local_2c);
                                     local_24 = (float)iVar11;
                                     bVar32 = 0x80;
                                     bVar29 = 0x80;
@@ -2626,12 +2503,12 @@ public unsafe class SeymourModule : FhModule {
                                     {
                                         bVar3 = (byte)(pSVar9->owner * 2 + 1 + pSVar9->type);
                                     }
-                                    fVar15 = _graphicUiRemapY2(36.0f);
-                                    fVar19 = _graphicUiRemapX2(29.0f);
-                                    fVar13 = _graphicUiRemapY2(2.0f);
+                                    fVar15 = _graphicUiRemapY2.fnptr!(36.0f);
+                                    fVar19 = _graphicUiRemapX2.fnptr!(29.0f);
+                                    fVar13 = _graphicUiRemapY2.fnptr!(2.0f);
                                     fVar13 = fVar13 + local_24;
-                                    fVar21 = _graphicUiRemapX2(37.0f);
-                                    _DrawCrossMenuIconXYWHRGBA(fVar21 + fVar14, fVar13, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
+                                    fVar21 = _graphicUiRemapX2.fnptr!(37.0f);
+                                    _DrawCrossMenuIconXYWHRGBA.fnptr!(fVar21 + fVar14, fVar13, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
                                     fVar13 = local_18;
                                     if (pSVar9->owner == pSVar9->equipped_by)
                                     {
@@ -2640,12 +2517,12 @@ public unsafe class SeymourModule : FhModule {
                                         bVar26 = 0x80;
                                         bVar23 = 0x80;
                                         bVar3 = 0x31;
-                                        fVar15 = _graphicUiRemapY2(36.0f);
-                                        fVar19 = _graphicUiRemapX2(29.0f);
-                                        fVar13 = _graphicUiRemapY2(2.0f);
+                                        fVar15 = _graphicUiRemapY2.fnptr!(36.0f);
+                                        fVar19 = _graphicUiRemapX2.fnptr!(29.0f);
+                                        fVar13 = _graphicUiRemapY2.fnptr!(2.0f);
                                         fVar13 = fVar13 + local_24;
-                                        fVar21 = _graphicUiRemapX2(37.0f);
-                                        _DrawCrossMenuIconXYWHRGBA(fVar21 + fVar14, fVar13, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
+                                        fVar21 = _graphicUiRemapX2.fnptr!(37.0f);
+                                        _DrawCrossMenuIconXYWHRGBA.fnptr!(fVar21 + fVar14, fVar13, fVar19, fVar15, bVar3, bVar23, bVar26, bVar29, bVar32);
                                         fVar13 = local_18;
                                     }
                                     break;
@@ -2654,7 +2531,7 @@ public unsafe class SeymourModule : FhModule {
                                     iVar10 = 0;
                                     if (*(int*)((int)fVar2 + 0xe4) == 0)
                                     {
-                                        _FUN_00904ba0((byte*)pbVar7, (float)((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5 + (float)(int)local_14), (float)iVar11,
+                                        _FUN_00904ba0.fnptr!((byte*)pbVar7, (float)((float)(int)*(short*)((int)fVar2 + 0x62) * 0.5 + (float)(int)local_14), (float)iVar11,
                                         (float)(int)*(short*)((int)fVar2 + 0x66), (byte)(uVar31 < 0 ? 1 : 0), 0.78f, (uint)1.0f, 1, (int)uVar33, 0);
                                     }
                                     else
@@ -2666,8 +2543,8 @@ public unsafe class SeymourModule : FhModule {
                                         fVar15 = (float)iVar11;
                                         fVar19 = local_c;
                                         uVar8 = uVar33;
-                                        fVar21 = _graphicUiRemapX2(72.0f);
-                                        _FUN_00904ba0((byte*)pbVar7, fVar21 + (float)(int)local_14, fVar15, fVar14, (byte)fVar19, fVar24, (uint)uVar25, iVar5, (int)uVar8,
+                                        fVar21 = _graphicUiRemapX2.fnptr!(72.0f);
+                                        _FUN_00904ba0.fnptr!((byte*)pbVar7, fVar21 + (float)(int)local_14, fVar15, fVar14, (byte)fVar19, fVar24, (uint)uVar25, iVar5, (int)uVar8,
                                         iVar10);
                                     }
                                     break;
@@ -2689,37 +2566,37 @@ public unsafe class SeymourModule : FhModule {
         int uVar2;
         uint uVar4;
         int iVar3;
-    
+
         *(int*)(param_1 + 0x1c) = 0;
         *DAT_0186a5ec = 0;
         *DAT_0186a5f0 = 0xff;
         *TKMenuFaceRatio = 0;
-        *TkMenuFaceKeep = (int)_FUN_008a9820();
-        *TkMenuFaceNew = (int)_FUN_008a9820();
-        *TkMenuFaceOld = (int)_FUN_008a9820();
+        *TkMenuFaceKeep = (int)_FUN_008a9820.fnptr!();
+        *TkMenuFaceNew = (int)_FUN_008a9820.fnptr!();
+        *TkMenuFaceOld = (int)_FUN_008a9820.fnptr!();
         uVar4 = 0;
         do
         {
-            uVar2 = _FUN_008a97d0(uVar4);
+            uVar2 = _FUN_008a97d0.fnptr!(uVar4);
             (DAT_0186a634)[uVar4] = uVar2;
-            uVar2 = _FUN_008a9c20(uVar4);
+            uVar2 = _FUN_008a9c20.fnptr!(uVar4);
             (DAT_0186a614)[uVar4] = uVar2;
-            uVar2 = (int)_FUN_008a9870(uVar4);
+            uVar2 = (int)_FUN_008a9870.fnptr!(uVar4);
             (DAT_0186a654)[uVar4] = uVar2;
-            uVar2 = (int)_FUN_008a9920(uVar4);
+            uVar2 = (int)_FUN_008a9920.fnptr!(uVar4);
             (DAT_0186a674)[uVar4] = uVar2;
             uVar4 = uVar4 + 1;
         } while ((int)uVar4 < 8);
         *DAT_0186a5e4 = 0;
-        bVar1 = _FUN_008cfc00();
+        bVar1 = _FUN_008cfc00.fnptr!();
         iVar3 = bVar1 ? 1 : 0;
-        uVar2 = _TkMenuGetCurrentPlayer();
-        _FUN_008cfcf0(uVar2, iVar3);
+        uVar2 = _TkMenuGetCurrentPlayer.fnptr!();
+        _FUN_008cfcf0.fnptr!(uVar2, iVar3);
         *DAT_0186a5d8 = 0x155;
         *DAT_0186a5d4 = 0;
-        _FUN_008c2bd0(scene0String);
-        _FUN_008c2bd0(scene11String);
-        _FUN_008c2bd0(scene20String);
+        _FUN_008c2bd0.fnptr!(scene0String);
+        _FUN_008c2bd0.fnptr!(scene11String);
+        _FUN_008c2bd0.fnptr!(scene20String);
         return;
     }
     // Battle Results: Equipment Drops
@@ -2740,7 +2617,7 @@ public unsafe class SeymourModule : FhModule {
         ushort* local_c;
         uint gearOwner;
 
-        iVar4 = _FUN_00798be0((BtlRewardData*)param_3);
+        iVar4 = _FUN_00798be0.fnptr!((BtlRewardData*)param_3);
         if (iVar4 < 0)
         {
             return -1;
@@ -2752,7 +2629,7 @@ public unsafe class SeymourModule : FhModule {
         iVar9 = 0;
         do
         {
-            bVar1 = _MsGetSavePlyJoined((byte)iVar7);
+            bVar1 = _MsGetSavePlyJoined.fnptr!((byte)iVar7);
             if (bVar1 != 0)
             {
                 iVar9 = iVar9 + 1;
@@ -2767,12 +2644,12 @@ public unsafe class SeymourModule : FhModule {
         {
             param_1 = 0;
         }
-        uVar5 = _Brnd(0xc);
+        uVar5 = _Brnd.fnptr!(0xc);
         iVar10 = 0;
         iVar7 = 0;
         do
         {
-            if (_MsGetSavePlyJoined((byte)iVar7) != 0)
+            if (_MsGetSavePlyJoined.fnptr!((byte)iVar7) != 0)
             {
                 iVar10 = iVar10 + 1;
                 if ((int)uVar5 % iVar9 < iVar10)
@@ -2786,16 +2663,16 @@ public unsafe class SeymourModule : FhModule {
         bVar1 = (byte)param_1;
     LAB_00798cb8:
         *(byte*)(iVar4 + 0x102 + param_3) = bVar1;
-        uVar5 = _Brnd(0xc);
+        uVar5 = _Brnd.fnptr!(0xc);
         *(byte*)(iVar4 + 0x103 + param_3) = (byte)((byte)uVar5 & 1);
         *(byte*)(iVar4 + 0x104 + param_3) = 0xff;
         *(byte*)(iVar4 + 0x106 + param_3) = *(byte*)(param_2 + 0x2e);
         *(byte*)(iVar4 + 0x107 + param_3) = *(byte*)(param_2 + 0x30);
         *(byte*)(iVar4 + 0x108 + param_3) = *(byte*)(param_2 + 0x2f);
-        uVar5 = _Brnd(0xc);
-        uVar6 = _Brnd(0xc);
+        uVar5 = _Brnd.fnptr!(0xc);
+        uVar6 = _Brnd.fnptr!(0xc);
         iVar7 = (int)(*(byte*)(param_2 + 0x2d) + ((uVar5 & 7) - 4));
-        iVar7 = _MsCheckRange((int)(iVar7 + (iVar7 >> 0x1f & 3U)) >> 2, 1, 4);
+        iVar7 = _MsCheckRange.fnptr!((int)(iVar7 + (iVar7 >> 0x1f & 3U)) >> 2, 1, 4);
         *(byte*)(iVar4 + 0x109 + param_3) = (byte)iVar7;
         iVar9 = (int)(*(byte*)(param_2 + 0x31) + ((uVar6 & 7) - 4));
         gearOwner = bVar1;
@@ -2823,18 +2700,18 @@ public unsafe class SeymourModule : FhModule {
             do
             {
                 if ((int)(uint)gear->slot_count <= iVar4) break;
-                uVar5 = _Brnd(0xd);
+                uVar5 = _Brnd.fnptr!(0xd);
                 uVar3 = puVar11[(int)uVar5 % 7 + 1];
                 if (uVar3 != 0)
                 {
-                    uVar5 = _FUN_00798aa0(uVar3);
+                    uVar5 = _FUN_00798aa0.fnptr!(uVar3);
                     iVar7 = 0;
                     if (0 < iVar4)
                     {
                         puVar8 = &gear->abilities[0];
                         do
                         {
-                            uVar6 = _FUN_00798aa0(*puVar8);
+                            uVar6 = _FUN_00798aa0.fnptr!(*puVar8);
                             if (uVar6 == uVar5) goto LAB_00798e2c;
                             iVar7 = iVar7 + 1;
                             puVar8 = puVar8 + 1;
@@ -2862,9 +2739,9 @@ public unsafe class SeymourModule : FhModule {
                 puVar11 = puVar11 + 1;
             }
         }
-        uVar3 = _MsWeaponNameNum(gear);
+        uVar3 = _MsWeaponNameNum.fnptr!(gear);
         gear->name_id = uVar3;
-        _MsWeaponName.hook_fptr((int)(uint)uVar3, (int)(uint)gear->owner, 0, &gear->model_id);
+        _MsWeaponName.fnptr!((int)(uint)uVar3, (int)(uint)gear->owner, 0, &gear->model_id);
         return 0;
     }
     // Show Gear in Menus
@@ -2891,7 +2768,7 @@ public unsafe class SeymourModule : FhModule {
                 }
                 if (gear != 0xff)
                 {
-                    pSVar2 = _MsGetSaveWeapon(gear, (byte**)0x0);
+                    pSVar2 = _MsGetSaveWeapon.fnptr!(gear, (byte**)0x0);
                     pSVar2->flags = (byte)(pSVar2->flags ^ (param_2 * '\x02' ^ pSVar2->flags) & 2);
                 }
                 loop = loop + 1;
@@ -2925,22 +2802,22 @@ public unsafe class SeymourModule : FhModule {
         {
             return;
         }
-        pvVar1 = _TkMn2GetExcelData(*p_DAT_0186aadc_curShopIdx, (ExcelDataFile*)*(nint*)p_DAT_0186ab68_arms_shop_bin_ptr);
+        pvVar1 = _TkMn2GetExcelData.fnptr!(*p_DAT_0186aadc_curShopIdx, (ExcelDataFile*)*(nint*)p_DAT_0186ab68_arms_shop_bin_ptr);
         if (param_2 == 0)
         {
-            pSVar2 = _MsGetSaveWeapon(p_DAT_01597730_OvrModesMenuList[*(short*)(param_1 + 0x48)].overdrive_id, &local_10);
+            pSVar2 = _MsGetSaveWeapon.fnptr!(p_DAT_01597730_OvrModesMenuList[*(short*)(param_1 + 0x48)].overdrive_id, &local_10);
         }
         else
         {
-            pSVar2 = (Equipment*)_FUN_008d9140(*(ushort*)((int)pvVar1 + *(short*)(param_1 + 0x48) * 2 + 2));
+            pSVar2 = (Equipment*)_FUN_008d9140.fnptr!(*(ushort*)((int)pvVar1 + *(short*)(param_1 + 0x48) * 2 + 2));
         }
         if (pSVar2->type == 0)
         {
-            gear_inv_idx = _FUN_008a9c20(DAT_0186ab60);
+            gear_inv_idx = _FUN_008a9c20.fnptr!(DAT_0186ab60);
         }
         else
         {
-            gear_inv_idx = _FUN_008a97d0(DAT_0186ab60);
+            gear_inv_idx = _FUN_008a97d0.fnptr!(DAT_0186ab60);
         }
         if (gear_inv_idx == 0xff)
         {
@@ -2948,38 +2825,38 @@ public unsafe class SeymourModule : FhModule {
         }
         else
         {
-            pSVar3 = _MsGetSaveWeapon(gear_inv_idx, &local_14);
+            pSVar3 = _MsGetSaveWeapon.fnptr!(gear_inv_idx, &local_14);
         }
         iVar12 = 2;
-        fVar5 = _graphicUiRemapY2((float)60.0);
-        fVar6 = _graphicUiRemapX2((float)740.0);
-        fVar7 = _graphicUiRemapY2((float)295.0);
-        fVar8 = _graphicUiRemapX2((float)1144.0);
-        _TODrawMenuPlateXYWHType(fVar8, fVar7, fVar6, fVar5, iVar12);
-        fVar5 = _graphicUiRemapY2((float)36.0);
-        fVar6 = _graphicUiRemapX2((float)430.0);
-        fVar7 = _graphicUiRemapY2((float)310.0);
-        fVar8 = _graphicUiRemapX2((float)1299.0);
-        _FUN_008f8bb0(0x12, fVar8, fVar7, fVar6, fVar5);
+        fVar5 = _graphicUiRemapY2.fnptr!((float)60.0);
+        fVar6 = _graphicUiRemapX2.fnptr!((float)740.0);
+        fVar7 = _graphicUiRemapY2.fnptr!((float)295.0);
+        fVar8 = _graphicUiRemapX2.fnptr!((float)1144.0);
+        _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
+        fVar5 = _graphicUiRemapY2.fnptr!((float)36.0);
+        fVar6 = _graphicUiRemapX2.fnptr!((float)430.0);
+        fVar7 = _graphicUiRemapY2.fnptr!((float)310.0);
+        fVar8 = _graphicUiRemapX2.fnptr!((float)1299.0);
+        _FUN_008f8bb0.fnptr!(0x12, fVar8, fVar7, fVar6, fVar5);
         if (param_2 == 0)
         {
             if (pSVar3 == (Equipment*)0x0)
             {
                 iVar12 = 9;
-                fVar5 = _graphicUiRemapY2((float)64.0);
-                fVar6 = _graphicUiRemapX2((float)700.0);
-                fVar7 = _graphicUiRemapY2((float)231.0);
-                fVar8 = _graphicUiRemapX2((float)1164.0);
-                _TODrawMenuPlateXYWHType(fVar8, fVar7, fVar6, fVar5, iVar12);
+                fVar5 = _graphicUiRemapY2.fnptr!((float)64.0);
+                fVar6 = _graphicUiRemapX2.fnptr!((float)700.0);
+                fVar7 = _graphicUiRemapY2.fnptr!((float)231.0);
+                fVar8 = _graphicUiRemapX2.fnptr!((float)1164.0);
+                _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
                 pfVar9 = &local_c;
                 scale = 0x3f47ae14;
                 uVar11 = 0;
-                pbVar4 = (byte*)_FUN_008bee40(0x17);
-                _ToGetBtlEasyFontWidth(pbVar4, pfVar9, uVar11, scale);
+                pbVar4 = (byte*)_FUN_008bee40.fnptr!(0x17);
+                _ToGetBtlEasyFontWidth.fnptr!(pbVar4, pfVar9, uVar11, scale);
                 fVar7 = (float)0.78;
                 pSVar3 = (Equipment*)0x0;
-                fVar6 = _graphicUiRemapY2((float)243.0);
-                fVar5 = _graphicUiRemapX2((float)1514.0);
+                fVar6 = _graphicUiRemapY2.fnptr!((float)243.0);
+                fVar5 = _graphicUiRemapX2.fnptr!((float)1514.0);
                 fVar5 = (float)(fVar5 - local_c * 0.5);
                 local_8 = fVar5;
                 goto LAB_008d8976;
@@ -2988,56 +2865,56 @@ public unsafe class SeymourModule : FhModule {
         else if (pSVar3 == (Equipment*)0x0)
         {
             iVar12 = 9;
-            fVar5 = _graphicUiRemapY2((float)64.0);
-            fVar6 = _graphicUiRemapX2((float)700.0);
-            fVar7 = _graphicUiRemapY2((float)231.0);
-            fVar8 = _graphicUiRemapX2((float)1164.0);
-            _TODrawMenuPlateXYWHType(fVar8, fVar7, fVar6, fVar5, iVar12);
+            fVar5 = _graphicUiRemapY2.fnptr!((float)64.0);
+            fVar6 = _graphicUiRemapX2.fnptr!((float)700.0);
+            fVar7 = _graphicUiRemapY2.fnptr!((float)231.0);
+            fVar8 = _graphicUiRemapX2.fnptr!((float)1164.0);
+            _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
             pfVar9 = &local_8;
             uVar11 = 0x3f47ae14;
             pSVar10 = pSVar3;
-            pbVar4 = (byte*)_FUN_008bee40(0x17);
-            _ToGetBtlEasyFontWidth(pbVar4, pfVar9, (int)pSVar10, uVar11);
+            pbVar4 = (byte*)_FUN_008bee40.fnptr!(0x17);
+            _ToGetBtlEasyFontWidth.fnptr!(pbVar4, pfVar9, (int)pSVar10, uVar11);
             fVar7 = (float)0.78;
-            fVar6 = _graphicUiRemapY2((float)243.0);
-            fVar5 = _graphicUiRemapX2((float)1514.0);
+            fVar6 = _graphicUiRemapY2.fnptr!((float)243.0);
+            fVar5 = _graphicUiRemapX2.fnptr!((float)1514.0);
             fVar5 = (float)(fVar5 - local_8 * 0.5);
             local_c = fVar5;
             goto LAB_008d8976;
         }
         pSVar10 = pSVar3;
-        fVar5 = _graphicUiRemapY2((float)363.0);
-        fVar6 = _graphicUiRemapX2((float)1144.0);
-        _FUN_008d8a70(fVar6, fVar5, (int)pSVar10);
+        fVar5 = _graphicUiRemapY2.fnptr!((float)363.0);
+        fVar6 = _graphicUiRemapX2.fnptr!((float)1144.0);
+        _FUN_008d8a70.fnptr!(fVar6, fVar5, (int)pSVar10);
         iVar12 = 9;
-        fVar5 = _graphicUiRemapY2((float)64.0);
-        fVar6 = _graphicUiRemapX2((float)700.0);
-        fVar7 = _graphicUiRemapY2((float)231.0);
-        fVar8 = _graphicUiRemapX2((float)1164.0);
-        _TODrawMenuPlateXYWHType(fVar8, fVar7, fVar6, fVar5, iVar12);
+        fVar5 = _graphicUiRemapY2.fnptr!((float)64.0);
+        fVar6 = _graphicUiRemapX2.fnptr!((float)700.0);
+        fVar7 = _graphicUiRemapY2.fnptr!((float)231.0);
+        fVar8 = _graphicUiRemapX2.fnptr!((float)1164.0);
+        _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
         fVar7 = (float)0.0;
-        fVar5 = _graphicUiRemapY2((float)231.0);
-        fVar6 = _graphicUiRemapX2((float)1164.0);
-        _DrawCrossMenuIconWeaponName2.hook_fptr(&pSVar3->name_id, fVar6, fVar5, fVar7);
+        fVar5 = _graphicUiRemapY2.fnptr!((float)231.0);
+        fVar6 = _graphicUiRemapX2.fnptr!((float)1164.0);
+        _DrawCrossMenuIconWeaponName2.fnptr!(&pSVar3->name_id, fVar6, fVar5, fVar7);
     LAB_008d8976:
-        pbVar4 = (byte*)_FUN_008bee40(0x17);
-        _ToMakeBtlEasyFont(pbVar4, fVar5, fVar6, 0.0f, fVar7);
+        pbVar4 = (byte*)_FUN_008bee40.fnptr!(0x17);
+        _ToMakeBtlEasyFont.fnptr!(pbVar4, fVar5, fVar6, 0.0f, fVar7);
         goto LAB_008d898c;
     LAB_008d898c:
         iVar12 = 2;
-        fVar5 = _graphicUiRemapY2((float)60.0);
-        fVar6 = _graphicUiRemapX2((float)740.0);
-        fVar7 = _graphicUiRemapY2((float)659.0);
-        fVar8 = _graphicUiRemapX2((float)970.0);
-        _TODrawMenuPlateXYWHType(fVar8, fVar7, fVar6, fVar5, iVar12);
-        fVar5 = _graphicUiRemapY2((float)36.0);
-        fVar6 = _graphicUiRemapX2((float)430.0);
-        fVar7 = _graphicUiRemapY2((float)671.0);
-        fVar8 = _graphicUiRemapX2((float)1125.0);
-        _FUN_008f8bb0(0x13, fVar8, fVar7, fVar6, fVar5);
-        fVar5 = _graphicUiRemapY2((float)727.0);
-        fVar6 = _graphicUiRemapX2((float)970.0);
-        _FUN_008d8a70(fVar6, fVar5, (int)pSVar2);
+        fVar5 = _graphicUiRemapY2.fnptr!((float)60.0);
+        fVar6 = _graphicUiRemapX2.fnptr!((float)740.0);
+        fVar7 = _graphicUiRemapY2.fnptr!((float)659.0);
+        fVar8 = _graphicUiRemapX2.fnptr!((float)970.0);
+        _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
+        fVar5 = _graphicUiRemapY2.fnptr!((float)36.0);
+        fVar6 = _graphicUiRemapX2.fnptr!((float)430.0);
+        fVar7 = _graphicUiRemapY2.fnptr!((float)671.0);
+        fVar8 = _graphicUiRemapX2.fnptr!((float)1125.0);
+        _FUN_008f8bb0.fnptr!(0x13, fVar8, fVar7, fVar6, fVar5);
+        fVar5 = _graphicUiRemapY2.fnptr!((float)727.0);
+        fVar6 = _graphicUiRemapX2.fnptr!((float)970.0);
+        _FUN_008d8a70.fnptr!(fVar6, fVar5, (int)pSVar2);
         return;
     }
 
@@ -3053,18 +2930,18 @@ public unsafe class SeymourModule : FhModule {
 
         iVar5 = param_5;
         iVar4 = 0;
-        uVar1 = _MsGetRamChrMonster(param_1);
-        uVar2 = _MsGetRamChrMonster(param_3);
+        uVar1 = _MsGetRamChrMonster.fnptr!(param_1);
+        uVar2 = _MsGetRamChrMonster.fnptr!(param_3);
         if ((((*(byte*)(param_4 + 0x5bb) == 0x13) && (-1 < param_5)) && (uVar1 == 1)) && (uVar2 == 0)) // Aeons Only
         {
-            _MsLimitUp((int)param_3, (Chr*)param_4, (uint)(param_6 * 0x12) / *(uint*)(param_4 + 0x594) + 1);
+            _MsLimitUp.fnptr!((int)param_3, (Chr*)param_4, (uint)(param_6 * 0x12) / *(uint*)(param_4 + 0x594) + 1);
         }
         if (param_5 < 1)
         {
             if (((param_5 < 0) && (uVar1 == 0)) && ((uVar2 == 0 && (param_1 != param_3))))
             {
                 iVar4 = 1;
-                _FUN_007b10d0.hook_fptr(param_1, 0x03, 0);
+                _FUN_007b10d0.fnptr!(param_1, 0x03, 0);
                 if (*(byte*)(param_2 + 0x5bb) == 0x03) // Healer
                 {
                     iVar3 = (int)(*(uint*)(param_4 + 0x594) - *(int*)(param_4 + 0x5d0));
@@ -3073,7 +2950,7 @@ public unsafe class SeymourModule : FhModule {
                     {
                         iVar5 = iVar3;
                     }
-                    _MsLimitUp((int)param_1, (Chr*)param_2, (uint)(iVar5 << 4) / *(uint*)(param_4 + 0x594) + 1);
+                    _MsLimitUp.fnptr!((int)param_1, (Chr*)param_2, (uint)(iVar5 << 4) / *(uint*)(param_4 + 0x594) + 1);
                 }
             }
         }
@@ -3081,23 +2958,23 @@ public unsafe class SeymourModule : FhModule {
         {
             if (uVar2 == 0)
             {
-                _FUN_007b10d0.hook_fptr(param_3, 0x02, 0);
+                _FUN_007b10d0.fnptr!(param_3, 0x02, 0);
                 if (*(byte*)(param_4 + 0x5bb) == 0x02) // Stoic
                 {
-                    _MsLimitUp((int)param_3, (Chr*)param_4, (uint)(param_5 * 0x1e) / *(uint*)(param_4 + 0x594) + 1);
+                    _MsLimitUp.fnptr!((int)param_3, (Chr*)param_4, (uint)(param_5 * 0x1e) / *(uint*)(param_4 + 0x594) + 1);
                 }
                 uVar1 = 0;
                 param_5 = 1;
                 do
                 {
-                    character = _MsGetChr(uVar1);
+                    character = _MsGetChr.fnptr!(uVar1);
                     if ((character->in_battle != 0) && (uVar1 != param_3))
                     {
                         param_5 = param_5 + 1;
-                        _FUN_007b10d0.hook_fptr(uVar1, 0x01, 0);
+                        _FUN_007b10d0.fnptr!(uVar1, 0x01, 0);
                         if (character->ram.limit_mode_selected == 0x01) // Comrade
                         {
-                            _MsLimitUp((int)uVar1, character, (uint)(iVar5 * 0x14) / *(uint*)(param_4 + 0x594) + 1);
+                            _MsLimitUp.fnptr!((int)uVar1, character, (uint)(iVar5 * 0x14) / *(uint*)(param_4 + 0x594) + 1);
                         }
                     }
                     uVar1 = uVar1 + 1;
@@ -3108,7 +2985,7 @@ public unsafe class SeymourModule : FhModule {
         else if (((uVar1 == 0) && (uVar2 == 1)) && (param_7 != 0))
         {
             iVar4 = 1;
-            _FUN_007b10d0.hook_fptr(param_1, 0x00, 0);
+            _FUN_007b10d0.fnptr!(param_1, 0x00, 0);
             if (*(byte*)(param_2 + 0x5bb) == 0x00) // Warrior
             {
                 uVar1 = (uint)((param_5 * 10) / *(int*)(param_2 + 0x6f4) + 1);
@@ -3116,11 +2993,11 @@ public unsafe class SeymourModule : FhModule {
                 {
                     uVar1 = 0x10;
                 }
-                _MsLimitUp((int)param_1, (Chr*)param_2, uVar1);
+                _MsLimitUp.fnptr!((int)param_1, (Chr*)param_2, uVar1);
             }
             if (*(byte*)(param_2 + 0x5bb) == 0x13) // Aeons Only
             {
-                _MsLimitUp((int)param_1, (Chr*)param_2, (uint)(((param_5 << 4) / *(int*)(param_2 + 0x6f4)) / 10 + 1));
+                _MsLimitUp.fnptr!((int)param_1, (Chr*)param_2, (uint)(((param_5 << 4) / *(int*)(param_2 + 0x6f4)) / 10 + 1));
                 return 1;
             }
         }
@@ -3134,8 +3011,8 @@ public unsafe class SeymourModule : FhModule {
         int iVar3;
 
         iVar3 = 0;
-        uVar1 = (int)_MsGetRamChrMonster((uint)param_1);
-        uVar2 = _MsGetRamChrMonster(param_3);
+        uVar1 = (int)_MsGetRamChrMonster.fnptr!((uint)param_1);
+        uVar2 = _MsGetRamChrMonster.fnptr!(param_3);
         if (uVar1 == 1)
         {
             if (uVar2 == 0)
@@ -3143,14 +3020,14 @@ public unsafe class SeymourModule : FhModule {
                 uVar1 = 0;
                 do
                 {
-                    character = _MsGetChr((uint)uVar1);
+                    character = _MsGetChr.fnptr!((uint)uVar1);
                     if ((character->in_battle != 0) && (uVar1 != param_3))
                     {
                         iVar3 = iVar3 + 1;
-                        _FUN_007b10d0.hook_fptr((uint)uVar1, 0x07, 0);
+                        _FUN_007b10d0.fnptr!((uint)uVar1, 0x07, 0);
                         if (character->ram.limit_mode_selected == 0x07) // Avenger
                         {
-                            _MsLimitUp(uVar1, character, 0x1e);
+                            _MsLimitUp.fnptr!(uVar1, character, 0x1e);
                         }
                     }
                     uVar1 = uVar1 + 1;
@@ -3160,25 +3037,25 @@ public unsafe class SeymourModule : FhModule {
         }
         else if ((uVar1 == 0) && (uVar2 == 1))
         {
-            _FUN_007b10d0.hook_fptr((uint)param_1, 0x08, 0);
+            _FUN_007b10d0.fnptr!((uint)param_1, 0x08, 0);
             if (*(byte*)(param_2 + 0x5bb) == 0x08) // Slayer
             {
-                _MsLimitUp(param_1, (Chr*)param_2, 0x14);
+                _MsLimitUp.fnptr!(param_1, (Chr*)param_2, 0x14);
             }
             if ((*(int*)(param_2 + 0x6f4) * 0x14 < *(int*)(param_4 + 0x594)) || (9999 < *(int*)(param_4 + 0x594)))
             {
-                _FUN_007b10d0.hook_fptr((uint)param_1, 0x09, 0);
+                _FUN_007b10d0.fnptr!((uint)param_1, 0x09, 0);
             }
             if ((*(byte*)(param_2 + 0x5bb) == 0x09) && ((uint)(*(int*)(param_2 + 0x6f4) * 3) < *(uint*)(param_4 + 0x594))) // Hero
             {
-                _MsLimitUp(param_1, (Chr*)param_2, 0x14);
+                _MsLimitUp.fnptr!(param_1, (Chr*)param_2, 0x14);
             }
         }
         return 0;
     }
     int h_FUN_007b10d0(uint chr_id, uint limit_mode, int param_3)
     {
-        Chr* chr = _MsGetChr(chr_id);
+        Chr* chr = _MsGetChr.fnptr!(chr_id);
 
         if (Globals.Battle.btl->battle_type == 0 && chr_id < 8 && limit_mode < 0x11 && chr->stat_death == 0 && chr->stat_stone == 0 || param_3 != 0)
         {
@@ -3218,19 +3095,19 @@ public unsafe class SeymourModule : FhModule {
             return 0;
         }
         local_8 = 1;
-        _FUN_007b10d0.hook_fptr(param_1, 0x0D, 0);
+        _FUN_007b10d0.fnptr!(param_1, 0x0D, 0);
         if (*(byte*)(param_2 + 0x5bb) == 0x0D) // Ally
         {
-            _MsLimitUp((int)param_1, (Chr*)param_2, 3);
+            _MsLimitUp.fnptr!((int)param_1, (Chr*)param_2, 3);
         }
-        iVar2 = _MsCalcWeakLevel(*(int*)(param_2 + 0x5d0), *(int*)(param_2 + 0x594));
+        iVar2 = _MsCalcWeakLevel.fnptr!(*(int*)(param_2 + 0x5d0), *(int*)(param_2 + 0x594));
         if (0 < iVar2)
         {
             local_8 = 2;
-            _FUN_007b10d0.hook_fptr(param_1, 0x0F, 0);
+            _FUN_007b10d0.fnptr!(param_1, 0x0F, 0);
             if (*(byte*)(param_2 + 0x5bb) == 0x0F) // Daredevil
             {
-                _MsLimitUp((int)param_1, (Chr*)param_2, 5);
+                _MsLimitUp.fnptr!((int)param_1, (Chr*)param_2, 5);
             }
         }
         uVar3 = 0;
@@ -3238,7 +3115,7 @@ public unsafe class SeymourModule : FhModule {
         chr_id = 0;
         do
         {
-            character = _MsGetChr(chr_id);
+            character = _MsGetChr.fnptr!(chr_id);
             uVar3 = param_1;
             if ((chr_id != uVar1) && (character->in_battle != 0) && (character->stat_action != 0) && (character->stat_death == 0) && (character->stat_stone == 0))
             {
@@ -3250,10 +3127,10 @@ public unsafe class SeymourModule : FhModule {
         if (uVar3 == 0)
         {
             local_8 = local_8 + 1;
-            _FUN_007b10d0.hook_fptr(uVar1, 0x10, 0);
+            _FUN_007b10d0.fnptr!(uVar1, 0x10, 0);
             if (*(byte*)(param_2 + 0x5bb) == 0x10) // Loner
             {
-                _MsLimitUp((int)uVar1, (Chr*)param_2, 0x10);
+                _MsLimitUp.fnptr!((int)uVar1, (Chr*)param_2, 0x10);
             }
         }
         if (((((*(ushort*)(param_2 + 0x606) & 10) == 0) &&
@@ -3266,10 +3143,10 @@ public unsafe class SeymourModule : FhModule {
         {
             return local_8;
         }
-        _FUN_007b10d0.hook_fptr(uVar1, 0x0E, 0);
+        _FUN_007b10d0.fnptr!(uVar1, 0x0E, 0);
         if (*(byte*)(param_2 + 0x5bb) == 0x0E) // Sufferer
         {
-            _MsLimitUp((int)uVar1, (Chr*)param_2, 0x10);
+            _MsLimitUp.fnptr!((int)uVar1, (Chr*)param_2, 0x10);
         }
         return local_8 + 1;
     }
@@ -3283,14 +3160,14 @@ public unsafe class SeymourModule : FhModule {
         chr_id = 0;
         do
         {
-            character = _MsGetChr((uint)chr_id);
+            character = _MsGetChr.fnptr!((uint)chr_id);
             if (character->in_battle != 0)
             {
                 iVar1 = iVar1 + 1;
-                _FUN_007b10d0.hook_fptr((uint)chr_id, 0x0B, 0);
+                _FUN_007b10d0.fnptr!((uint)chr_id, 0x0B, 0);
                 if (character->ram.limit_mode_selected == 0x0B) // Victor
                 {
-                    _MsLimitUp(chr_id, character, 0x14);
+                    _MsLimitUp.fnptr!(chr_id, character, 0x14);
                 }
             }
             chr_id = chr_id + 1;
@@ -3300,7 +3177,7 @@ public unsafe class SeymourModule : FhModule {
 
     void h_MsSetSaveStartGame()
     {
-        _MsSetSaveStartGame.orig_fptr();
+        _MsSetSaveStartGame.chain_from(h_MsSetSaveStartGame).fnptr!();
 
         Globals.save_data->ability_map_limit.has_extra_24 = true;
 
@@ -3314,19 +3191,19 @@ public unsafe class SeymourModule : FhModule {
                 {
                     gear->slot_count = 1;
                     gear->abilities[0] = 0xFF;
-                    gear->name_id = _MsWeaponNameNum(gear);
+                    gear->name_id = _MsWeaponNameNum.fnptr!(gear);
                 }
                 else
                 {
                     gear->slot_count = 2;
                     gear->abilities[1] = 0x8000;
-                    gear->name_id = _MsWeaponNameNum(gear);
+                    gear->name_id = _MsWeaponNameNum.fnptr!(gear);
                 }
-                _MsWeaponName.hook_fptr(gear->name_id, gear->owner, 0, &gear->model_id);
+                _MsWeaponName.fnptr!(gear->name_id, gear->owner, 0, &gear->model_id);
             }
         }
 
-        PlySave* seymour = _MsGetSavePlayerPtr(7);
+        PlySave* seymour = _MsGetSavePlayerPtr.fnptr!(7);
         seymour->base_mp = 319;
         seymour->mp = 319;
         seymour->max_mp = 319;
@@ -3355,15 +3232,15 @@ public unsafe class SeymourModule : FhModule {
         seymour->limit_mode_ctr_daredevil = 150;
         seymour->limit_mode_ctr_loner = 30;
         seymour->obtained_limit_modes = (OverdriveModeFlags)(uint)OverdriveModeFlags.STOIC;
-        _MsSetSaveParam.hook_fptr(7);
+        _MsSetSaveParam.fnptr!(7);
 
-        Command* requiem = _MsGetRomPlyCommand(0x30E3, (int*)0x0);
+        Command* requiem = _MsGetRomPlyCommand.fnptr!(0x30E3, (int*)0x0);
         requiem->is_piercing = true;
         requiem->flags_damage = 4; // Can Crit
         requiem->dmg_formula = 15; // Special MAG
         requiem->power = 45;
 
-        Command* extra24 = _MsGetRomPlyCommand(0x3130, (int*)0x0);
+        Command* extra24 = _MsGetRomPlyCommand.fnptr!(0x3130, (int*)0x0);
         extra24->name_offset = 12487; // "Summon"
         extra24->desc_offset = 12496; // "Summon an aeon."
         extra24->icon = 19;
@@ -3380,11 +3257,11 @@ public unsafe class SeymourModule : FhModule {
     }
 
     // Show Seymour's Armor Model
-    int h_FUN_00635c20(uint param_1) 
+    int h_FUN_00635c20(uint param_1)
     {
         short sVar1;
 
-        sVar1 = (short)_getScenerioFlag();
+        sVar1 = (short)_getScenerioFlag.fnptr!();
         if (param_1 != 0x4068)
         {
             if (sVar1 == 0x2e)
@@ -3417,12 +3294,13 @@ public unsafe class SeymourModule : FhModule {
         if (*com_id == 0x3130)
         {
             *com_id = 0x3117;
-            int result = _MsParseCommand.orig_fptr(param_1);
+            int result = _MsParseCommand.chain_from(h_MsParseCommand).fnptr!(param_1);
             *com_id = 0x3130;
             return result;
         }
-        return _MsParseCommand.orig_fptr(param_1);
+        return _MsParseCommand.chain_from(h_MsParseCommand).fnptr!(param_1);
     }
+
     // Extra24 Summon Help text
     void h_TOBtlCtrlHelpWin(int param_1)
     {
@@ -3432,18 +3310,19 @@ public unsafe class SeymourModule : FhModule {
         if (currentwindow->window_command_id == 0x3130)
         {
             currentwindow->window_command_id = 0x3117;
-            _TOBtlCtrlHelpWin.orig_fptr(param_1);
+            _TOBtlCtrlHelpWin.chain_from(h_TOBtlCtrlHelpWin).fnptr!(param_1);
             currentwindow->window_command_id = 0x3130;
             return;
         }
-        _TOBtlCtrlHelpWin.orig_fptr(param_1);
+        _TOBtlCtrlHelpWin.chain_from(h_TOBtlCtrlHelpWin).fnptr!(param_1);
     }
+
     // Battle Summon List
     ushort* h_TOGetSaveWindow(uint chr_id, BtlWindowType window_type, int* summonlistlength)
     {
         if ((uint)window_type == 5)
         {
-            ushort* originallist = _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
+            ushort* originallist = _TOGetSaveWindow.chain_from(h_TOGetSaveWindow).fnptr!(chr_id, window_type, summonlistlength);
             Span<ushort> listSpan = new(originallist, *summonlistlength);
             if (chr_id == 1)
             {
@@ -3487,27 +3366,30 @@ public unsafe class SeymourModule : FhModule {
                 return originallist;
             }
         }
-        return _TOGetSaveWindow.orig_fptr(chr_id, window_type, summonlistlength);
+        return _TOGetSaveWindow.chain_from(h_TOGetSaveWindow).fnptr!(chr_id, window_type, summonlistlength);
     }
+
     // Pause Menu -> Overdrive Menu
     int h_TkMenuSummonEnableMask()
     {
-        if (_TkMenuGetCurrentPlayer() == 1)
+        if (_TkMenuGetCurrentPlayer.fnptr!() == 1)
         {
             if (!Globals.save_data->has_anima)
             {
-                return (int)(_TkMenuSummonEnableMask.orig_fptr() & ~(1u << 0x0D)); // Display Anima in Yuna's Overdrive menu once unlocked
+                return (int)(_TkMenuSummonEnableMask.chain_from(h_TkMenuSummonEnableMask).fnptr!() & ~(1u << 0x0D)); // Display Anima in Yuna's Overdrive menu once unlocked
             }
         }
-        return _TkMenuSummonEnableMask.orig_fptr();
+        return _TkMenuSummonEnableMask.chain_from(h_TkMenuSummonEnableMask).fnptr!();
     }
+
     // Anima Stat Scaling with Seymour
     void h_MsSetSaveParam(uint chr_id)
     {
         aeon = chr_id;
-        _MsSetSaveParam.orig_fptr(chr_id);
+        _MsSetSaveParam.chain_from(h_MsSetSaveParam).fnptr!(chr_id);
         aeon = 0;
     }
+
     int* h_FUN_00785c20(uint chr_id, uint* param_2)
     {
         MsChrAbilityMap* pMVar1;
@@ -3516,13 +3398,13 @@ public unsafe class SeymourModule : FhModule {
         {
             chr_id = 7; // Scale with Seymour
         }
-        pMVar1 = _MsGetChrAbilityMap(chr_id);
+        pMVar1 = _MsGetChrAbilityMap.fnptr!(chr_id);
         param_2[8] = Globals.save_data->ply_saves[(int)chr_id].base_hp;
         param_2[9] = Globals.save_data->ply_saves[(int)chr_id].base_mp;
         if (chr_id == 7 && aeon == 0x0D)
         {
             *param_2 = 0;
-            param_2[1] = 0; 
+            param_2[1] = 0;
             // Removed Strength & Defense scalings - Anima was too overpowered with them
             // when using Seymour's stats as a base.
         }
@@ -3558,17 +3440,17 @@ public unsafe class SeymourModule : FhModule {
     {
         int old_state = Globals.Battle.btl->battle_state;
 
-        _MsBtlReadManage.orig_fptr();
+        _MsBtlReadManage.chain_from(h_MsBtlReadManage).fnptr!();
 
         if (Globals.Battle.btl->battle_state != 13 || old_state == Globals.Battle.btl->battle_state) return;
 
         // Post Battle Start
         if (Globals.Battle.player_characters == null) return;
 
-        _setCommandDisabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_USE, 1);
-        _setCommandDisabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_SPARE_CHANGE, 1);
-        _setCommandDisabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_THREATEN, 1);
-        _setCommandDisabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_PROVOKE, 1);
-        _setCommandDisabled(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_BRIBE, 1);
+        _setCommandDisabled.fnptr!(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_USE, 1);
+        _setCommandDisabled.fnptr!(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_SPARE_CHANGE, 1);
+        _setCommandDisabled.fnptr!(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_THREATEN, 1);
+        _setCommandDisabled.fnptr!(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_PROVOKE, 1);
+        _setCommandDisabled.fnptr!(PlySaveId.PC_SEYMOUR, PlayerCommandId.PCOM_BRIBE, 1);
     }
 }
