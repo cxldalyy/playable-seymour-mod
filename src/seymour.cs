@@ -2563,10 +2563,10 @@ public unsafe class SeymourModule : FhModule {
     void h_FUN_008cf800(int param_1)
     {
         bool bVar1;
-        int uVar2;
-        uint uVar4;
+        int iVar2;
         int iVar3;
-
+        int iVar4;
+    
         *(int*)(param_1 + 0x1c) = 0;
         *p_DAT_0186a5ec = 0;
         *p_DAT_0186a5f0 = 0xff;
@@ -2574,24 +2574,24 @@ public unsafe class SeymourModule : FhModule {
         *p_TkMenuFaceKeep = (int)_FUN_008a9820.fnptr!();
         *p_TkMenuFaceNew = (int)_FUN_008a9820.fnptr!();
         *p_TkMenuFaceOld = (int)_FUN_008a9820.fnptr!();
-        uVar4 = 0;
+        iVar3 = 0;
         do
         {
-            uVar2 = _FUN_008a97d0.fnptr!(uVar4);
-            (p_DAT_0186a634)[uVar4] = uVar2;
-            uVar2 = _FUN_008a9c20.fnptr!(uVar4);
-            (p_DAT_0186a614)[uVar4] = uVar2;
-            uVar2 = (int)_TkMenuGetHP.fnptr!(uVar4);
-            (p_DAT_0186a654)[uVar4] = uVar2;
-            uVar2 = (int)_TkMenuGetMP.fnptr!(uVar4);
-            (p_DAT_0186a674)[uVar4] = uVar2;
-            uVar4 = uVar4 + 1;
-        } while ((int)uVar4 < 8);
+            iVar2 = _FUN_008a97d0.fnptr!(iVar3);
+            (p_DAT_0186a634)[iVar3] = iVar2;
+            iVar2 = _FUN_008a9c20.fnptr!(iVar3);
+            (p_DAT_0186a614)[iVar3] = iVar2;
+            iVar2 = (int)_TkMenuGetHP.fnptr!(iVar3);
+            (p_DAT_0186a654)[iVar3] = iVar2;
+            iVar2 = (int)_TkMenuGetMP.fnptr!(iVar3);
+            (p_DAT_0186a674)[iVar3] = iVar2;
+            iVar3 = iVar3 + 1;
+        } while (iVar3 < 8);
         *p_DAT_0186a5e4 = 0;
         bVar1 = _FUN_008cfc00.fnptr!();
-        iVar3 = bVar1 ? 1 : 0;
-        uVar2 = _TkMenuGetCurrentPlayer.fnptr!();
-        _FUN_008cfcf0.fnptr!(uVar2, iVar3);
+        iVar4 = bVar1 ? 1 : 0;
+        iVar2 = _TkMenuGetCurrentPlayer.fnptr!();
+        _FUN_008cfcf0.fnptr!(iVar2, iVar4);
         *p_DAT_0186a5d8 = 0x155;
         *p_DAT_0186a5d4 = 0;
         _FUN_008c2bd0.fnptr!(scene0String);
@@ -2790,14 +2790,14 @@ public unsafe class SeymourModule : FhModule {
         float fVar8;
         float* pfVar9;
         Equipment* pSVar10;
-        int uVar11;
-        int scale;
+        float fVar11;
+        float scale;
         int iVar12;
         byte* local_14;
         byte* local_10;
         float local_c;
         float local_8;
-
+    
         if (7 < DAT_0186ab60)
         {
             return;
@@ -2813,11 +2813,11 @@ public unsafe class SeymourModule : FhModule {
         }
         if (pSVar2->type == 0)
         {
-            gear_inv_idx = _FUN_008a9c20.fnptr!(DAT_0186ab60);
+            gear_inv_idx = _FUN_008a9c20.fnptr!((int)DAT_0186ab60);
         }
         else
         {
-            gear_inv_idx = _FUN_008a97d0.fnptr!(DAT_0186ab60);
+            gear_inv_idx = _FUN_008a97d0.fnptr!((int)DAT_0186ab60);
         }
         if (gear_inv_idx == 0xff)
         {
@@ -2828,36 +2828,36 @@ public unsafe class SeymourModule : FhModule {
             pSVar3 = _MsGetSaveWeapon.fnptr!(gear_inv_idx, &local_14);
         }
         iVar12 = 2;
-        fVar5 = _graphicUiRemapY2.fnptr!((float)60.0);
-        fVar6 = _graphicUiRemapX2.fnptr!((float)740.0);
-        fVar7 = _graphicUiRemapY2.fnptr!((float)295.0);
-        fVar8 = _graphicUiRemapX2.fnptr!((float)1144.0);
+        fVar5 = _graphicUiRemapY2.fnptr!(60.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(740.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(295.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(1144.0f);
         _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
-        fVar5 = _graphicUiRemapY2.fnptr!((float)36.0);
-        fVar6 = _graphicUiRemapX2.fnptr!((float)430.0);
-        fVar7 = _graphicUiRemapY2.fnptr!((float)310.0);
-        fVar8 = _graphicUiRemapX2.fnptr!((float)1299.0);
+        fVar5 = _graphicUiRemapY2.fnptr!(36.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(430.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(310.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(1299.0f);
         _FUN_008f8bb0.fnptr!(0x12, fVar8, fVar7, fVar6, fVar5);
         if (param_2 == 0)
         {
             if (pSVar3 == (Equipment*)0x0)
             {
                 iVar12 = 9;
-                fVar5 = _graphicUiRemapY2.fnptr!((float)64.0);
-                fVar6 = _graphicUiRemapX2.fnptr!((float)700.0);
-                fVar7 = _graphicUiRemapY2.fnptr!((float)231.0);
-                fVar8 = _graphicUiRemapX2.fnptr!((float)1164.0);
+                fVar5 = _graphicUiRemapY2.fnptr!(64.0f);
+                fVar6 = _graphicUiRemapX2.fnptr!(700.0f);
+                fVar7 = _graphicUiRemapY2.fnptr!(231.0f);
+                fVar8 = _graphicUiRemapX2.fnptr!(1164.0f);
                 _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
                 pfVar9 = &local_c;
-                scale = 0x3f47ae14;
-                uVar11 = 0;
+                scale = 0.78f;
+                fVar11 = 0.0f;
                 pbVar4 = (byte*)_FUN_008bee40.fnptr!(0x17);
-                _ToGetBtlEasyFontWidth.fnptr!(pbVar4, pfVar9, uVar11, scale);
-                fVar7 = (float)0.78;
+                _ToGetBtlEasyFontWidth.fnptr!(pbVar4, pfVar9, (int)fVar11, scale);
+                fVar7 = 0.78f;
                 pSVar3 = (Equipment*)0x0;
-                fVar6 = _graphicUiRemapY2.fnptr!((float)243.0);
-                fVar5 = _graphicUiRemapX2.fnptr!((float)1514.0);
-                fVar5 = (float)(fVar5 - local_c * 0.5);
+                fVar6 = _graphicUiRemapY2.fnptr!(243.0f);
+                fVar5 = _graphicUiRemapX2.fnptr!(1514.0f);
+                fVar5 = fVar5 - local_c * 0.5f;
                 local_8 = fVar5;
                 goto LAB_008d8976;
             }
@@ -2865,36 +2865,36 @@ public unsafe class SeymourModule : FhModule {
         else if (pSVar3 == (Equipment*)0x0)
         {
             iVar12 = 9;
-            fVar5 = _graphicUiRemapY2.fnptr!((float)64.0);
-            fVar6 = _graphicUiRemapX2.fnptr!((float)700.0);
-            fVar7 = _graphicUiRemapY2.fnptr!((float)231.0);
-            fVar8 = _graphicUiRemapX2.fnptr!((float)1164.0);
+            fVar5 = _graphicUiRemapY2.fnptr!(64.0f);
+            fVar6 = _graphicUiRemapX2.fnptr!(700.0f);
+            fVar7 = _graphicUiRemapY2.fnptr!(231.0f);
+            fVar8 = _graphicUiRemapX2.fnptr!(1164.0f);
             _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
             pfVar9 = &local_8;
-            uVar11 = 0x3f47ae14;
+            fVar11 = 0.78f;
             pSVar10 = pSVar3;
             pbVar4 = (byte*)_FUN_008bee40.fnptr!(0x17);
-            _ToGetBtlEasyFontWidth.fnptr!(pbVar4, pfVar9, (int)pSVar10, uVar11);
-            fVar7 = (float)0.78;
-            fVar6 = _graphicUiRemapY2.fnptr!((float)243.0);
-            fVar5 = _graphicUiRemapX2.fnptr!((float)1514.0);
-            fVar5 = (float)(fVar5 - local_8 * 0.5);
+            _ToGetBtlEasyFontWidth.fnptr!(pbVar4, pfVar9, (int)pSVar10, fVar11);
+            fVar7 = 0.78f;
+            fVar6 = _graphicUiRemapY2.fnptr!(243.0f);
+            fVar5 = _graphicUiRemapX2.fnptr!(1514.0f);
+            fVar5 = fVar5 - local_8 * 0.5f;
             local_c = fVar5;
             goto LAB_008d8976;
         }
         pSVar10 = pSVar3;
-        fVar5 = _graphicUiRemapY2.fnptr!((float)363.0);
-        fVar6 = _graphicUiRemapX2.fnptr!((float)1144.0);
+        fVar5 = _graphicUiRemapY2.fnptr!(363.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(1144.0f);
         _FUN_008d8a70.fnptr!(fVar6, fVar5, (int)pSVar10);
         iVar12 = 9;
-        fVar5 = _graphicUiRemapY2.fnptr!((float)64.0);
-        fVar6 = _graphicUiRemapX2.fnptr!((float)700.0);
-        fVar7 = _graphicUiRemapY2.fnptr!((float)231.0);
-        fVar8 = _graphicUiRemapX2.fnptr!((float)1164.0);
+        fVar5 = _graphicUiRemapY2.fnptr!(64.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(700.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(231.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(1164.0f);
         _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
-        fVar7 = (float)0.0;
-        fVar5 = _graphicUiRemapY2.fnptr!((float)231.0);
-        fVar6 = _graphicUiRemapX2.fnptr!((float)1164.0);
+        fVar7 = 0.0f;
+        fVar5 = _graphicUiRemapY2.fnptr!(231.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(1164.0f);
         _DrawCrossMenuIconWeaponName2.fnptr!(&pSVar3->name_id, fVar6, fVar5, fVar7);
     LAB_008d8976:
         pbVar4 = (byte*)_FUN_008bee40.fnptr!(0x17);
@@ -2902,18 +2902,18 @@ public unsafe class SeymourModule : FhModule {
         goto LAB_008d898c;
     LAB_008d898c:
         iVar12 = 2;
-        fVar5 = _graphicUiRemapY2.fnptr!((float)60.0);
-        fVar6 = _graphicUiRemapX2.fnptr!((float)740.0);
-        fVar7 = _graphicUiRemapY2.fnptr!((float)659.0);
-        fVar8 = _graphicUiRemapX2.fnptr!((float)970.0);
+        fVar5 = _graphicUiRemapY2.fnptr!(60.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(740.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(659.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(970.0f);
         _TODrawMenuPlateXYWHType.fnptr!(fVar8, fVar7, fVar6, fVar5, iVar12);
-        fVar5 = _graphicUiRemapY2.fnptr!((float)36.0);
-        fVar6 = _graphicUiRemapX2.fnptr!((float)430.0);
-        fVar7 = _graphicUiRemapY2.fnptr!((float)671.0);
-        fVar8 = _graphicUiRemapX2.fnptr!((float)1125.0);
+        fVar5 = _graphicUiRemapY2.fnptr!(36.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(430.0f);
+        fVar7 = _graphicUiRemapY2.fnptr!(671.0f);
+        fVar8 = _graphicUiRemapX2.fnptr!(1125.0f);
         _FUN_008f8bb0.fnptr!(0x13, fVar8, fVar7, fVar6, fVar5);
-        fVar5 = _graphicUiRemapY2.fnptr!((float)727.0);
-        fVar6 = _graphicUiRemapX2.fnptr!((float)970.0);
+        fVar5 = _graphicUiRemapY2.fnptr!(727.0f);
+        fVar6 = _graphicUiRemapX2.fnptr!(970.0f);
         _FUN_008d8a70.fnptr!(fVar6, fVar5, (int)pSVar2);
         return;
     }
