@@ -35,6 +35,7 @@ This mod makes Seymour his own, standalone, 8th party member.
 - His own Celestial items
 - New animations
 - ...& more!
+
 Naturally, Seymour is capable of wielding both black and white magic, following Lulu's path on the Sphere Grid by default. With this in mind, his base stats are slightly adjusted compared to the vanilla game, so he and Lulu can both be powerful black mages respectively and not *completely* overpower one or another.
 
 ### Summoning
