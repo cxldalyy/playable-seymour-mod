@@ -5,7 +5,8 @@ This mod features modded files to be used in conjunction with [Fahrenheit](https
 ### This mod must be played for the first time on a brand new save file. Loading a pre-existing save will break countless things, and Seymour may be unplayable.
 
 ### Prerequisites:
-- [Fahrenheit](https://github.com/fahrenheit-crew/fahrenheit) v1.0.0-alpha10
+- [Fahrenheit](https://github.com/fahrenheit-crew/fahrenheit) v1.0.0-alpha11
+- [custom-character](https://github.com/Rurusachi/custom-character)
 
 ### Installation:
 For the sake of conserving disk space, extract only the following files from the `FFX_Data` folder:
