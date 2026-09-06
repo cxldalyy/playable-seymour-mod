@@ -2,10 +2,12 @@ This mod features modded files to be used in conjunction with [Fahrenheit](https
 
 ### You must own or obtain a legal copy of Final Fantasy X/X-2 HD Remaster.
 
-### This mod must be played for the first time on a brand new save file. Loading a pre-existing save will break countless things, and Seymour may not be playable on that file.
+### This mod must be played for the first time on a brand new save file. Loading pre-existing saves from before this mods installation can lead to issues like Seymour not being playable on those files.
 
 ### Prerequisites:
-This mod entirely depends on the two following works:
+This mod entirely depends on the following works:
+- [VBF Browser](https://www.nexusmods.com/finalfantasy12/mods/3)
+- [xDelta3](https://github.com/jmacd/xdelta-gpl)
 - [Fahrenheit](https://github.com/fahrenheit-crew/fahrenheit) v1.0.0-alpha11
 - [custom-character](https://github.com/Rurusachi/custom-character)
 
@@ -20,29 +22,28 @@ menu_us/D3D11/icon
 - Extract your original, unmodified `ffx_ps2` folder from `FFX_Data.vbf` using the [VBF Browser](https://www.nexusmods.com/finalfantasy12/mods/3).
 - Place the extracted `FFX_Data` and `ffx_ps2` folders into the `\original` folder within this release.
 - Run "apply_mods.bat".
-- This will convert the .xdelta patches in `\patches` into the modded files ready for EFL use.
-- Copy the new modded files in `efl\x` into the `mods\playable-seymour\efl\x` folder inside the release. You can now also delete the whole `efl files` folder.
-- Finally, copy the entire `mods` folder from the release into your Fahrenheit folder in the game directory.
-- Done! Now launch the game through Fahrenheit.
-- Enjoy the story of Spira with Seymour permanently by your side!
+- This will convert the .xdelta patches in `\patches` into the required files ready for EFL use.
+- Copy the new files you patched in `efl\x` into the `mods\playable-seymour\efl\x` folder inside the release. You can now also delete the entire `efl files` folder.
+- Finally, copy the entire `mods` folder from the release into your Fahrenheit folder.
+- Done! Now you can launch the game through Fahrenheit and enjoy the story of Spira with Seymour permanently by your side!
+
 (Once the installation is completed, you can also delete the `FFX_Data` and `ffx_ps2` folders from the `\original` folder to conserve disk space.)
 
 ### Features
 This mod makes Seymour his own, standalone, 8th party member. 
-- Access to the Sphere Grid (though he doesn't *currently* have his own path)
-- His own Weapons and Armors, called "Scepters" and "Circlets" respectively, from Shops and enemy drops
-- A new Overdrive alongside Requiem
-- His own Celestial items
-- New animations
+- Access to the Sphere Grid (though he doesn't *currently* have his own path) - Special thanks to Rurusachi
+- His own Weapons and Armors, called "Scepters" and "Circlets" respectively, from shops and enemy drops
+- A brand new Overdrive alongside Requiem
+- His own Celestial "Neptune" Crest/Sigil, and also weapon
 - ...& more!
 
-Naturally, Seymour is capable of wielding both black and white magic, following Lulu's path on the Sphere Grid by default. With this in mind, his base stats are slightly adjusted compared to the vanilla game, so he and Lulu can both be powerful black mages respectively and not *completely* overpower one or another.
+Naturally, Seymour is capable of wielding both black and white magic, following Lulu's path on both Standard and Expert Sphere Grids by default. With this in mind, his base stats are slightly adjusted compared to the vanilla game, so he and Lulu can both be powerful black mages respectively and not *completely* overpower one or another.
 
 ### Summoning
-Seymour comes with a second Overdrive alongside Requiem - the ability to summon Anima (and only Anima) immediately after he's recruited after the Sinspawn Gui battle (though she's not able to be summoned for that particular battle).
+Seymour comes with a second Overdrive alongside Requiem - the ability to summon Anima (and only Anima) immediately after he's recruited following his appearance in the second Sinspawn Gui battle (though she's not able to be summoned for that particular battle).
 - Requiem and Anima have both been rebalanced, with Requiem now being far more powerful, and Anima's stats being slightly less overpowered early on (given that she joins the party much earlier), making it a genuine strategic decision to choose between the two for an Overdrive.
-- Anima now scales solely with Seymour's stats instead of Yuna's. Be sure to level him on the Sphere Grid if you want Anima to grow in strength. Yuna and the other Aeons remain untouched, and scale as usual according to her stats.
-- Despite Seymour being able to summon Anima as soon as he is recruited, Yuna retains vanilla behaviour and cannot summon her until the Baaj Temple sidequest is completed. If the player doesn't complete it, Seymour remains the only character able to summon her. Once the sidequest is cleared, both Yuna and Seymour can summon Anima as usual, but her stats still only scale off of Seymour's.
+- Anima's stats now scale with Seymour's stats instead of Yuna's. Be sure to level him on the Sphere Grid if you want Anima to grow in strength. Yuna and the other Aeons remain untouched, and scale as usual according to her stats.
+- Despite Seymour being able to summon Anima as soon as he is recruited, Yuna retains base game behaviour and cannot summon her until the Baaj Temple sidequest is completed. If the player doesn't complete it, Seymour remains the only character able to summon her. Once the sidequest is cleared, both Yuna and Seymour can summon Anima as usual, but her stats still only scale off of Seymour's.
 
 ### Additional Improvements:
 Optional, but recommended additions that improve quality of life:
