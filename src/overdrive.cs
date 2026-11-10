@@ -33,7 +33,7 @@ public unsafe partial class SeymourModule : FhModule {
                 FhXCall.MsLimitUp.fnptr!(attacker_id, attacker, (iVar4 << 4) / iVar1 + 1);
             }
         }
-        else if (BVar6 == true && BVar7 == false) {
+        else if (param_5 > 0 && BVar6 == true && BVar7 == false) {
             FhXCall.FUN_003b10c0.fnptr!(target_id, 2, 0);
             if (target->ram.limit_mode_selected == 2) { // Stoic
                 FhXCall.MsLimitUp.fnptr!(target_id, target, (param_5 * 0x1e) / target->ram.max_hp + 1);
@@ -53,7 +53,7 @@ public unsafe partial class SeymourModule : FhModule {
             } while (iVar5 < 8);
             return param_5;
         }
-        else if ((BVar6 == false) && (BVar7 == true) && (param_7 != 0)) {
+        else if ((BVar6 == false) && (BVar7 == true) && param_5 > 0 && (param_7 != 0)) {
             iVar5 = 1;
             FhXCall.FUN_003b10c0.fnptr!(attacker_id, 0, 0);
             if (attacker->ram.limit_mode_selected == 0) { // Warrior
